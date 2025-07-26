@@ -501,58 +501,10 @@
       "categories": [
         "analytics"
       ]
-    },
-    {
-      "id": "bulk_1753572662631_0",
-      "name": "Adjust",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
-      "deploymentStatus": "Active",
-      "capabilities": "Provides advanced mobile attribution and analytics, helping marketers measure and optimize app campaign performance.",
-      "label": [
-        "2K",
-        "Rockstar"
-      ],
-      "annualCost": 277500,
-      "renewalDate": "2025-03-31",
-      "categories": [
-        "analytics"
-      ]
-    },
-    {
-      "id": "bulk_1753572662633_1",
-      "name": "Adobe Experience Manager",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
-      "deploymentStatus": "Active",
-      "capabilities": "Enterprise content management system for building websites, mobile apps, and forms, with robust digital asset management.",
-      "label": [
-        "2K",
-        "Rockstar"
-      ],
-      "annualCost": 651818,
-      "renewalDate": "2026-04-17",
-      "categories": [
-        "web"
-      ]
-    },
-    {
-      "id": "bulk_1753572662633_2",
-      "name": "Adobe Workfront",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
-      "deploymentStatus": "Active",
-      "capabilities": "Work management platform designed to streamline project planning, collaboration, and execution for creative and marketing teams.",
-      "label": [
-        "2K",
-        "Rockstar"
-      ],
-      "annualCost": 272258.44,
-      "renewalDate": "2026-04-17",
-      "categories": [
-        "analytics"
-      ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:31:02.858Z",
+  "lastUpdated": "2025-07-26T23:32:30.356Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 36
+  "totalVendors": 33
 }
