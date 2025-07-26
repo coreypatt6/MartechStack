@@ -70,10 +70,36 @@ export const useVendors = () => {
     console.log('Vendor deleted, Total vendors:', newVendors.length);
   };
 
+  const bulkAddVendors = (newVendors: Vendor[]) => {
+    const updatedVendors = [...vendorStorage, ...newVendors];
+    vendorStorage = updatedVendors;
+    saveToStorage(updatedVendors);
+    setVendors(updatedVendors);
+    console.log('Bulk vendors added:', newVendors.length, 'Total vendors:', updatedVendors.length);
+  };
+
+  const clearAllVendors = () => {
+    vendorStorage = [];
+    saveToStorage([]);
+    setVendors([]);
+    console.log('All vendors cleared');
+  };
+
+  const resetToMockData = () => {
+    const resetVendors = [...mockVendors];
+    vendorStorage = resetVendors;
+    saveToStorage(resetVendors);
+    setVendors(resetVendors);
+    console.log('Reset to mock data, Total vendors:', resetVendors.length);
+  };
+
   return {
     vendors,
     addVendor,
     updateVendor,
-    deleteVendor
+    deleteVendor,
+    bulkAddVendors,
+    clearAllVendors,
+    resetToMockData
   };
 };
