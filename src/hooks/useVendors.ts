@@ -116,6 +116,7 @@ export const useVendors = () => {
     } catch (error) {
       console.error('❌ GitHub sync failed - vendors only saved locally:', error);
       console.log('💡 To enable cross-device sync, ensure GitHub token is configured');
+      // Don't throw the error - let the operation continue
     } finally {
       setIsSyncing(false);
     }
@@ -126,7 +127,10 @@ export const useVendors = () => {
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
-    syncToGitHub(newVendors);
+    // Sync to GitHub but don't block the operation if it fails
+    syncToGitHub(newVendors).catch(() => {
+      // Sync failed but vendor was still added locally
+    });
     console.log('➕ Vendor added:', vendor.name, '| Total vendors:', newVendors.length);
   };
 
@@ -135,7 +139,10 @@ export const useVendors = () => {
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
-    syncToGitHub(newVendors);
+    // Sync to GitHub but don't block the operation if it fails
+    syncToGitHub(newVendors).catch(() => {
+      // Sync failed but vendor was still updated locally
+    });
     console.log('✏️ Vendor updated:', updatedVendor.name, '| Total vendors:', newVendors.length);
   };
 
@@ -144,7 +151,10 @@ export const useVendors = () => {
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
-    syncToGitHub(newVendors);
+    // Sync to GitHub but don't block the operation if it fails
+    syncToGitHub(newVendors).catch(() => {
+      // Sync failed but vendor was still deleted locally
+    });
     console.log('Vendor deleted, Total vendors:', newVendors.length);
   };
 
@@ -153,7 +163,10 @@ export const useVendors = () => {
     vendorStorage = updatedVendors;
     saveToStorage(updatedVendors);
     setVendors(updatedVendors);
-    syncToGitHub(updatedVendors);
+    // Sync to GitHub but don't block the operation if it fails
+    syncToGitHub(updatedVendors).catch(() => {
+      // Sync failed but vendors were still added locally
+    });
     console.log('Bulk vendors added:', newVendors.length, 'Total vendors:', updatedVendors.length);
   };
 
@@ -161,7 +174,10 @@ export const useVendors = () => {
     vendorStorage = [];
     saveToStorage([]);
     setVendors([]);
-    syncToGitHub([]);
+    // Sync to GitHub but don't block the operation if it fails
+    syncToGitHub([]).catch(() => {
+      // Sync failed but vendors were still cleared locally
+    });
     console.log('All vendors cleared');
   };
 
@@ -170,7 +186,10 @@ export const useVendors = () => {
     vendorStorage = resetVendors;
     saveToStorage(resetVendors);
     setVendors(resetVendors);
-    syncToGitHub(resetVendors);
+    // Sync to GitHub but don't block the operation if it fails
+    syncToGitHub(resetVendors).catch(() => {
+      // Sync failed but data was still reset locally
+    });
     console.log('Reset to mock data, Total vendors:', resetVendors.length);
   };
 
@@ -178,7 +197,12 @@ export const useVendors = () => {
     console.log('🔄 Manual sync initiated - forcing sync of current vendor data');
     console.log('📊 Current vendors to sync:', vendors.length);
     console.log('📝 Vendors being synced:', vendors.map(v => ({ name: v.name, id: v.id, status: v.deploymentStatus })));
-    await syncToGitHub(vendors);
+    try {
+      await syncToGitHub(vendors);
+    } catch (error) {
+      console.error('Manual sync failed:', error);
+      throw error; // Re-throw for manual sync since user explicitly requested it
+    }
   };
 
   return {
