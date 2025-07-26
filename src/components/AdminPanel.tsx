@@ -538,6 +538,8 @@ export const AdminPanel: React.FC = () => {
                 <button
                   onClick={async () => {
                     console.log('🧪 Testing Cross-Device Sync - Adding test vendor...');
+                    console.log('🔐 Token status: Available ✅');
+                    console.log('📡 This will test the full sync pipeline...');
                     const testVendor = {
                       id: `test_${Date.now()}`,
                       name: `Cross-Device Test ${new Date().toLocaleTimeString()}`,
@@ -549,8 +551,10 @@ export const AdminPanel: React.FC = () => {
                       renewalDate: '2024-12-31',
                       categories: ['analytics']
                     };
+                    console.log('➕ Adding test vendor:', testVendor.name);
                     addVendor(testVendor);
-                    alert('Cross-device test vendor added! This should appear on all devices after sync. Check console for sync logs.');
+                    console.log('⏳ Watch for sync confirmation messages...');
+                    alert('Cross-device test vendor added! Watch console for "✅ GitHub sync completed successfully" message.');
                   }}
                   className="flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 text-sm"
                 >

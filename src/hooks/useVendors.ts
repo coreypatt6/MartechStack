@@ -108,9 +108,11 @@ export const useVendors = () => {
     try {
       console.log('☁️ Syncing', newVendors.length, 'vendors to GitHub repository...');
       console.log('📊 Vendor data being synced:', newVendors.map(v => ({ name: v.name, id: v.id })));
+      console.log('🔐 Using GitHub token for authentication...');
       await saveToGitHub(newVendors);
       setLastSyncTime(new Date());
       console.log('✅ GitHub sync completed successfully - data now available on all devices!');
+      console.log('🌐 Vendor data saved to: https://github.com/coreypatt6/MartechStack/blob/main/data/vendors.json');
     } catch (error) {
       console.error('❌ GitHub sync failed - vendors only saved locally:', error);
       console.log('💡 To enable cross-device sync, ensure GitHub token is configured');

@@ -128,6 +128,7 @@ export class GitHubSync {
         url: result.content?.html_url,
         size: result.content?.size + ' bytes'
       });
+      console.log('🔗 View your data: https://github.com/' + this.REPO_OWNER + '/' + this.REPO_NAME + '/blob/main/' + this.FILE_PATH);
 
     } catch (error) {
       console.error('❌ Error saving vendors to GitHub:', error);
