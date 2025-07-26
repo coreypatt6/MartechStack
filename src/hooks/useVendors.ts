@@ -177,6 +177,7 @@ export const useVendors = () => {
   const manualSync = async () => {
     console.log('🔄 Manual sync initiated - forcing sync of current vendor data');
     console.log('📊 Current vendors to sync:', vendors.length);
+    console.log('📝 Vendors being synced:', vendors.map(v => ({ name: v.name, id: v.id, status: v.deploymentStatus })));
     await syncToGitHub(vendors);
   };
 
