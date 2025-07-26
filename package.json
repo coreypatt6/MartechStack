@@ -1,8 +1,28 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "martech-stack-dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "A comprehensive marketing technology stack visualization and vendor management dashboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coreypatt6/MartechStack.git"
+  },
+  "keywords": [
+    "martech",
+    "marketing-technology",
+    "dashboard",
+    "vendor-management",
+    "react",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "Corey Patterson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coreypatt6/MartechStack/issues"
+  },
+  "homepage": "https://github.com/coreypatt6/MartechStack#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

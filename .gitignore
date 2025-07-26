@@ -8,7 +8,7 @@ lerna-debug.log*
 
 # Build outputs
 dist/
-build/
+dist-ssr/
 *.local
 
 # Environment variables
@@ -20,28 +20,21 @@ build/
 
 # Editor directories and files
 .vscode/
+!.vscode/extensions.json
 .idea/
+.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
 # Logs
-logs
+logs/
 *.log
 
 # Runtime data
-pids
+pids/
 *.pid
 *.seed
 *.pid.lock
@@ -51,7 +44,7 @@ coverage/
 *.lcov
 
 # nyc test coverage
-.nyc_output
+.nyc_output/
 
 # Dependency directories
 jspm_packages/
@@ -86,6 +79,7 @@ jspm_packages/
 
 # Nuxt.js build / generate output
 .nuxt
+dist
 
 # Storybook build outputs
 .out
@@ -94,3 +88,9 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
+
+# Local Netlify folder
+.netlify
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
