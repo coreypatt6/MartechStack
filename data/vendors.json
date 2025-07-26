@@ -456,10 +456,25 @@
       "categories": [
         "pr-comms"
       ]
+    },
+    {
+      "id": "test_1753567818727",
+      "name": "Test Sync Vendor",
+      "logo": "https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST",
+      "deploymentStatus": "Active",
+      "capabilities": "Testing GitHub cloud sync functionality",
+      "label": [
+        "2K"
+      ],
+      "annualCost": 1000,
+      "renewalDate": "2024-12-31",
+      "categories": [
+        "analytics"
+      ]
     }
   ],
-  "lastUpdated": "2025-07-26T22:10:13.753Z",
+  "lastUpdated": "2025-07-26T22:10:23.539Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 30
+  "totalVendors": 31
 }
