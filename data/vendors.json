@@ -471,10 +471,201 @@
       "categories": [
         "analytics"
       ]
+    },
+    {
+      "id": "test_1753571062852",
+      "name": "Cross-Device Test 7:04:22 PM",
+      "logo": "https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST",
+      "deploymentStatus": "Active",
+      "capabilities": "Testing cross-device GitHub cloud sync functionality",
+      "label": [
+        "2K"
+      ],
+      "annualCost": 1000,
+      "renewalDate": "2024-12-31",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138669_0",
+      "name": "Adjust",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Provides advanced mobile attribution and analytics, helping marketers measure and optimize app campaign performance.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 277500,
+      "renewalDate": "2025-03-31",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_1",
+      "name": "Adobe Experience Manager",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Enterprise content management system for building websites, mobile apps, and forms, with robust digital asset management.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 651818,
+      "renewalDate": "2026-04-17",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_2",
+      "name": "Adobe Workfront",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Work management platform designed to streamline project planning, collaboration, and execution for creative and marketing teams.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 272258.44,
+      "renewalDate": "2026-04-17",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_3",
+      "name": "Adswerve",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Digital analytics and media consultancy specializing in Google Marketing Platform solutions, including analytics, media buying, and data integration.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 275000,
+      "renewalDate": "2024-05-31",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_4",
+      "name": "Ahrefs Webmaster Tools",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "SEO platform offering site audits, backlink analysis, and keyword tracking to improve website search performance.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 15000,
+      "renewalDate": "2024-12-31",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_5",
+      "name": "Alchemer",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Survey and feedback platform for collecting, analyzing, and acting on customer and employee insights.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 6500.05,
+      "renewalDate": "2025-04-01",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_6",
+      "name": "Appsflyer",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Mobile attribution and marketing analytics platform, enabling marketers to measure and optimize user acquisition and engagement.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 2192338.55,
+      "renewalDate": "2023-12-09",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_7",
+      "name": "Ayzenberg",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Full-service marketing and advertising agency focused on digital, social, and influencer campaigns.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 6000,
+      "renewalDate": "2022-10-31",
+      "categories": [
+        "talent-influencer"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_8",
+      "name": "Bit.ly",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "URL shortening and link management service, providing branded links, click tracking, and analytics.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 11640,
+      "renewalDate": "2024-05-30",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138671_9",
+      "name": "BrowserStack",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Cloud-based testing platform for web and mobile applications across various browsers and devices.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 5445,
+      "renewalDate": "2024-04-06",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138671_10",
+      "name": "Code Climate Inc",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Automated code review and quality analysis platform for engineering teams to improve code health and maintainability.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 2200,
+      "renewalDate": "2025-09-01",
+      "categories": [
+        "analytics"
+      ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:37:59.479Z",
+  "lastUpdated": "2025-07-26T23:38:58.881Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 31
+  "totalVendors": 43
 }
