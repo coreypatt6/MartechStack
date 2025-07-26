@@ -533,7 +533,7 @@ export const AdminPanel: React.FC = () => {
                   }}
                   className="flex items-center gap-2 px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-medium transition-colors duration-200 text-sm"
                 >
-                  🔍 Sync Diagnostic
+                  🔍 Diagnostic
                 </button>
                 <button
                   onClick={async () => {
