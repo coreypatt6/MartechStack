@@ -561,25 +561,6 @@ export const AdminPanel: React.FC = () => {
                   🧪 Test Cross-Device
                 </button>
                 <button
-                  onClick={async () => {
-                    console.log('🔄 Manual sync initiated - syncing current project vendors to GitHub...');
-                    console.log('📊 Current vendors in this project:', vendors.length);
-                    console.log('📝 Vendor list:', vendors.map(v => v.name).join(', '));
-                    console.log('☁️ Pushing to GitHub repository...');
-                    
-                    try {
-                      await manualSync();
-                      alert(`✅ Success! Synced ${vendors.length} vendors to GitHub.\n\nThese vendors are now available on all devices.\n\nRefresh other computers to see the updated vendor list.`);
-                    } catch (error) {
-                      console.error('❌ Sync failed:', error);
-                      alert(`❌ Sync failed: ${error.message}\n\nCheck console for details.`);
-                    }
-                  }}
-                  className="flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 text-sm"
-                >
-                  📤 Sync Current Vendors
-                </button>
-                <button
                   onClick={manualSync}
                   disabled={isSyncing}
                   className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg font-medium transition-colors duration-200"
@@ -589,7 +570,7 @@ export const AdminPanel: React.FC = () => {
                   ) : (
                     <Cloud className="w-4 h-4" />
                   )}
-                  {isSyncing ? 'Syncing...' : 'Force Sync All Devices'}
+                  {isSyncing ? 'Syncing...' : 'Sync Current Vendors to All Devices'}
                 </button>
               </div>
             </div>
