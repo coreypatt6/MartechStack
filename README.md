@@ -32,6 +32,7 @@ A comprehensive marketing technology stack visualization and vendor management d
 - **Cost Analysis**: Monitor annual costs and renewal dates
 - **Label System**: Organize vendors by business units (2K, Rockstar, Zynga, Ghost Story)
 - **Multi-Category Support**: Vendors can belong to multiple categories
+- **GitHub Cloud Sync**: Automatic synchronization of vendor data to GitHub repository
 
 ## Technology Stack
 
@@ -44,6 +45,7 @@ A comprehensive marketing technology stack visualization and vendor management d
 - **File Processing**: XLSX for Excel import/export
 - **Icons**: Lucide React
 - **Build Tool**: Vite
+- **Cloud Storage**: GitHub API for cross-device vendor synchronization
 
 ## Getting Started
 

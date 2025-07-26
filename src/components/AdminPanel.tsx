@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { Save, Upload, ArrowLeft, Plus, Trash2, Edit, FileSpreadsheet, RefreshCw } from 'lucide-react';
+import { Save, Upload, ArrowLeft, Plus, Trash2, Edit, FileSpreadsheet, RefreshCw, Cloud, CloudOff } from 'lucide-react';
 import { Vendor } from '../types';
 import { useVendors } from '../hooks/useVendors';
 import { BulkUpload } from './BulkUpload';
@@ -38,7 +38,7 @@ const labelOptions = [
 ];
 
 export const AdminPanel: React.FC = () => {
-  const { vendors, addVendor, updateVendor, deleteVendor } = useVendors();
+  const { vendors, addVendor, updateVendor, deleteVendor, manualSync, isSyncing, lastSyncTime } = useVendors();
   const [currentView, setCurrentView] = useState<'form' | 'bulk'>('form');
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -484,6 +484,40 @@ export const AdminPanel: React.FC = () => {
               )}
               Update Logos
             </button>
+          </div>
+          
+          {/* GitHub Sync Status */}
+          <div className="mt-4 bg-gray-900 rounded-lg p-4 border border-white/10">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                {isSyncing ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-400" />
+                ) : (
+                  <Cloud className="w-5 h-5 text-blue-400" />
+                )}
+                <div>
+                  <div className="text-white font-medium">GitHub Cloud Sync</div>
+                  <div className="text-gray-400 text-sm">
+                    {lastSyncTime 
+                      ? `Last synced: ${lastSyncTime.toLocaleString()}`
+                      : 'Not synced yet'
+                    }
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={manualSync}
+                disabled={isSyncing}
+                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg font-medium transition-colors duration-200"
+              >
+                {isSyncing ? (
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
+                ) : (
+                  <Cloud className="w-4 h-4" />
+                )}
+                {isSyncing ? 'Syncing...' : 'Sync Now'}
+              </button>
+            </div>
           </div>
           
           {/* Logo Update Progress */}

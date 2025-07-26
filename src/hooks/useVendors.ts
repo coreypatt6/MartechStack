@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Vendor } from '../types';
 import { mockVendors } from '../data/mockData';
+import { GitHubSync } from '../utils/githubSync';
 
 // Initialize storage with mock data only if empty
 const initializeStorage = () => {
@@ -27,6 +28,9 @@ const initializeStorage = () => {
   return [...mockVendors];
 };
 
+// GitHub sync instance
+const githubSync = new GitHubSync();
+
 let vendorStorage: Vendor[] = initializeStorage();
 
 // Save to localStorage whenever vendors change
@@ -38,19 +42,67 @@ const saveToStorage = (vendors: Vendor[]) => {
   }
 };
 
+// Save to GitHub whenever vendors change
+const saveToGitHub = async (vendors: Vendor[]) => {
+  try {
+    await githubSync.saveVendors(vendors);
+    console.log('Vendors synced to GitHub successfully');
+  } catch (error) {
+    console.error('Error syncing vendors to GitHub:', error);
+  }
+};
+
 export const useVendors = () => {
   const [vendors, setVendors] = useState<Vendor[]>(vendorStorage);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [lastSyncTime, setLastSyncTime] = useState<Date | null>(null);
 
   // Sync state with storage when it changes
   useEffect(() => {
     setVendors(vendorStorage);
   }, []);
 
+  // Load vendors from GitHub on first load
+  useEffect(() => {
+    const loadFromGitHub = async () => {
+      try {
+        setIsSyncing(true);
+        const githubVendors = await githubSync.loadVendors();
+        if (githubVendors && githubVendors.length > 0) {
+          vendorStorage = githubVendors;
+          saveToStorage(githubVendors);
+          setVendors(githubVendors);
+          setLastSyncTime(new Date());
+          console.log('Vendors loaded from GitHub:', githubVendors.length);
+        }
+      } catch (error) {
+        console.log('No vendors found in GitHub or error loading:', error);
+      } finally {
+        setIsSyncing(false);
+      }
+    };
+
+    loadFromGitHub();
+  }, []);
+
+  const syncToGitHub = async (newVendors: Vendor[]) => {
+    setIsSyncing(true);
+    try {
+      await saveToGitHub(newVendors);
+      setLastSyncTime(new Date());
+    } catch (error) {
+      console.error('Sync failed:', error);
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   const addVendor = (vendor: Vendor) => {
     const newVendors = [...vendorStorage, vendor];
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
+    syncToGitHub(newVendors);
     console.log('Vendor added:', vendor.name, 'Logo URL:', vendor.logo, 'Total vendors:', newVendors.length);
   };
 
@@ -59,6 +111,7 @@ export const useVendors = () => {
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
+    syncToGitHub(newVendors);
     console.log('Vendor updated:', updatedVendor.name, 'Logo URL:', updatedVendor.logo, 'Total vendors:', newVendors.length);
   };
 
@@ -67,6 +120,7 @@ export const useVendors = () => {
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
+    syncToGitHub(newVendors);
     console.log('Vendor deleted, Total vendors:', newVendors.length);
   };
 
@@ -75,6 +129,7 @@ export const useVendors = () => {
     vendorStorage = updatedVendors;
     saveToStorage(updatedVendors);
     setVendors(updatedVendors);
+    syncToGitHub(updatedVendors);
     console.log('Bulk vendors added:', newVendors.length, 'Total vendors:', updatedVendors.length);
   };
 
@@ -82,6 +137,7 @@ export const useVendors = () => {
     vendorStorage = [];
     saveToStorage([]);
     setVendors([]);
+    syncToGitHub([]);
     console.log('All vendors cleared');
   };
 
@@ -90,7 +146,12 @@ export const useVendors = () => {
     vendorStorage = resetVendors;
     saveToStorage(resetVendors);
     setVendors(resetVendors);
+    syncToGitHub(resetVendors);
     console.log('Reset to mock data, Total vendors:', resetVendors.length);
+  };
+
+  const manualSync = async () => {
+    await syncToGitHub(vendors);
   };
 
   return {
@@ -100,6 +161,9 @@ export const useVendors = () => {
     deleteVendor,
     bulkAddVendors,
     clearAllVendors,
-    resetToMockData
+    resetToMockData,
+    manualSync,
+    isSyncing,
+    lastSyncTime
   };
 };

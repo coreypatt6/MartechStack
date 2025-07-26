@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Cloud, CloudOff } from 'lucide-react';
 import { CategoryCard } from './CategoryCard';
 import { CategoryModal } from './CategoryModal';
 import { categories as baseCategories } from '../data/mockData';
@@ -9,7 +10,7 @@ import { useVendors } from '../hooks/useVendors';
 export const Dashboard: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { vendors } = useVendors();
+  const { vendors, isSyncing, lastSyncTime } = useVendors();
 
   // Update categories with current vendors
   const categories = baseCategories.map(category => ({
@@ -49,6 +50,12 @@ export const Dashboard: React.FC = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10 font-light">
             Comprehensive visualization of our marketing technology ecosystem, 
             vendor relationships, and investment analytics.
+            {lastSyncTime && (
+              <span className="block text-sm text-gray-400 mt-2 flex items-center justify-center gap-2">
+                <Cloud className="w-4 h-4" />
+                Synced to GitHub: {lastSyncTime.toLocaleString()}
+              </span>
+            )}
           </p>
           
           {/* Dashboard Stats */}
@@ -85,6 +92,18 @@ export const Dashboard: React.FC = () => {
               <div className="text-gray-400 text-sm">Annual Investment</div>
             </motion.div>
           </div>
+          
+          {/* Sync Status Indicator */}
+          {isSyncing && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 flex items-center justify-center gap-2 text-blue-400"
+            >
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-400" />
+              <span className="text-sm">Syncing to GitHub...</span>
+            </motion.div>
+          )}
         </motion.div>
 
         {/* Category Cards Grid */}
