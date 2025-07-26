@@ -7,7 +7,7 @@ export class GitHubSync {
 
   // GitHub Personal Access Token - In production, this should be in environment variables
   // For now, we'll use GitHub's public API with limitations
-  private readonly GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
+  private readonly GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN || '';
 
   constructor() {
     // Check if we're in a GitHub Codespace (has built-in authentication)
