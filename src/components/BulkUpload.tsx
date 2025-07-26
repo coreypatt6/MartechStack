@@ -341,6 +341,16 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         setUploadProgress((imported / validVendors.length) * 100);
       }
 
+      // After all vendors are added, try a single manual sync
+      try {
+        console.log('🔄 Attempting to sync all vendors to GitHub after bulk upload...');
+        await manualSync();
+        console.log('✅ Bulk upload synced to GitHub successfully');
+      } catch (error) {
+        console.log('⚠️ Bulk upload completed locally, but GitHub sync failed:', error.message);
+        console.log('💡 You can manually sync later using the "Sync Current Vendors" button');
+      }
+
       setUploadStats(prev => ({ ...prev, imported }));
       setUploadStep('complete');
 
