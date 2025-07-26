@@ -5,19 +5,27 @@ export class GitHubSync {
   private readonly FILE_PATH = 'data/vendors.json';
   private readonly BRANCH = 'main';
 
-  // GitHub Personal Access Token - In production, this should be in environment variables
-  // For public repos, we can use GitHub's API with some limitations
-  private readonly GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN || '';
+  // GitHub Personal Access Token
+  private readonly GITHUB_TOKEN: string;
 
   constructor() {
-    // Check if we're in a GitHub Codespace (has built-in authentication)
+    // Get token from environment variables
+    this.GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN || '';
+    console.log('🔧 GitHubSync initialized');
+    console.log('🔐 Token status:', this.GITHUB_TOKEN ? '✅ Available' : '❌ Missing');
+    console.log('🌍 Environment variables:', {
+      VITE_GITHUB_TOKEN: import.meta.env.VITE_GITHUB_TOKEN ? 'SET' : 'NOT_SET',
+      NODE_ENV: import.meta.env.NODE_ENV,
+      MODE: import.meta.env.MODE
+    });
     this.checkEnvironment();
   }
 
   private checkEnvironment() {
     if (typeof window !== 'undefined') {
-      // Browser environment - can read public repos, write requires token
-      console.log('GitHub Sync initialized for public repository');
+      console.log('🌐 Browser environment detected');
+      console.log('📁 Repository: https://github.com/' + this.REPO_OWNER + '/' + this.REPO_NAME);
+      console.log('📄 Sync file: ' + this.FILE_PATH);
     }
   }
 
