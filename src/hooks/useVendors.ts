@@ -163,6 +163,7 @@ export const useVendors = () => {
     vendorStorage = updatedVendors;
     saveToStorage(updatedVendors);
     setVendors(updatedVendors);
+    // Note: GitHub sync removed from bulk operations to prevent blocking
     console.log('Bulk vendors added:', newVendors.length, 'Total vendors:', updatedVendors.length);
   };
 
