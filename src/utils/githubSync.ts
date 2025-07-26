@@ -6,7 +6,7 @@ export class GitHubSync {
   private readonly BRANCH = 'main';
 
   // GitHub Personal Access Token - In production, this should be in environment variables
-  // For now, we'll use GitHub's public API with limitations
+  // For public repos, we can use GitHub's API with some limitations
   private readonly GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN || '';
 
   constructor() {
@@ -16,8 +16,8 @@ export class GitHubSync {
 
   private checkEnvironment() {
     if (typeof window !== 'undefined') {
-      // Browser environment - limited to public repos or user-provided token
-      console.log('GitHub Sync initialized for browser environment');
+      // Browser environment - can read public repos, write requires token
+      console.log('GitHub Sync initialized for public repository');
     }
   }
 

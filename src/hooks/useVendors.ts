@@ -45,11 +45,13 @@ const saveToStorage = (vendors: Vendor[]) => {
 // Save to GitHub whenever vendors change
 const saveToGitHub = async (vendors: Vendor[]) => {
   try {
+    console.log('💡 Repository is now public - attempting GitHub sync...');
     await githubSync.saveVendors(vendors);
     console.log('✅ Vendors synced to GitHub successfully');
   } catch (error) {
-    console.log('⚠️ GitHub sync unavailable:', error.message);
-    console.log('💾 Vendors saved to local storage only');
+    console.log('⚠️ GitHub write access requires authentication token');
+    console.log('💡 Add VITE_GITHUB_TOKEN to .env.local for full sync capability');
+    console.log('💾 Vendors saved to local storage for now');
   }
 };
 
@@ -67,20 +69,20 @@ export const useVendors = () => {
   useEffect(() => {
     const loadFromGitHub = async () => {
       try {
-        console.log('🚀 Initializing GitHub cloud sync...');
+        console.log('🚀 Initializing GitHub cloud sync for public repository...');
         setIsSyncing(true);
         const githubVendors = await githubSync.loadVendors();
         if (githubVendors && githubVendors.length > 0) {
-          console.log('📥 Loaded', githubVendors.length, 'vendors from GitHub cloud');
+          console.log('📥 Loaded', githubVendors.length, 'vendors from public GitHub repository');
           vendorStorage = githubVendors;
           saveToStorage(githubVendors);
           setVendors(githubVendors);
           setLastSyncTime(new Date());
         } else {
-          console.log('📝 No vendors found in GitHub, using local data');
+          console.log('📝 No vendor data file found in public repository yet');
         }
       } catch (error) {
-        console.log('⚠️ GitHub sync unavailable, using local storage:', error.message);
+        console.log('⚠️ Could not load from GitHub, using local storage:', error.message);
       } finally {
         setIsSyncing(false);
       }

@@ -496,11 +496,11 @@ export const AdminPanel: React.FC = () => {
                   <Cloud className="w-5 h-5 text-blue-400" />
                 )}
                 <div>
-                  <div className="text-white font-medium">GitHub Cloud Sync</div>
+                  <div className="text-white font-medium">GitHub Cloud Sync (Public Repository)</div>
                   <div className="text-gray-400 text-sm">
                     {lastSyncTime 
                       ? `Last synced: ${lastSyncTime.toLocaleString()}`
-                      : 'Not synced yet'
+                      : 'Ready to sync - Repository is now public!'
                     }
                   </div>
                 </div>
