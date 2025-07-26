@@ -106,13 +106,6 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
                   />
                 </div>
               ))}
-              
-              {/* Fill empty grid cells if needed for visual balance */}
-              {Array.from({ length: Math.max(0, (gridLayout.cols * gridLayout.rows) - vendorCount) }).map((_, index) => (
-                <div key={`empty-${index}`} className="flex items-center justify-center opacity-30">
-                  <div className="w-6 h-6 border border-white/20 rounded" />
-                </div>
-              ))}
             </div>
           </div>
 
