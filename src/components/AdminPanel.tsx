@@ -508,28 +508,33 @@ export const AdminPanel: React.FC = () => {
               <div className="flex gap-2">
                 <button
                   onClick={() => {
-                    console.log('🔍 GITHUB SYNC DIAGNOSTIC REPORT:');
-                    console.log('=====================================');
-                    console.log('🔧 Environment check:');
-                    console.log('   VITE_GITHUB_TOKEN exists:', !!import.meta.env.VITE_GITHUB_TOKEN);
-                    console.log('   Token value preview:', import.meta.env.VITE_GITHUB_TOKEN ? 
-                      import.meta.env.VITE_GITHUB_TOKEN.substring(0, 10) + '...' : 'NOT_SET');
-                    console.log('   All VITE_ vars:', Object.keys(import.meta.env).filter(k => k.startsWith('VITE_')));
-                    console.log('📊 Current device vendors:', vendors.length);
-                    console.log('⏰ Last successful sync:', lastSyncTime?.toLocaleString() || 'Never synced');
-                    console.log('🔄 Sync status:', isSyncing ? 'In progress' : 'Ready');
-                    console.log('🌐 Repository:', 'https://github.com/coreypatt6/MartechStack');
-                    console.log('📁 Sync file path:', 'data/vendors.json');
-                    console.log('📝 Vendor names:', vendors.map(v => v.name).join(', '));
-                    console.log('🔧 Server restart needed?', 'If token was just added, restart: npm run dev');
-                    console.log('=====================================');
-                    
-                    const tokenStatus = import.meta.env.VITE_GITHUB_TOKEN ? 
-                      `✅ Available (${import.meta.env.VITE_GITHUB_TOKEN.substring(0, 10)}...)` : 
-                      '❌ Missing - Add to .env.local and restart server';
-                    const syncStatus = lastSyncTime ? `✅ Last: ${lastSyncTime.toLocaleString()}` : '❌ Never synced';
-                    
-                    alert(`SYNC DIAGNOSTIC:\n\n📊 Vendors: ${vendors.length}\n🔐 Token: ${tokenStatus}\n⏰ Sync: ${syncStatus}\n\n${!import.meta.env.VITE_GITHUB_TOKEN ? '⚠️ RESTART SERVER after adding token!' : ''}\n\nCheck console for detailed report.`);
+                    try {
+                      console.log('🔍 GITHUB SYNC DIAGNOSTIC REPORT:');
+                      console.log('=====================================');
+                      console.log('🔧 Environment check:');
+                      console.log('   VITE_GITHUB_TOKEN exists:', !!import.meta.env.VITE_GITHUB_TOKEN);
+                      console.log('   Token value preview:', import.meta.env.VITE_GITHUB_TOKEN ? 
+                        import.meta.env.VITE_GITHUB_TOKEN.substring(0, 10) + '...' : 'NOT_SET');
+                      console.log('   All VITE_ vars:', Object.keys(import.meta.env).filter(k => k.startsWith('VITE_')));
+                      console.log('📊 Current device vendors:', vendors.length);
+                      console.log('⏰ Last successful sync:', lastSyncTime?.toLocaleString() || 'Never synced');
+                      console.log('🔄 Sync status:', isSyncing ? 'In progress' : 'Ready');
+                      console.log('🌐 Repository:', 'https://github.com/coreypatt6/MartechStack');
+                      console.log('📁 Sync file path:', 'data/vendors.json');
+                      console.log('📝 Vendor names:', vendors.map(v => v.name).join(', '));
+                      console.log('🔧 Server restart needed?', 'If token was just added, restart: npm run dev');
+                      console.log('=====================================');
+                      
+                      const tokenStatus = import.meta.env.VITE_GITHUB_TOKEN ? 
+                        `✅ Available (${import.meta.env.VITE_GITHUB_TOKEN.substring(0, 10)}...)` : 
+                        '❌ Missing - Add to .env.local and restart server';
+                      const syncStatus = lastSyncTime ? `✅ Last: ${lastSyncTime.toLocaleString()}` : '❌ Never synced';
+                      
+                      alert(`SYNC DIAGNOSTIC:\n\n📊 Vendors: ${vendors.length}\n🔐 Token: ${tokenStatus}\n⏰ Sync: ${syncStatus}\n\n${!import.meta.env.VITE_GITHUB_TOKEN ? '⚠️ RESTART SERVER after adding token!' : ''}\n\nCheck console for detailed report.`);
+                    } catch (error) {
+                      console.error('Diagnostic error:', error);
+                      alert('Diagnostic failed - check console for error details');
+                    }
                   }}
                   className="flex items-center gap-2 px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-medium transition-colors duration-200 text-sm"
                 >
