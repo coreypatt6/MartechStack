@@ -22,13 +22,14 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
     if (vendorCount <= 9) return { cols: 3, rows: 3 };
     if (vendorCount <= 12) return { cols: 4, rows: 3 };
     if (vendorCount <= 16) return { cols: 4, rows: 4 };
-    return { cols: 5, rows: Math.ceil(vendorCount / 5) };
+    if (vendorCount <= 20) return { cols: 5, rows: 4 };
+    if (vendorCount <= 25) return { cols: 5, rows: 5 };
+    return { cols: 6, rows: Math.ceil(vendorCount / 6) };
   };
 
   const gridLayout = getGridLayout();
-  const maxDisplayVendors = gridLayout.cols * gridLayout.rows;
-  const displayVendors = category.vendors.slice(0, maxDisplayVendors);
-  const remainingCount = Math.max(0, vendorCount - maxDisplayVendors);
+  const displayVendors = category.vendors; // Show ALL vendors
+  const remainingCount = 0; // No remaining count since we show all
 
   // Calculate card height based on content
   const baseHeight = 160; // Increased base height for header and description
@@ -106,14 +107,12 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
                 </div>
               ))}
               
-              {/* Show remaining count if there are more vendors */}
-              {remainingCount > 0 && (
-                <div className="flex items-center justify-center">
-                  <span className="text-white text-sm font-bold drop-shadow-sm">
-                    +{remainingCount}
-                  </span>
+              {/* Fill empty grid cells if needed for visual balance */}
+              {Array.from({ length: Math.max(0, (gridLayout.cols * gridLayout.rows) - vendorCount) }).map((_, index) => (
+                <div key={`empty-${index}`} className="flex items-center justify-center opacity-30">
+                  <div className="w-6 h-6 border border-white/20 rounded" />
                 </div>
-              )}
+              ))}
             </div>
           </div>
 
