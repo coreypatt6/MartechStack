@@ -37,6 +37,13 @@ export class GitHubSync {
 
   async saveVendors(vendors: any[]): Promise<void> {
     try {
+      // Check if we have authentication
+      if (!this.GITHUB_TOKEN) {
+        console.log('⚠️ GitHub token not available - sync disabled for local development');
+        console.log('💡 To enable GitHub sync, add VITE_GITHUB_TOKEN to .env.local file');
+        return;
+      }
+
       console.log('🔄 Starting GitHub sync for', vendors.length, 'vendors...');
       
       // First, try to get the current file to get its SHA (required for updates)
@@ -91,8 +98,13 @@ export class GitHubSync {
       if (!response.ok) {
         console.error('❌ GitHub API error:', response.status, response.statusText);
         
+        if (response.status === 404) {
+          console.log('💡 Repository or file not found. This is normal for first-time setup.');
+          console.log('💡 Make sure the repository exists and you have write permissions.');
+        }
+        
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(`GitHub API error: ${response.status} - ${errorData.message || 'Unknown error'}`);
+        throw new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
       }
 
       const result = await response.json();
@@ -111,6 +123,12 @@ export class GitHubSync {
 
   async loadVendors(): Promise<any[] | null> {
     try {
+      // Check if we have authentication for private repos
+      if (!this.GITHUB_TOKEN) {
+        console.log('⚠️ GitHub token not available - using local storage only');
+        return null;
+      }
+
       console.log('📥 Loading vendors from GitHub...');
       
       const response = await fetch(
@@ -123,11 +141,17 @@ export class GitHubSync {
 
       if (!response.ok) {
         if (response.status === 404) {
-          console.log('📄 Vendor data file not found in GitHub (first time setup)');
+          console.log('📄 Vendor data file not found in GitHub');
+          console.log('💡 This is normal for first-time setup or if repository is private');
+          return null;
+        }
+        if (response.status === 403) {
+          console.log('🔒 Access denied to GitHub repository');
+          console.log('💡 Repository may be private or token lacks permissions');
           return null;
         }
         console.error('❌ GitHub API error while loading:', response.status, response.statusText);
-        throw new Error(`GitHub API error: ${response.status}`);
+        return null; // Don't throw, just return null to use local storage
       }
 
       const fileData = await response.json();
@@ -148,6 +172,7 @@ export class GitHubSync {
 
     } catch (error) {
       console.error('❌ Error loading vendors from GitHub:', error);
+      console.log('💡 Falling back to local storage');
       return null;
     }
   }

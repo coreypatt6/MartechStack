@@ -46,9 +46,10 @@ const saveToStorage = (vendors: Vendor[]) => {
 const saveToGitHub = async (vendors: Vendor[]) => {
   try {
     await githubSync.saveVendors(vendors);
-    console.log('Vendors synced to GitHub successfully');
+    console.log('✅ Vendors synced to GitHub successfully');
   } catch (error) {
-    console.error('Error syncing vendors to GitHub:', error);
+    console.log('⚠️ GitHub sync unavailable:', error.message);
+    console.log('💾 Vendors saved to local storage only');
   }
 };
 
