@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, DollarSign, Calendar, Users, Zap } from 'lucide-react';
 import { Category } from '../types';
@@ -10,6 +10,8 @@ interface CategoryModalProps {
 }
 
 export const CategoryModal: React.FC<CategoryModalProps> = ({ category, isOpen, onClose }) => {
+  const [failedLogos, setFailedLogos] = useState<Set<string>>(new Set());
+
   if (!category) return null;
 
   const totalCost = category.vendors.reduce((sum, vendor) => sum + vendor.annualCost, 0);
@@ -132,7 +134,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ category, isOpen, 
                             </p>
                             <div className="flex items-center gap-1 text-gray-400 text-sm mt-1">
                               <Calendar className="w-4 h-4" />
-                             <span>Renewal Date:</span>
+                              <span>Renewal:</span>
                               <span>{vendor.renewalDate}</span>
                             </div>
                           </div>
