@@ -45,13 +45,18 @@ const saveToStorage = (vendors: Vendor[]) => {
 // Save to GitHub whenever vendors change
 const saveToGitHub = async (vendors: Vendor[]) => {
   try {
-    console.log('💡 Repository is now public - attempting GitHub sync...');
+    console.log('☁️ Attempting GitHub cloud sync...');
     await githubSync.saveVendors(vendors);
-    console.log('✅ Vendors synced to GitHub successfully');
+    console.log('✅ GitHub sync completed successfully - vendors saved to cloud!');
   } catch (error) {
-    console.log('⚠️ GitHub write access requires authentication token');
-    console.log('💡 Add VITE_GITHUB_TOKEN to .env.local for full sync capability');
-    console.log('💾 Vendors saved to local storage for now');
+    console.error('❌ GitHub sync failed:', error.message);
+    if (error.message.includes('token')) {
+      console.log('🔑 GitHub sync requires authentication:');
+      console.log('   • Create Personal Access Token at: https://github.com/settings/tokens');
+      console.log('   • Add to .env.local: VITE_GITHUB_TOKEN=your_token');
+      console.log('   • Restart server: npm run dev');
+    }
+    console.log('💾 Vendors saved to local storage only');
   }
 };
 

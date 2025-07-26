@@ -39,12 +39,18 @@ export class GitHubSync {
     try {
       // Check if we have authentication
       if (!this.GITHUB_TOKEN) {
-        console.log('⚠️ GitHub token not available - sync disabled for local development');
-        console.log('💡 To enable GitHub sync, add VITE_GITHUB_TOKEN to .env.local file');
+        console.log('❌ GitHub sync failed: No authentication token');
+        console.log('💡 To enable GitHub sync:');
+        console.log('   1. Create GitHub Personal Access Token');
+        console.log('   2. Add VITE_GITHUB_TOKEN=your_token to .env.local');
+        console.log('   3. Restart dev server');
+        throw new Error('GitHub token required for sync');
         return;
       }
 
-      console.log('🔄 Starting GitHub sync for', vendors.length, 'vendors...');
+      console.log('🚀 GitHub sync starting...');
+      console.log('📊 Syncing', vendors.length, 'vendors to repository');
+      console.log('🔐 Using authenticated GitHub API');
       
       // First, try to get the current file to get its SHA (required for updates)
       let sha: string | undefined;
