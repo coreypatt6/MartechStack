@@ -662,10 +662,330 @@
       "categories": [
         "analytics"
       ]
+    },
+    {
+      "id": "bulk_1753573432079_0",
+      "name": "Contentful",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Headless content management system (CMS) for creating, managing, and distributing content across digital channels.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 100000,
+      "renewalDate": "2023-10-31",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_1",
+      "name": "CreatorIQ",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Influencer marketing platform for discovering, managing, and measuring influencer campaigns at scale.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 267004.76,
+      "renewalDate": "2024-06-30",
+      "categories": [
+        "talent-influencer"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_2",
+      "name": "Databricks",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Unified analytics platform for big data and AI, enabling data engineering, collaborative analytics, and machine learning.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 40000,
+      "renewalDate": "2026-02-28",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_3",
+      "name": "DeltaDNA",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Advanced analytics and engagement platform for game developers, offering player insights and personalized messaging.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 800000,
+      "renewalDate": "2024-01-15",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_4",
+      "name": "Directly",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "AI-powered customer support automation, integrating expert networks and virtual agents to resolve customer issues efficiently.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 100000,
+      "renewalDate": "2023-10-10",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_5",
+      "name": "Guru",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Knowledge management solution that delivers verified information to teams directly within their workflow.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 205200,
+      "renewalDate": "2024-12-29",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_6",
+      "name": "Helpshift",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "In-app customer support platform for mobile apps, offering messaging, automation, and self-service options.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 978000,
+      "renewalDate": "2025-09-30",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_7",
+      "name": "Infosum",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Privacy-first data collaboration platform, enabling secure data matching and analytics without sharing raw data.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 50000,
+      "renewalDate": "2025-10-24",
+      "categories": [
+        "paid-data"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_8",
+      "name": "Linktree",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Link-in-bio tool for social media, allowing users to share multiple links through a single customizable landing page.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 1134,
+      "renewalDate": "2023-11-01",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_9",
+      "name": "Litmus",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Email testing and analytics platform for previewing, testing, and optimizing email campaigns across clients and devices.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 10531.16,
+      "renewalDate": "2024-06-29",
+      "categories": [
+        "email"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_10",
+      "name": "Liveramp",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Data connectivity platform for identity resolution, onboarding, and activation across marketing channels.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 197327.4,
+      "renewalDate": "2025-06-30",
+      "categories": [
+        "paid-data"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_11",
+      "name": "Lotus Themes",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Provider of premium themes and design solutions for Zendesk and other customer support platforms.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 5037,
+      "renewalDate": "2024-09-21",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_12",
+      "name": "Meltwater",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Media intelligence and social listening platform for monitoring news, social media, and online conversations.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 181018.32,
+      "renewalDate": "2025-05-04",
+      "categories": [
+        "social-listening"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_13",
+      "name": "Movable Ink",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Dynamic content platform for creating personalized, data-driven email and web experiences.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 26000,
+      "renewalDate": "2024-07-18",
+      "categories": [
+        "email"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_14",
+      "name": "Muck Rack",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Public relations management platform for media monitoring, journalist outreach, and PR analytics.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 17009,
+      "renewalDate": "2025-03-05",
+      "categories": [
+        "social-listening"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_15",
+      "name": "OneTrust - Cookie Compliance",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Privacy management solution for website cookie consent and compliance with global data regulations.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 10260,
+      "renewalDate": "2025-06-05",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_16",
+      "name": "PRManager (ex PRGloo)",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "PR management platform for handling media contacts, press releases, and newsroom workflows.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 46237.5,
+      "renewalDate": "2024-02-20",
+      "categories": [
+        "pr-comms"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_17",
+      "name": "Quiq",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Conversational AI and messaging platform for customer service across SMS, web chat, and social channels.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 125000,
+      "renewalDate": "2024-06-30",
+      "categories": [
+        "email"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_18",
+      "name": "RightPoint",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Digital consultancy specializing in experience design, technology implementation, and organizational transformation.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 21700,
+      "renewalDate": "2023-10-12",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_19",
+      "name": "Salesforce Marketing Cloud",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Comprehensive marketing automation platform for email, SMS, social, and digital advertising campaigns.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 398714,
+      "renewalDate": "2025-08-22",
+      "categories": [
+        "email"
+      ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:38:58.881Z",
+  "lastUpdated": "2025-07-26T23:43:52.111Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 43
+  "totalVendors": 63
 }
