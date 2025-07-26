@@ -471,10 +471,25 @@
       "categories": [
         "analytics"
       ]
+    },
+    {
+      "id": "test_1753569076013",
+      "name": "Cross-Device Test 6:31:16 PM",
+      "logo": "https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST",
+      "deploymentStatus": "Active",
+      "capabilities": "Testing cross-device GitHub cloud sync functionality",
+      "label": [
+        "2K"
+      ],
+      "annualCost": 1000,
+      "renewalDate": "2024-12-31",
+      "categories": [
+        "analytics"
+      ]
     }
   ],
-  "lastUpdated": "2025-07-26T22:14:53.403Z",
+  "lastUpdated": "2025-07-26T22:31:17.474Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 31
+  "totalVendors": 32
 }
