@@ -998,10 +998,42 @@
       "categories": [
         "analytics"
       ]
+    },
+    {
+      "id": "bulk_1753573870505_0",
+      "name": "Salesforce Service Cloud",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Customer service and support platform for managing cases, automating workflows, and delivering omnichannel support.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 387109.27,
+      "renewalDate": "2025-02-09",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573870506_1",
+      "name": "Screen Engine | MindGame",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Analytics and insights platform focused on gaming market share, player behavior, and industry trends.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 20000,
+      "renewalDate": "2025-05-01",
+      "categories": [
+        "analytics"
+      ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:47:03.192Z",
+  "lastUpdated": "2025-07-26T23:51:10.512Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 64
+  "totalVendors": 66
 }
