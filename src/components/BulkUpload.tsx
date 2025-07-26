@@ -336,10 +336,17 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           categories: vendorData.categories
         };
 
-        addVendor(newVendor);
+        // Add vendor directly to avoid any sync calls
+        const currentVendors = JSON.parse(localStorage.getItem('martech-vendors') || '[]');
+        const updatedVendors = [...currentVendors, newVendor];
+        localStorage.setItem('martech-vendors', JSON.stringify(updatedVendors));
+        
         imported++;
         setUploadProgress((imported / validVendors.length) * 100);
       }
+
+      // Force refresh the vendors list
+      window.location.reload();
 
       setUploadStats(prev => ({ ...prev, imported }));
       setUploadStep('complete');
