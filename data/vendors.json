@@ -982,10 +982,26 @@
       "categories": [
         "email"
       ]
+    },
+    {
+      "id": "bulk_1753573623185_0",
+      "name": "Salesforce Marketing Cloud Intelligence (Datorama)",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Marketing analytics and data integration platform for unified reporting and insights.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 875868,
+      "renewalDate": "2026-02-14",
+      "categories": [
+        "analytics"
+      ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:43:52.111Z",
+  "lastUpdated": "2025-07-26T23:47:03.192Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 63
+  "totalVendors": 64
 }
