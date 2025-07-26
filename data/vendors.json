@@ -1030,10 +1030,138 @@
       "categories": [
         "analytics"
       ]
+    },
+    {
+      "id": "bulk_1753574088897_0",
+      "name": "Sensor Tower | Pathmatics",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Mobile app and digital advertising intelligence platform for competitive analysis and market research.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 300000,
+      "renewalDate": "2024-09-14",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753574088898_1",
+      "name": "LevelUP Analytics",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Data analytics consultancy providing custom solutions for data engineering, visualization, and business intelligence.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 0,
+      "renewalDate": "2026-03-31",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753574088899_2",
+      "name": "Sprinklr",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Unified customer experience management platform for social media, marketing, and customer care.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 282264,
+      "renewalDate": "2025-11-14",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753574088899_3",
+      "name": "Statuspage",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Incident communication and status page platform for keeping customers informed during outages and maintenance.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 9576,
+      "renewalDate": "2024-04-27",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753574088899_4",
+      "name": "Stream Hatchet",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Analytics platform for live streaming and esports, tracking audience engagement and content performance.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 24000,
+      "renewalDate": "2024-04-29",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753574088899_5",
+      "name": "Treasure Data",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Customer data platform (CDP) for unifying, analyzing, and activating customer data across channels.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 4411014.04,
+      "renewalDate": "2026-12-31",
+      "categories": [
+        "paid-data"
+      ]
+    },
+    {
+      "id": "bulk_1753574088899_6",
+      "name": "Tubular",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Video intelligence platform for measuring and benchmarking online video content and audience trends.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 107279,
+      "renewalDate": "2026-02-27",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753574088900_7",
+      "name": "Tymeshift",
+      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "deploymentStatus": "Active",
+      "capabilities": "Workforce management solution for customer support teams, offering scheduling, forecasting, and real-time analytics.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 28800,
+      "renewalDate": "2024-04-30",
+      "categories": [
+        "customer-service"
+      ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:51:10.512Z",
+  "lastUpdated": "2025-07-26T23:54:48.916Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 66
+  "totalVendors": 74
 }
