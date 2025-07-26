@@ -66,17 +66,20 @@ export const useVendors = () => {
   useEffect(() => {
     const loadFromGitHub = async () => {
       try {
+        console.log('🚀 Initializing GitHub cloud sync...');
         setIsSyncing(true);
         const githubVendors = await githubSync.loadVendors();
         if (githubVendors && githubVendors.length > 0) {
+          console.log('📥 Loaded', githubVendors.length, 'vendors from GitHub cloud');
           vendorStorage = githubVendors;
           saveToStorage(githubVendors);
           setVendors(githubVendors);
           setLastSyncTime(new Date());
-          console.log('Vendors loaded from GitHub:', githubVendors.length);
+        } else {
+          console.log('📝 No vendors found in GitHub, using local data');
         }
       } catch (error) {
-        console.log('No vendors found in GitHub or error loading:', error);
+        console.log('⚠️ GitHub sync unavailable, using local storage:', error.message);
       } finally {
         setIsSyncing(false);
       }
@@ -88,10 +91,12 @@ export const useVendors = () => {
   const syncToGitHub = async (newVendors: Vendor[]) => {
     setIsSyncing(true);
     try {
+      console.log('☁️ Syncing', newVendors.length, 'vendors to GitHub...');
       await saveToGitHub(newVendors);
       setLastSyncTime(new Date());
+      console.log('✅ GitHub sync completed successfully!');
     } catch (error) {
-      console.error('Sync failed:', error);
+      console.error('❌ GitHub sync failed:', error);
     } finally {
       setIsSyncing(false);
     }
@@ -103,7 +108,7 @@ export const useVendors = () => {
     saveToStorage(newVendors);
     setVendors(newVendors);
     syncToGitHub(newVendors);
-    console.log('Vendor added:', vendor.name, 'Logo URL:', vendor.logo, 'Total vendors:', newVendors.length);
+    console.log('➕ Vendor added:', vendor.name, '| Total vendors:', newVendors.length);
   };
 
   const updateVendor = (id: string, updatedVendor: Vendor) => {
@@ -112,7 +117,7 @@ export const useVendors = () => {
     saveToStorage(newVendors);
     setVendors(newVendors);
     syncToGitHub(newVendors);
-    console.log('Vendor updated:', updatedVendor.name, 'Logo URL:', updatedVendor.logo, 'Total vendors:', newVendors.length);
+    console.log('✏️ Vendor updated:', updatedVendor.name, '| Total vendors:', newVendors.length);
   };
 
   const deleteVendor = (id: string) => {

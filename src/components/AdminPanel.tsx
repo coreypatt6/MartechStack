@@ -505,18 +505,41 @@ export const AdminPanel: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <button
-                onClick={manualSync}
-                disabled={isSyncing}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg font-medium transition-colors duration-200"
-              >
-                {isSyncing ? (
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
-                ) : (
-                  <Cloud className="w-4 h-4" />
-                )}
-                {isSyncing ? 'Syncing...' : 'Sync Now'}
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={async () => {
+                    console.log('🧪 Testing Cloud Sync - Adding test vendor...');
+                    const testVendor = {
+                      id: `test_${Date.now()}`,
+                      name: 'Test Sync Vendor',
+                      logo: 'https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST',
+                      deploymentStatus: 'Active' as const,
+                      capabilities: 'Testing GitHub cloud sync functionality',
+                      label: ['2K'] as const,
+                      annualCost: 1000,
+                      renewalDate: '2024-12-31',
+                      categories: ['analytics']
+                    };
+                    addVendor(testVendor);
+                    alert('Test vendor added! Check console for sync logs.');
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 text-sm"
+                >
+                  🧪 Test Sync
+                </button>
+                <button
+                  onClick={manualSync}
+                  disabled={isSyncing}
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg font-medium transition-colors duration-200"
+                >
+                  {isSyncing ? (
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
+                  ) : (
+                    <Cloud className="w-4 h-4" />
+                  )}
+                  {isSyncing ? 'Syncing...' : 'Sync Now'}
+                </button>
+              </div>
             </div>
           </div>
           
