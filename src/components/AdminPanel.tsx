@@ -496,36 +496,49 @@ export const AdminPanel: React.FC = () => {
                   <Cloud className="w-5 h-5 text-blue-400" />
                 )}
                 <div>
-                  <div className="text-white font-medium">GitHub Cloud Sync (Public Repository)</div>
+                  <div className="text-white font-medium">GitHub Cloud Sync - Cross-Device Vendor Storage</div>
                   <div className="text-gray-400 text-sm">
                     {lastSyncTime 
-                      ? `Last synced: ${lastSyncTime.toLocaleString()}`
-                      : 'Ready to sync - Repository is now public!'
+                      ? `Last synced: ${lastSyncTime.toLocaleString()} | ${vendors.length} vendors`
+                      : 'Ready to sync vendors across all devices'
                     }
                   </div>
                 </div>
               </div>
               <div className="flex gap-2">
                 <button
+                  onClick={() => {
+                    console.log('🔍 Cross-Device Sync Diagnostic:');
+                    console.log('📊 Current device vendors:', vendors.length);
+                    console.log('📝 Vendor list:', vendors.map(v => ({ name: v.name, id: v.id })));
+                    console.log('⏰ Last sync time:', lastSyncTime?.toLocaleString() || 'Never');
+                    console.log('🔄 Sync status:', isSyncing ? 'In progress' : 'Ready');
+                    alert(`Current device has ${vendors.length} vendors. Check console for detailed sync diagnostic.`);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-medium transition-colors duration-200 text-sm"
+                >
+                  🔍 Sync Diagnostic
+                </button>
+                <button
                   onClick={async () => {
-                    console.log('🧪 Testing Cloud Sync - Adding test vendor...');
+                    console.log('🧪 Testing Cross-Device Sync - Adding test vendor...');
                     const testVendor = {
                       id: `test_${Date.now()}`,
-                      name: 'Test Sync Vendor',
+                      name: `Cross-Device Test ${new Date().toLocaleTimeString()}`,
                       logo: 'https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST',
                       deploymentStatus: 'Active' as const,
-                      capabilities: 'Testing GitHub cloud sync functionality',
+                      capabilities: 'Testing cross-device GitHub cloud sync functionality',
                       label: ['2K'] as const,
                       annualCost: 1000,
                       renewalDate: '2024-12-31',
                       categories: ['analytics']
                     };
                     addVendor(testVendor);
-                    alert('Test vendor added! Check console for sync logs.');
+                    alert('Cross-device test vendor added! This should appear on all devices after sync. Check console for sync logs.');
                   }}
                   className="flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 text-sm"
                 >
-                  🧪 Test Sync
+                  🧪 Test Cross-Device
                 </button>
                 <button
                   onClick={manualSync}
@@ -537,7 +550,7 @@ export const AdminPanel: React.FC = () => {
                   ) : (
                     <Cloud className="w-4 h-4" />
                   )}
-                  {isSyncing ? 'Syncing...' : 'Sync Now'}
+                  {isSyncing ? 'Syncing...' : 'Force Sync All Devices'}
                 </button>
               </div>
             </div>

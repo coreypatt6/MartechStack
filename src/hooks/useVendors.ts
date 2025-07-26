@@ -69,20 +69,27 @@ export const useVendors = () => {
   useEffect(() => {
     const loadFromGitHub = async () => {
       try {
-        console.log('🚀 Initializing GitHub cloud sync for public repository...');
+        console.log('🚀 Initializing GitHub cloud sync...');
+        console.log('🔍 Checking for existing vendor data in GitHub repository...');
         setIsSyncing(true);
         const githubVendors = await githubSync.loadVendors();
         if (githubVendors && githubVendors.length > 0) {
-          console.log('📥 Loaded', githubVendors.length, 'vendors from public GitHub repository');
+          console.log('📥 Successfully loaded', githubVendors.length, 'vendors from GitHub repository');
+          console.log('🔄 Replacing local storage with GitHub data for consistency');
           vendorStorage = githubVendors;
           saveToStorage(githubVendors);
           setVendors(githubVendors);
           setLastSyncTime(new Date());
+          console.log('✅ Cross-device sync complete - vendors now synchronized');
         } else {
-          console.log('📝 No vendor data file found in public repository yet');
+          console.log('📝 No vendor data found in GitHub repository');
+          console.log('💾 Using local storage data - will sync to GitHub on next change');
+          console.log('🔧 Current local vendors:', vendorStorage.length);
         }
       } catch (error) {
-        console.log('⚠️ Could not load from GitHub, using local storage:', error.message);
+        console.log('⚠️ Could not load from GitHub repository:', error.message);
+        console.log('💾 Falling back to local storage data');
+        console.log('🔧 Local vendors available:', vendorStorage.length);
       } finally {
         setIsSyncing(false);
       }
@@ -94,12 +101,14 @@ export const useVendors = () => {
   const syncToGitHub = async (newVendors: Vendor[]) => {
     setIsSyncing(true);
     try {
-      console.log('☁️ Syncing', newVendors.length, 'vendors to GitHub...');
+      console.log('☁️ Syncing', newVendors.length, 'vendors to GitHub repository...');
+      console.log('📊 Vendor data being synced:', newVendors.map(v => ({ name: v.name, id: v.id })));
       await saveToGitHub(newVendors);
       setLastSyncTime(new Date());
-      console.log('✅ GitHub sync completed successfully!');
+      console.log('✅ GitHub sync completed successfully - data now available on all devices!');
     } catch (error) {
-      console.error('❌ GitHub sync failed:', error);
+      console.error('❌ GitHub sync failed - vendors only saved locally:', error);
+      console.log('💡 To enable cross-device sync, ensure GitHub token is configured');
     } finally {
       setIsSyncing(false);
     }
@@ -159,6 +168,8 @@ export const useVendors = () => {
   };
 
   const manualSync = async () => {
+    console.log('🔄 Manual sync initiated - forcing sync of current vendor data');
+    console.log('📊 Current vendors to sync:', vendors.length);
     await syncToGitHub(vendors);
   };
 

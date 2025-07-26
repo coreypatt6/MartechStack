@@ -53,7 +53,7 @@ export const Dashboard: React.FC = () => {
             {lastSyncTime && (
               <span className="block text-sm text-gray-400 mt-2 flex items-center justify-center gap-2">
                 <Cloud className="w-4 h-4" />
-                Synced to GitHub: {lastSyncTime.toLocaleString()}
+                Cross-device sync: {lastSyncTime.toLocaleString()} | {totalVendors} vendors
               </span>
             )}
           </p>
