@@ -458,21 +458,6 @@
       ]
     },
     {
-      "id": "test_1753567818727",
-      "name": "Test Sync Vendor",
-      "logo": "https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST",
-      "deploymentStatus": "Active",
-      "capabilities": "Testing GitHub cloud sync functionality",
-      "label": [
-        "2K"
-      ],
-      "annualCost": 1000,
-      "renewalDate": "2024-12-31",
-      "categories": [
-        "analytics"
-      ]
-    },
-    {
       "id": "test_1753569076013",
       "name": "Cross-Device Test 6:31:16 PM",
       "logo": "https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST",
@@ -503,8 +488,8 @@
       ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:32:30.356Z",
+  "lastUpdated": "2025-07-26T23:37:35.920Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 33
+  "totalVendors": 32
 }
