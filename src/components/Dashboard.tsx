@@ -42,8 +42,7 @@ export const Dashboard: React.FC = () => {
           className="text-center mb-16"
         >
           <div className="relative mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 blur-3xl" />
-            <h1 className="relative text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4">
               MarTech Stack Dashboard
             </h1>
           </div>
@@ -58,32 +57,32 @@ export const Dashboard: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-gradient-to-br from-blue-900/30 to-blue-800/20 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 group"
+              className="bg-gray-900 rounded-xl p-6 border border-white/10"
             >
-              <div className="text-3xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-300">{totalVendors}</div>
-              <div className="text-blue-200/70 text-sm font-medium">Total Vendors</div>
+              <div className="text-3xl font-bold text-white">{totalVendors}</div>
+              <div className="text-gray-400 text-sm">Total Vendors</div>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-br from-green-900/30 to-green-800/20 backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-300 group"
+              className="bg-gray-900 rounded-xl p-6 border border-white/10"
             >
-              <div className="text-3xl font-bold text-green-400 group-hover:text-green-300 transition-colors duration-300">{activeVendors}</div>
-              <div className="text-green-200/70 text-sm font-medium">Active Vendors</div>
+              <div className="text-3xl font-bold text-white">{activeVendors}</div>
+              <div className="text-gray-400 text-sm">Active Vendors</div>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-br from-purple-900/30 to-purple-800/20 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 group"
+              className="bg-gray-900 rounded-xl p-6 border border-white/10"
             >
-              <div className="text-3xl font-bold text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+              <div className="text-3xl font-bold text-white">
                 ${totalCost.toLocaleString()}
               </div>
-              <div className="text-purple-200/70 text-sm font-medium">Annual Investment</div>
+              <div className="text-gray-400 text-sm">Annual Investment</div>
             </motion.div>
           </div>
         </motion.div>
