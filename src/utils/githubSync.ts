@@ -44,95 +44,126 @@ export class GitHubSync {
   }
 
   async saveVendors(vendors: any[]): Promise<void> {
-    try {
-      // Check if we have authentication
-      if (!this.GITHUB_TOKEN) {
-        console.log('❌ GitHub sync failed: No authentication token');
-        console.log('💡 To enable GitHub sync:');
-        console.log('   1. Create GitHub Personal Access Token');
-        console.log('   2. Add VITE_GITHUB_TOKEN=your_token to .env.local');
-        console.log('   3. Restart dev server');
-        throw new Error('GitHub token required for sync');
-        return;
-      }
+    const maxRetries = 3;
+    let attempt = 0;
 
-      console.log('🚀 GitHub sync starting...');
-      console.log('📊 Syncing', vendors.length, 'vendors to repository');
-      console.log('🔐 Using authenticated GitHub API');
-      
-      // First, try to get the current file to get its SHA (required for updates)
-      let sha: string | undefined;
-      
+    while (attempt < maxRetries) {
       try {
-        const currentFile = await this.getCurrentFile();
-        sha = currentFile.sha;
-        console.log('📄 Found existing file with SHA:', sha.substring(0, 8) + '...');
+        attempt++;
+        console.log(`🚀 GitHub sync attempt ${attempt}/${maxRetries}...`);
+
+        // Check if we have authentication
+        if (!this.GITHUB_TOKEN) {
+          console.log('❌ GitHub sync failed: No authentication token');
+          console.log('💡 To enable GitHub sync:');
+          console.log('   1. Create GitHub Personal Access Token');
+          console.log('   2. Add VITE_GITHUB_TOKEN=your_token to .env.local');
+          console.log('   3. Restart dev server');
+          throw new Error('GitHub token required for sync');
+        }
+
+        console.log('📊 Syncing', vendors.length, 'vendors to repository');
+        console.log('🔐 Using authenticated GitHub API');
+        
+        // Get the current file SHA (required for updates)
+        let sha: string | undefined;
+        
+        try {
+          const currentFile = await this.getCurrentFile();
+          sha = currentFile.sha;
+          console.log('📄 Found existing file with SHA:', sha.substring(0, 8) + '...');
+        } catch (error) {
+          // File doesn't exist yet, that's okay
+          console.log('📝 File does not exist yet, will create new file');
+        }
+
+        // Prepare the content
+        const content = {
+          vendors,
+          lastUpdated: new Date().toISOString(),
+          version: '1.0.0',
+          syncedFrom: 'MarTech Stack Dashboard',
+          totalVendors: vendors.length
+        };
+
+        console.log('📦 Prepared content:', {
+          vendorCount: content.totalVendors,
+          lastUpdated: content.lastUpdated,
+          hasExistingFile: !!sha
+        });
+
+        const encodedContent = btoa(JSON.stringify(content, null, 2));
+
+        // Prepare the commit data
+        const commitData = {
+          message: `🔄 Sync vendor data: ${vendors.length} vendors (${new Date().toLocaleString()})`,
+          content: encodedContent,
+          branch: this.BRANCH,
+          ...(sha && { sha }) // Include SHA if updating existing file
+        };
+
+        console.log('🚀 Making GitHub API request...');
+        
+        // Make the API call
+        const response = await fetch(
+          `${this.GITHUB_API_BASE}/repos/${this.REPO_OWNER}/${this.REPO_NAME}/contents/${this.FILE_PATH}`,
+          {
+            method: 'PUT',
+            headers: this.getHeaders(),
+            body: JSON.stringify(commitData)
+          }
+        );
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          
+          // Handle 409 Conflict - file has been modified
+          if (response.status === 409) {
+            console.log(`⚠️ Conflict detected (attempt ${attempt}/${maxRetries}): File was modified by another process`);
+            
+            if (attempt < maxRetries) {
+              console.log('🔄 Retrying with fresh SHA in 1 second...');
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              continue; // Retry the loop
+            } else {
+              throw new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
+            }
+          }
+          
+          // Handle other errors
+          console.error('❌ GitHub API error:', response.status, response.statusText);
+          
+          if (response.status === 404) {
+            console.log('💡 Repository or file not found. This is normal for first-time setup.');
+            console.log('💡 Make sure the repository exists and you have write permissions.');
+          }
+          
+          throw new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log('✅ Successfully saved vendors to GitHub!');
+        console.log('📊 Commit details:', {
+          sha: result.commit?.sha?.substring(0, 8) + '...',
+          url: result.content?.html_url,
+          size: result.content?.size + ' bytes'
+        });
+        console.log('🔗 View your data: https://github.com/' + this.REPO_OWNER + '/' + this.REPO_NAME + '/blob/main/' + this.FILE_PATH);
+        
+        return; // Success - exit the retry loop
+
       } catch (error) {
-        // File doesn't exist yet, that's okay
-        console.log('📝 File does not exist yet, will create new file');
-      }
-
-      // Prepare the content
-      const content = {
-        vendors,
-        lastUpdated: new Date().toISOString(),
-        version: '1.0.0',
-        syncedFrom: 'MarTech Stack Dashboard',
-        totalVendors: vendors.length
-      };
-
-      console.log('📦 Prepared content:', {
-        vendorCount: content.totalVendors,
-        lastUpdated: content.lastUpdated,
-        hasExistingFile: !!sha
-      });
-
-      const encodedContent = btoa(JSON.stringify(content, null, 2));
-
-      // Prepare the commit data
-      const commitData = {
-        message: `🔄 Sync vendor data: ${vendors.length} vendors (${new Date().toLocaleString()})`,
-        content: encodedContent,
-        branch: this.BRANCH,
-        ...(sha && { sha }) // Include SHA if updating existing file
-      };
-
-      console.log('🚀 Making GitHub API request...');
-      
-      // Make the API call
-      const response = await fetch(
-        `${this.GITHUB_API_BASE}/repos/${this.REPO_OWNER}/${this.REPO_NAME}/contents/${this.FILE_PATH}`,
-        {
-          method: 'PUT',
-          headers: this.getHeaders(),
-          body: JSON.stringify(commitData)
-        }
-      );
-
-      if (!response.ok) {
-        console.error('❌ GitHub API error:', response.status, response.statusText);
-        
-        if (response.status === 404) {
-          console.log('💡 Repository or file not found. This is normal for first-time setup.');
-          console.log('💡 Make sure the repository exists and you have write permissions.');
+        if (attempt === maxRetries) {
+          console.error('❌ Error saving vendors to GitHub after', maxRetries, 'attempts:', error);
+          throw error;
         }
         
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
+        // If it's not a 409 error, don't retry
+        if (error instanceof Error && !error.message.includes('409')) {
+          console.error('❌ Error saving vendors to GitHub:', error);
+          throw error;
+        }
       }
-
-      const result = await response.json();
-      console.log('✅ Successfully saved vendors to GitHub!');
-      console.log('📊 Commit details:', {
-        sha: result.commit?.sha?.substring(0, 8) + '...',
-        url: result.content?.html_url,
-        size: result.content?.size + ' bytes'
-      });
-      console.log('🔗 View your data: https://github.com/' + this.REPO_OWNER + '/' + this.REPO_NAME + '/blob/main/' + this.FILE_PATH);
-
-    } catch (error) {
-      console.error('❌ Error saving vendors to GitHub:', error);
-      throw error;
     }
   }
 
