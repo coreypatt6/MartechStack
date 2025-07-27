@@ -159,11 +159,6 @@ export const useVendors = () => {
     vendorStorage = updatedVendors;
     saveToStorage(updatedVendors);
     setVendors(updatedVendors);
-    // Sync to GitHub but don't block the operation if it fails
-    syncToGitHub(updatedVendors).catch((error) => {
-      console.error('❌ GitHub sync failed for bulk upload:', error);
-      console.log('💾 Vendors were still saved locally successfully');
-    });
     console.log('Bulk vendors added:', newVendors.length, 'Total vendors:', updatedVendors.length);
   };
 

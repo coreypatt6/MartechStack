@@ -577,7 +577,7 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Import Successful!</h3>
               <p className="text-gray-400 mb-6">
-                Successfully imported {uploadStats.imported} vendors out of {uploadStats.total} records with updated corporate logos.
+                Successfully imported {uploadStats.imported} vendors out of {uploadStats.total} records.
               </p>
               
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
