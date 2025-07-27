@@ -42,7 +42,7 @@
     {
       "id": "v12",
       "name": "Optimizely",
-      "logo": "https://www.optimizely.com/wp-content/uploads/2020/03/optimizely-logo.svg",
+      "logo": "https://logo.clearbit.com/optimizely.com",
       "deploymentStatus": "Active",
       "capabilities": "A/B testing, experimentation, personalization, feature flags",
       "label": [
@@ -96,7 +96,7 @@
     {
       "id": "v27",
       "name": "The Trade Desk",
-      "logo": "https://www.thetradedesk.com/wp-content/uploads/2020/03/ttd-logo.svg",
+      "logo": "https://logo.clearbit.com/thetradedesk.com",
       "deploymentStatus": "Active",
       "capabilities": "Programmatic advertising, data-driven targeting, cross-device campaigns",
       "label": [
@@ -885,7 +885,7 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T22:44:10.731Z",
+  "lastUpdated": "2025-07-27T23:08:19.638Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 49,
