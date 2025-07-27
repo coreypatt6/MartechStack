@@ -3,7 +3,7 @@
     {
       "id": "v1",
       "name": "Salesforce CDP",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
+      "logo": "https://logo.clearbit.com/salesforce.com",
       "deploymentStatus": "Active",
       "capabilities": "Customer data unification, real-time segmentation, journey orchestration",
       "label": [
@@ -23,7 +23,7 @@
     {
       "id": "v6",
       "name": "SendGrid",
-      "logo": "https://sendgrid.com/wp-content/uploads/2016/05/logo-300x100.png",
+      "logo": "https://logo.clearbit.com/sendgrid.com",
       "deploymentStatus": "Active",
       "capabilities": "Transactional email, marketing campaigns, email deliverability",
       "label": [
@@ -61,7 +61,7 @@
     {
       "id": "v16",
       "name": "Sprout Social",
-      "logo": "https://sproutsocial.com/wp-content/uploads/2020/03/sprout-social-logo.svg",
+      "logo": "https://logo.clearbit.com/sproutsocial.com",
       "deploymentStatus": "Pending",
       "capabilities": "Social media management, customer care, social listening",
       "label": [
@@ -79,7 +79,7 @@
     {
       "id": "v19",
       "name": "Zendesk",
-      "logo": "https://d1eipm3vz40hy0.cloudfront.net/images/AMER/zendesk-logo.svg",
+      "logo": "https://logo.clearbit.com/zendesk.com",
       "deploymentStatus": "Active",
       "capabilities": "Customer support, ticketing, knowledge base, live chat",
       "label": [
@@ -89,7 +89,9 @@
       "renewalDate": "2024-08-31",
       "categories": [
         "customer-service"
-      ]
+      ],
+      "logoUpdated": true,
+      "logoSource": "predefined"
     },
     {
       "id": "v27",
@@ -128,7 +130,7 @@
     {
       "id": "bulk_1753573138669_0",
       "name": "Adjust",
-      "logo": "https://www.adjust.com/wp-content/uploads/2020/03/adjust-logo.svg",
+      "logo": "https://logo.clearbit.com/adjust.com",
       "deploymentStatus": "Active",
       "capabilities": "Provides advanced mobile attribution and analytics, helping marketers measure and optimize app campaign performance.",
       "label": [
@@ -234,7 +236,7 @@
     {
       "id": "bulk_1753573138670_6",
       "name": "Appsflyer",
-      "logo": "https://www.appsflyer.com/wp-content/uploads/2020/03/appsflyer-logo.svg",
+      "logo": "https://logo.clearbit.com/appsflyer.com",
       "deploymentStatus": "Active",
       "capabilities": "Mobile attribution and marketing analytics platform, enabling marketers to measure and optimize user acquisition and engagement.",
       "label": [
@@ -883,7 +885,7 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T22:24:30.048Z",
+  "lastUpdated": "2025-07-27T22:44:10.731Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 49,
