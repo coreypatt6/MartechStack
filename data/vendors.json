@@ -545,7 +545,7 @@
     {
       "id": "bulk_1753573138670_1",
       "name": "Adobe Experience Manager",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
       "deploymentStatus": "Active",
       "capabilities": "Enterprise content management system for building websites, mobile apps, and forms, with robust digital asset management.",
       "label": [
@@ -1199,7 +1199,7 @@
       ]
     }
   ],
-  "lastUpdated": "2025-07-27T21:06:05.732Z",
+  "lastUpdated": "2025-07-27T21:07:50.497Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 74,
