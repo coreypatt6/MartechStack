@@ -132,24 +132,6 @@
       "logoUpdated": true
     },
     {
-      "id": "v10",
-      "name": "Google Analytics",
-      "logo": "https://developers.google.com/analytics/images/terms/logo_lockup_analytics_icon_vertical_black_2x.png",
-      "deploymentStatus": "Active",
-      "capabilities": "Web analytics, conversion tracking, audience insights, attribution",
-      "label": [
-        "2K",
-        "Rockstar",
-        "Zynga"
-      ],
-      "annualCost": 150000,
-      "renewalDate": "2024-03-31",
-      "categories": [
-        "web",
-        "analytics"
-      ]
-    },
-    {
       "id": "v12",
       "name": "Optimizely",
       "logo": "https://www.optimizely.com/wp-content/uploads/2020/03/optimizely-logo.svg",
@@ -256,23 +238,6 @@
       "logoSource": "predefined"
     },
     {
-      "id": "v21",
-      "name": "Freshdesk",
-      "logo": "https://freshdesk.com/wp-content/uploads/2020/03/freshdesk-logo.svg",
-      "deploymentStatus": "Pending",
-      "capabilities": "Multi-channel support, automation, reporting, SLA management",
-      "label": [
-        "Ghost Story"
-      ],
-      "annualCost": 35000,
-      "renewalDate": "2024-09-10",
-      "categories": [
-        "customer-service"
-      ],
-      "logoUpdated": true,
-      "logoSource": "predefined"
-    },
-    {
       "id": "v22",
       "name": "Tableau",
       "logo": "https://www.tableau.com/sites/default/files/2020-07/Tableau_Logo.png",
@@ -319,24 +284,6 @@
       "renewalDate": "2024-04-25",
       "categories": [
         "analytics"
-      ],
-      "logoUpdated": true,
-      "logoSource": "predefined"
-    },
-    {
-      "id": "v25",
-      "name": "Google Ads",
-      "logo": "https://ads.google.com/static/images/google-ads-logo.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Search advertising, display campaigns, video ads, shopping ads",
-      "label": [
-        "2K",
-        "Rockstar"
-      ],
-      "annualCost": 500000,
-      "renewalDate": "2024-12-31",
-      "categories": [
-        "paid-data"
       ],
       "logoUpdated": true,
       "logoSource": "predefined"
@@ -1150,9 +1097,9 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T22:03:30.453Z",
+  "lastUpdated": "2025-07-27T22:05:03.650Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 64,
-  "syncAttempt": 5
+  "totalVendors": 61,
+  "syncAttempt": 1
 }
