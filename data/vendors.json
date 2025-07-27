@@ -169,26 +169,6 @@
       ]
     },
     {
-      "id": "v11",
-      "name": "Adobe Analytics",
-      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Advanced analytics, real-time reporting, predictive analytics",
-      "label": [
-        "Rockstar"
-      ],
-      "annualCost": 200000,
-      "renewalDate": "2024-08-15",
-      "categories": [
-        "web",
-        "analytics"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 50,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
-      "logoUpdated": true
-    },
-    {
       "id": "v12",
       "name": "Optimizely",
       "logo": "https://www.optimizely.com/wp-content/uploads/2020/03/optimizely-logo.svg",
@@ -1206,9 +1186,9 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T21:57:12.357Z",
+  "lastUpdated": "2025-07-27T22:02:31.241Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 67,
+  "totalVendors": 66,
   "syncAttempt": 1
 }
