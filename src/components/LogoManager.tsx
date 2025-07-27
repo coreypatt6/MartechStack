@@ -15,7 +15,7 @@ import {
   removeLogoBackground, 
   batchProcessLogos,
   checkImageTransparency 
-} from '../utils/logoBackgroundRemover';
+} from '../utils/browserLogoProcessor';
 import { Vendor, LogoUpdateReport } from '../types/vendor';
 
 interface LogoManagerProps {
@@ -209,10 +209,27 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
           
           <button
             onClick={handleBulkUpdate}
-            disabled={isUpdating || isFetchingLogos}
+            disabled={isUpdating || isFetchingLogos || isProcessingTransparency}
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50"
           >
             {isUpdating ? 'Updating...' : '📋 Update Known Logos'}
+          </button>
+          
+          <button
+            onClick={handleEnsureTransparentBackgrounds}
+            disabled={isFetchingLogos || isUpdating || isProcessingTransparency}
+            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50 flex items-center gap-2"
+          >
+            {isProcessingTransparency ? (
+              <>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                Removing Backgrounds...
+              </>
+            ) : (
+              <>
+                🎨 Ensure Transparent Backgrounds
+              </>
+            )}
           </button>
         </div>
         
@@ -231,6 +248,24 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
               />
             </div>
             <p className="text-blue-700 text-sm">Currently processing: {fetchProgress.current}</p>
+          </div>
+        )}
+        
+        {isProcessingTransparency && (
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-green-800 font-medium">Processing transparent backgrounds...</span>
+              <span className="text-green-600">{transparencyProgress.completed}/{transparencyProgress.total}</span>
+            </div>
+            <div className="w-full bg-green-200 rounded-full h-2 mb-2">
+              <div
+                className="bg-green-500 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${(transparencyProgress.completed / transparencyProgress.total) * 100 || 0}%` }}
+              />
+            </div>
+            <div className="text-green-700 text-sm">
+              {transparencyProgress.current && `Processing: ${transparencyProgress.current}`}
+            </div>
           </div>
         )}
         

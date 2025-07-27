@@ -111,18 +111,11 @@ const KNOWN_MARTECH_LOGOS: Record<string, string> = {
   'helpscout': 'https://www.helpscout.com/images/brand/help-scout-logo.svg',
   'drift': 'https://www.drift.com/wp-content/uploads/2021/01/drift-logo.svg',
   
-  // Analytics Platforms - Transparent backgrounds
-  'google tag manager': 'https://www.gstatic.com/analytics-suite/header/suite/v2/ic_tag_manager.svg',
+  // Additional Analytics Platforms - Official corporate logos
   'hotjar': 'https://logo.clearbit.com/hotjar.com',
   'crazy egg': 'https://logo.clearbit.com/crazyegg.com',
   
-  // Ad Platforms - Transparent backgrounds
-  'facebook ads': 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
-  'google ads': 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg',
-  'linkedin ads': 'https://logo.clearbit.com/linkedin.com',
-  'twitter ads': 'https://logo.clearbit.com/twitter.com',
-  
-  // Content Management - Transparent backgrounds
+  // Content Management - Official corporate logos
   'wordpress': 'https://logo.clearbit.com/wordpress.com',
   'contentful': 'https://logo.clearbit.com/contentful.com',
   'drupal': 'https://logo.clearbit.com/drupal.org',
