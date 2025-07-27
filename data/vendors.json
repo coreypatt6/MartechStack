@@ -23,7 +23,7 @@
     {
       "id": "v2",
       "name": "Adobe Experience Platform",
-      "logo": "https://ui-avatars.com/api/?name=AE&background=4F46E5&color=FFFFFF&size=128&bold=true&format=png",
+      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
       "deploymentStatus": "Active",
       "capabilities": "Real-time customer profiles, AI-driven insights, cross-channel activation",
       "label": [
@@ -34,14 +34,15 @@
       "categories": [
         "cdp"
       ],
-      "logoSource": "High-Quality Fallback",
+      "logoSource": "predefined",
       "logoConfidence": 50,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v3",
       "name": "Segment",
-      "logo": "https://logo.clearbit.com/segment.com",
+      "logo": "https://segment.com/static/segment-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "Data collection, customer data infrastructure, audience management",
       "label": [
@@ -52,14 +53,15 @@
       "categories": [
         "cdp"
       ],
-      "logoSource": "Known MarTech Database",
+      "logoSource": "predefined",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T20:08:07.891Z"
+      "logoUpdatedAt": "2025-07-27T20:08:07.891Z",
+      "logoUpdated": true
     },
     {
       "id": "v4",
       "name": "Tealium",
-      "logo": "https://logo.clearbit.com/tealium.com",
+      "logo": "https://tealium.com/wp-content/uploads/2021/03/tealium-logo.svg",
       "deploymentStatus": "Pending",
       "capabilities": "Tag management, customer data orchestration, privacy compliance",
       "label": [
@@ -70,9 +72,10 @@
       "categories": [
         "cdp"
       ],
-      "logoSource": "Clearbit",
+      "logoSource": "predefined",
       "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v5",
@@ -92,7 +95,7 @@
     {
       "id": "v6",
       "name": "SendGrid",
-      "logo": "https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand/2016/SendGrid-Logomark.svg",
+      "logo": "https://sendgrid.com/wp-content/uploads/2016/05/logo-300x100.png",
       "deploymentStatus": "Active",
       "capabilities": "Transactional email, marketing campaigns, email deliverability",
       "label": [
@@ -103,14 +106,15 @@
       "categories": [
         "email"
       ],
-      "logoSource": "Known MarTech Database",
+      "logoSource": "predefined",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T20:08:07.892Z"
+      "logoUpdatedAt": "2025-07-27T20:08:07.892Z",
+      "logoUpdated": true
     },
     {
       "id": "v7",
       "name": "Klaviyo",
-      "logo": "https://logo.clearbit.com/klaviyo.com",
+      "logo": "https://www.klaviyo.com/wp-content/uploads/2020/07/klaviyo-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "E-commerce email marketing, SMS campaigns, customer analytics",
       "label": [
@@ -121,14 +125,15 @@
       "categories": [
         "email"
       ],
-      "logoSource": "Known MarTech Database",
+      "logoSource": "predefined",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T20:08:07.892Z"
+      "logoUpdatedAt": "2025-07-27T20:08:07.892Z",
+      "logoUpdated": true
     },
     {
       "id": "v8",
       "name": "Twilio",
-      "logo": "https://logo.clearbit.com/twilio.com",
+      "logo": "https://www.twilio.com/content/dam/twilio-com/global/en/blog/wp-content/uploads/2016/10/Twilio_logo_red.png",
       "deploymentStatus": "Active",
       "capabilities": "SMS marketing, voice campaigns, programmable communications",
       "label": [
@@ -140,14 +145,15 @@
       "categories": [
         "email"
       ],
-      "logoSource": "Clearbit",
+      "logoSource": "predefined",
       "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v9",
       "name": "Braze",
-      "logo": "https://logo.clearbit.com/braze.com",
+      "logo": "https://www.braze.com/assets/images/braze-logo.svg",
       "deploymentStatus": "Pending",
       "capabilities": "Multi-channel messaging, customer engagement, lifecycle marketing",
       "label": [
@@ -158,9 +164,10 @@
       "categories": [
         "email"
       ],
-      "logoSource": "Clearbit",
+      "logoSource": "predefined",
       "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v10",
@@ -183,7 +190,7 @@
     {
       "id": "v11",
       "name": "Adobe Analytics",
-      "logo": "https://ui-avatars.com/api/?name=AA&background=8B5CF6&color=FFFFFF&size=128&bold=true&format=png",
+      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
       "deploymentStatus": "Active",
       "capabilities": "Advanced analytics, real-time reporting, predictive analytics",
       "label": [
@@ -195,14 +202,15 @@
         "web",
         "analytics"
       ],
-      "logoSource": "High-Quality Fallback",
+      "logoSource": "predefined",
       "logoConfidence": 50,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v12",
       "name": "Optimizely",
-      "logo": "https://logo.clearbit.com/optimizely.com",
+      "logo": "https://www.optimizely.com/wp-content/uploads/2020/03/optimizely-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "A/B testing, experimentation, personalization, feature flags",
       "label": [
@@ -213,14 +221,15 @@
       "categories": [
         "web"
       ],
-      "logoSource": "Clearbit",
+      "logoSource": "predefined",
       "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v13",
       "name": "Hotjar",
-      "logo": "https://www.hotjar.com/assets/img/brand/hotjar-logo.svg",
+      "logo": "https://www.hotjar.com/wp-content/uploads/2020/03/hotjar-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "User behavior analytics, heatmaps, session recordings, surveys",
       "label": [
@@ -231,14 +240,15 @@
       "categories": [
         "web"
       ],
-      "logoSource": "Known MarTech Database",
+      "logoSource": "predefined",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v14",
       "name": "Hootsuite",
-      "logo": "https://hootsuite.com/uploads/images/brand/hootsuite-logo.svg",
+      "logo": "https://hootsuite.com/wp-content/uploads/2020/03/hootsuite-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "Social media management, scheduling, analytics, team collaboration",
       "label": [
@@ -249,14 +259,15 @@
       "categories": [
         "social-publishing"
       ],
-      "logoSource": "Known MarTech Database",
+      "logoSource": "predefined",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v15",
       "name": "Buffer",
-      "logo": "https://buffer.com/static/icons/buffer-logo.svg",
+      "logo": "https://buffer.com/library/content/images/buffer-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "Social media scheduling, content planning, performance analytics",
       "label": [
@@ -267,14 +278,15 @@
       "categories": [
         "social-publishing"
       ],
-      "logoSource": "Known MarTech Database",
+      "logoSource": "predefined",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
+      "logoUpdated": true
     },
     {
       "id": "v16",
       "name": "Sprout Social",
-      "logo": "https://via.placeholder.com/64x64/59CB59/FFFFFF?text=SPR",
+      "logo": "https://sproutsocial.com/wp-content/uploads/2020/03/sprout-social-logo.svg",
       "deploymentStatus": "Pending",
       "capabilities": "Social media management, customer care, social listening",
       "label": [
@@ -285,7 +297,9 @@
       "categories": [
         "social-publishing",
         "social-listening"
-      ]
+      ],
+      "logoUpdated": true,
+      "logoSource": "predefined"
     },
     {
       "id": "v17",
@@ -1201,7 +1215,7 @@
       ]
     }
   ],
-  "lastUpdated": "2025-07-27T21:34:04.287Z",
+  "lastUpdated": "2025-07-27T21:38:30.167Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 74,
