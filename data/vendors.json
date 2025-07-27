@@ -21,25 +21,6 @@
       "hasTransparentBackground": true
     },
     {
-      "id": "v4",
-      "name": "Tealium",
-      "logo": "https://tealium.com/wp-content/uploads/2021/03/tealium-logo.svg",
-      "deploymentStatus": "Pending",
-      "capabilities": "Tag management, customer data orchestration, privacy compliance",
-      "label": [
-        "Ghost Story"
-      ],
-      "annualCost": 120000,
-      "renewalDate": "2024-06-20",
-      "categories": [
-        "cdp"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
-      "logoUpdated": true
-    },
-    {
       "id": "v6",
       "name": "SendGrid",
       "logo": "https://sendgrid.com/wp-content/uploads/2016/05/logo-300x100.png",
@@ -56,26 +37,6 @@
       "logoSource": "predefined",
       "logoConfidence": 95,
       "logoUpdatedAt": "2025-07-27T20:08:07.892Z",
-      "logoUpdated": true
-    },
-    {
-      "id": "v8",
-      "name": "Twilio",
-      "logo": "https://www.twilio.com/content/dam/twilio-com/global/en/blog/wp-content/uploads/2016/10/Twilio_logo_red.png",
-      "deploymentStatus": "Active",
-      "capabilities": "SMS marketing, voice campaigns, programmable communications",
-      "label": [
-        "2K",
-        "Rockstar"
-      ],
-      "annualCost": 90000,
-      "renewalDate": "2024-05-25",
-      "categories": [
-        "email"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
       "logoUpdated": true
     },
     {
@@ -129,23 +90,6 @@
       "categories": [
         "customer-service"
       ]
-    },
-    {
-      "id": "v22",
-      "name": "Tableau",
-      "logo": "https://www.tableau.com/sites/default/files/2020-07/Tableau_Logo.png",
-      "deploymentStatus": "Active",
-      "capabilities": "Data visualization, business intelligence, advanced analytics",
-      "label": [
-        "Rockstar"
-      ],
-      "annualCost": 180000,
-      "renewalDate": "2024-06-30",
-      "categories": [
-        "analytics"
-      ],
-      "logoUpdated": true,
-      "logoSource": "predefined"
     },
     {
       "id": "v27",
@@ -939,9 +883,9 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T22:08:05.882Z",
+  "lastUpdated": "2025-07-27T22:09:05.826Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 52,
-  "syncAttempt": 1
+  "totalVendors": 49,
+  "syncAttempt": 5
 }
