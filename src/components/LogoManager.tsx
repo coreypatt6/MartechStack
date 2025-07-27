@@ -11,6 +11,11 @@ import {
   generateHighQualityFallback,
   LogoFetchResult 
 } from '../utils/corporateLogoFetcher';
+import { 
+  removeLogoBackground, 
+  batchProcessLogos,
+  checkImageTransparency 
+} from '../utils/logoBackgroundRemover';
 import { Vendor, LogoUpdateReport } from '../types/vendor';
 
 interface LogoManagerProps {
@@ -26,6 +31,8 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
   const [isFetchingLogos, setIsFetchingLogos] = useState(false);
   const [fetchProgress, setFetchProgress] = useState({ completed: 0, total: 0, current: '' });
   const [fetchResults, setFetchResults] = useState<LogoFetchResult[]>([]);
+  const [isProcessingTransparency, setIsProcessingTransparency] = useState(false);
+  const [transparencyProgress, setTransparencyProgress] = useState({ completed: 0, total: 0, current: '' });
 
   useEffect(() => {
     if (vendors.length > 0) {
@@ -103,6 +110,52 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
         : vendor
     );
     onVendorsUpdate(updatedVendors);
+  };
+
+  const handleEnsureTransparentBackgrounds = async () => {
+    setIsProcessingTransparency(true);
+    setTransparencyProgress({ completed: 0, total: 0, current: '' });
+    
+    try {
+      console.log('🎨 Ensuring all vendor logos have transparent backgrounds...');
+      
+      const logoUrls = vendors.map(v => v.logo).filter(Boolean);
+      
+      const results = await batchProcessLogos(
+        logoUrls,
+        {
+          removeWhiteBackground: true,
+          outputFormat: 'png',
+          maxSize: { width: 256, height: 256 },
+          quality: 95
+        },
+        (completed, total, current) => {
+          setTransparencyProgress({ completed, total, current });
+        }
+      );
+      
+      // Apply processed logos
+      const updatedVendors = vendors.map(vendor => {
+        const result = results.find(r => r.url === vendor.logo);
+        if (result && result.result.success && result.result.processedImageBase64) {
+          return {
+            ...vendor,
+            logo: result.result.processedImageBase64,
+            hasTransparentBackground: true,
+            logoSource: (vendor.logoSource || 'Original') + ' (Transparent)'
+          };
+        }
+        return vendor;
+      });
+      
+      onVendorsUpdate(updatedVendors);
+      console.log('✅ Transparent background processing complete!');
+      
+    } catch (error) {
+      console.error('Error processing transparent backgrounds:', error);
+    } finally {
+      setIsProcessingTransparency(false);
+    }
   };
 
 
