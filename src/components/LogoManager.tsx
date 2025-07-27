@@ -6,17 +6,26 @@ import {
   createFallbackLogo,
   LOGO_SOURCES 
 } from '../utils/logoUpdater';
+import { 
+  batchFetchCorporateLogos, 
+  generateHighQualityFallback,
+  LogoFetchResult 
+} from '../utils/corporateLogoFetcher';
+import { Vendor, LogoUpdateReport } from '../types/vendor';
 
 interface LogoManagerProps {
-  vendors: any[];
-  onVendorsUpdate: (vendors: any[]) => void;
+  vendors: Vendor[];
+  onVendorsUpdate: (vendors: Vendor[]) => void;
 }
 
 export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpdate }) => {
-  const [report, setReport] = useState<any>(null);
-  const [selectedVendor, setSelectedVendor] = useState<any>(null);
+  const [report, setReport] = useState<LogoUpdateReport | null>(null);
+  const [selectedVendor, setSelectedVendor] = useState<Vendor | null>(null);
   const [searchUrls, setSearchUrls] = useState<string[]>([]);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [isFetchingLogos, setIsFetchingLogos] = useState(false);
+  const [fetchProgress, setFetchProgress] = useState({ completed: 0, total: 0, current: '' });
+  const [fetchResults, setFetchResults] = useState<LogoFetchResult[]>([]);
 
   useEffect(() => {
     if (vendors.length > 0) {
@@ -27,12 +36,61 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
 
   const handleBulkUpdate = () => {
     setIsUpdating(true);
-    const updatedVendors = updateVendorLogos(vendors);
+    const updatedVendors = updateVendorLogos(vendors as Vendor[]);
     onVendorsUpdate(updatedVendors);
     setIsUpdating(false);
   };
 
-  const handleVendorSelect = (vendor: any) => {
+  const handleCorporateLogoFetch = async () => {
+    setIsFetchingLogos(true);
+    setFetchResults([]);
+    
+    try {
+      const vendorsNeedingLogos = vendors.filter(vendor => 
+        !vendor.logo || 
+        vendor.logo.includes('placeholder.com') || 
+        vendor.logo.includes('via.placeholder')
+      );
+      
+      const results = await batchFetchCorporateLogos(
+        vendorsNeedingLogos.map(v => ({ id: v.id, name: v.name, categories: v.categories })),
+        {
+          useWebScraping: true,
+          preferHighQuality: true,
+          timeoutMs: 10000,
+          maxRetries: 2
+        },
+        (completed, total, current) => {
+          setFetchProgress({ completed, total, current });
+        }
+      );
+      
+      setFetchResults(results.map(r => r.result));
+      
+      // Apply successful logo fetches
+      const updatedVendors = vendors.map(vendor => {
+        const result = results.find(r => r.vendorId === vendor.id);
+        if (result && result.result.logoUrl && result.result.confidence > 50) {
+          return {
+            ...vendor,
+            logo: result.result.logoUrl,
+            logoSource: result.result.source,
+            logoConfidence: result.result.confidence
+          };
+        }
+        return vendor;
+      });
+      
+      onVendorsUpdate(updatedVendors);
+      
+    } catch (error) {
+      console.error('Error fetching corporate logos:', error);
+    } finally {
+      setIsFetchingLogos(false);
+    }
+  };
+
+  const handleVendorSelect = (vendor: Vendor) => {
     setSelectedVendor(vendor);
     const urls = generateLogoSearchUrls(vendor.name);
     setSearchUrls(urls);
@@ -47,10 +105,6 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
     onVendorsUpdate(updatedVendors);
   };
 
-  const handleCreateFallback = (vendor: any) => {
-    const fallbackLogo = createFallbackLogo(vendor.name);
-    handleManualLogoUpdate(vendor.id, fallbackLogo);
-  };
 
   if (!report) return <div>Loading...</div>;
 
@@ -80,19 +134,113 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
         </div>
       </div>
 
-      {/* Bulk Update Button */}
-      <div className="mb-6">
-        <button
-          onClick={handleBulkUpdate}
-          disabled={isUpdating}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50"
-        >
-          {isUpdating ? 'Updating...' : 'Update All Available Logos'}
-        </button>
-        <p className="text-sm text-gray-600 mt-2">
-          This will update logos for vendors that have predefined logo URLs available.
+      {/* Action Buttons */}
+      <div className="mb-6 space-y-4">
+        <div className="flex flex-wrap gap-3">
+          <button
+            onClick={handleCorporateLogoFetch}
+            disabled={isFetchingLogos || isUpdating}
+            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50 flex items-center gap-2"
+          >
+            {isFetchingLogos ? (
+              <>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                Fetching Corporate Logos...
+              </>
+            ) : (
+              <>
+                🌐 Auto-Fetch Corporate Logos
+              </>
+            )}
+          </button>
+          
+          <button
+            onClick={handleBulkUpdate}
+            disabled={isUpdating || isFetchingLogos}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50"
+          >
+            {isUpdating ? 'Updating...' : '📋 Update Known Logos'}
+          </button>
+        </div>
+        
+        {isFetchingLogos && (
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-blue-800 font-medium">Fetching logos...</span>
+              <span className="text-blue-600">
+                {fetchProgress.completed}/{fetchProgress.total}
+              </span>
+            </div>
+            <div className="w-full bg-blue-200 rounded-full h-2 mb-2">
+              <div
+                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${(fetchProgress.completed / fetchProgress.total) * 100}%` }}
+              />
+            </div>
+            <p className="text-blue-700 text-sm">Currently processing: {fetchProgress.current}</p>
+          </div>
+        )}
+        
+        <p className="text-sm text-gray-600">
+          🌐 Auto-fetch uses web scraping and logo databases to find official corporate logos.<br/>
+          📋 Known logos updates vendors with predefined logo URLs from our database.
         </p>
       </div>
+      
+      {/* Fetch Results */}
+      {fetchResults.length > 0 && (
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-4 text-gray-800">
+            Corporate Logo Fetch Results
+          </h3>
+          <div className="space-y-2 max-h-60 overflow-y-auto">
+            {fetchResults.map((result, index) => (
+              <div
+                key={index}
+                className={`p-3 rounded-lg border ${
+                  result.logoUrl
+                    ? 'bg-green-50 border-green-200'
+                    : 'bg-red-50 border-red-200'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    {result.logoUrl && (
+                      <img
+                        src={result.logoUrl}
+                        alt={result.vendorName}
+                        className="w-8 h-8 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    )}
+                    <div>
+                      <div className="font-medium text-gray-800">{result.vendorName}</div>
+                      <div className="text-sm text-gray-600">
+                        {result.logoUrl ? (
+                          <>
+                            ✅ Found via {result.source} (confidence: {result.confidence}%)
+                          </>
+                        ) : (
+                          <>
+                            ❌ {result.error || 'No logo found'}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  {result.alternativeUrls.length > 0 && (
+                    <div className="text-xs text-gray-500">
+                      {result.alternativeUrls.length} alternatives
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Vendors Needing Logos */}
       <div className="mb-6">
@@ -126,10 +274,16 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
                     Search for Logo
                   </button>
                   <button
-                    onClick={() => handleCreateFallback(vendor)}
+                    onClick={() => {
+                      const highQualityFallback = generateHighQualityFallback(
+                        vendor.name, 
+                        vendor.categories[0] || 'default'
+                      );
+                      handleManualLogoUpdate(vendor.id, highQualityFallback);
+                    }}
                     className="w-full bg-green-100 hover:bg-green-200 text-green-700 px-3 py-1 rounded text-sm"
                   >
-                    Create Fallback
+                    Create HD Fallback
                   </button>
                 </div>
               </div>

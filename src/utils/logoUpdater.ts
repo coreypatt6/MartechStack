@@ -166,7 +166,7 @@ export function createFallbackLogo(vendorName: string, color: string = '#4CAF50'
 }
 
 // Function to update vendor logos in bulk
-export function updateVendorLogos(vendors: any[]): any[] {
+export function updateVendorLogos(vendors: unknown[]): unknown[] {
   return vendors.map(vendor => {
     const newLogo = LOGO_SOURCES[vendor.name];
     
@@ -184,7 +184,7 @@ export function updateVendorLogos(vendors: any[]): any[] {
 }
 
 // Function to generate logo update report
-export function generateLogoUpdateReport(vendors: any[]): {
+export function generateLogoUpdateReport(vendors: unknown[]): {
   updated: number;
   needsUpdate: number;
   total: number;

@@ -87,7 +87,7 @@ export function generateLogoSearchUrls(vendorName: string, categories: string[] 
 }
 
 // Function to find vendors that need logos
-export function findVendorsNeedingLogos(vendors: any[]): any[] {
+export function findVendorsNeedingLogos(vendors: unknown[]): unknown[] {
   return vendors.filter(vendor => 
     vendor.logo.includes('placeholder.com') || 
     vendor.logo.includes('via.placeholder') ||
@@ -97,12 +97,12 @@ export function findVendorsNeedingLogos(vendors: any[]): any[] {
 }
 
 // Function to generate a comprehensive logo search report
-export function generateLogoSearchReport(vendors: any[]): {
+export function generateLogoSearchReport(vendors: unknown[]): {
   totalVendors: number;
   vendorsNeedingLogos: number;
   vendorsWithLogos: number;
   completionPercentage: number;
-  vendorsNeedingLogosList: any[];
+  vendorsNeedingLogosList: unknown[];
 } {
   const vendorsNeedingLogos = findVendorsNeedingLogos(vendors);
   const vendorsWithLogos = vendors.length - vendorsNeedingLogos.length;
@@ -141,7 +141,7 @@ export function suggestLogoUrls(vendorName: string): string[] {
 // Function to validate if a logo URL is accessible
 export async function validateLogoUrl(url: string): Promise<boolean> {
   try {
-    const response = await fetch(url, { 
+    await fetch(url, { 
       method: 'HEAD',
       mode: 'no-cors' // This will always return true, but helps with CORS issues
     });
