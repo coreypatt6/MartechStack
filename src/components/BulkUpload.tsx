@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Upload, Download, FileSpreadsheet, AlertCircle, CheckCircle, X, Eye, Save, ArrowLeft } from 'lucide-react';
+import { Upload, Download, FileSpreadsheet, AlertCircle, CheckCircle, Eye, Save, ArrowLeft } from 'lucide-react';
 import * as XLSX from 'xlsx';
 import { Vendor } from '../types';
 import { useVendors } from '../hooks/useVendors';
@@ -75,8 +75,6 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [logoFetchingProgress, setLogoFetchingProgress] = useState(0);
-  const [isUpdatingLogos, setIsUpdatingLogos] = useState(false);
 
   const generateTemplate = () => {
     const templateData = [
@@ -109,7 +107,7 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     XLSX.writeFile(wb, 'vendor-upload-template.xlsx');
   };
 
-  const validateVendorData = (row: any, rowIndex: number): ParsedVendor => {
+  const validateVendorData = (row: Record<string, unknown>): ParsedVendor => {
     const errors: string[] = [];
     
     // Validate required fields
@@ -147,7 +145,7 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     } else {
       try {
         // Handle Excel date formats - Excel stores dates as numbers
-        let dateValue = row['Renewal Date'];
+        const dateValue = row['Renewal Date'];
         let parsedDate: Date;
         
         if (typeof dateValue === 'number') {
@@ -162,7 +160,7 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         if (isNaN(parsedDate.getTime())) {
           errors.push('Invalid Renewal Date format');
         }
-      } catch (error) {
+      } catch {
         errors.push('Invalid Renewal Date format');
       }
     }
@@ -218,7 +216,7 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     let renewalDate = '';
     if (row['Renewal Date']) {
       try {
-        let dateValue = row['Renewal Date'];
+        const dateValue = row['Renewal Date'];
         let parsedDate: Date;
         
         if (typeof dateValue === 'number') {
@@ -231,7 +229,7 @@ export const BulkUpload: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         if (!isNaN(parsedDate.getTime())) {
           renewalDate = parsedDate.toISOString().split('T')[0];
         }
-      } catch (error) {
+      } catch {
         // Keep empty if parsing fails
       }
     }

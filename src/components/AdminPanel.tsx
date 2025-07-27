@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { Save, Upload, ArrowLeft, Plus, Trash2, Edit, FileSpreadsheet, RefreshCw, Cloud, CloudOff } from 'lucide-react';
+import { Save, Upload, ArrowLeft, Trash2, Edit, FileSpreadsheet, RefreshCw, Cloud } from 'lucide-react';
 import { Vendor } from '../types';
 import { useVendors } from '../hooks/useVendors';
 import { BulkUpload } from './BulkUpload';
@@ -294,8 +294,6 @@ export const AdminPanel: React.FC = () => {
     formState: { errors, isSubmitting }
   } = useForm<VendorFormData>();
 
-  const selectedCategories = watch('categories') || [];
-  const selectedLabels = watch('label') || [];
   const logoFiles = watch('logo');
 
   // Handle logo preview
@@ -412,15 +410,6 @@ export const AdminPanel: React.FC = () => {
     }
   };
 
-  const formatCurrency = (value: string) => {
-    const num = parseFloat(value.replace(/[^0-9.]/g, ''));
-    return isNaN(num) ? '' : new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(num);
-  };
 
   if (currentView === 'bulk') {
     return (

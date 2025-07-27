@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Cloud, CloudOff } from 'lucide-react';
+import { Cloud } from 'lucide-react';
 import { CategoryCard } from './CategoryCard';
 import { CategoryModal } from './CategoryModal';
 import { categories as baseCategories } from '../data/mockData';

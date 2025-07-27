@@ -29,7 +29,6 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
 
   const gridLayout = getGridLayout();
   const displayVendors = category.vendors; // Show ALL vendors
-  const remainingCount = 0; // No remaining count since we show all
 
   // Calculate card height based on content
   const baseHeight = 160; // Increased base height for header and description
@@ -86,7 +85,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
                 gridTemplateRows: `repeat(${gridLayout.rows}, 1fr)`
               }}
             >
-              {displayVendors.map((vendor, index) => (
+              {displayVendors.map((vendor) => (
                 <div 
                   key={vendor.id}
                   className="flex items-center justify-center"

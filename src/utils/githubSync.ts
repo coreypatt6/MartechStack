@@ -43,7 +43,7 @@ export class GitHubSync {
     return headers;
   }
 
-  async saveVendors(vendors: any[]): Promise<void> {
+  async saveVendors(vendors: unknown[]): Promise<void> {
     const maxRetries = 5;
     let attempt = 0;
     let lastError: Error | null = null;
@@ -74,7 +74,7 @@ export class GitHubSync {
           sha = currentFile.sha;
           fileExists = true;
           console.log('📄 Found existing file with SHA:', sha.substring(0, 8) + '...');
-        } catch (error) {
+        } catch {
           console.log('📝 File does not exist yet, will create new file');
           fileExists = false;
         }
@@ -92,7 +92,7 @@ export class GitHubSync {
         const encodedContent = btoa(JSON.stringify(content, null, 2));
 
         // Prepare the commit data
-        const commitData: any = {
+        const commitData: Record<string, unknown> = {
           message: `🔄 Sync vendor data: ${vendors.length} vendors (attempt ${attempt})`,
           content: encodedContent,
           branch: this.BRANCH
@@ -186,7 +186,7 @@ export class GitHubSync {
     throw lastError || new Error('GitHub sync failed after all retries');
   }
 
-  async loadVendors(): Promise<any[] | null> {
+  async loadVendors(): Promise<unknown[] | null> {
     try {
       // Check if we have authentication for private repos
       if (!this.GITHUB_TOKEN) {
