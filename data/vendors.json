@@ -418,7 +418,7 @@
     {
       "id": "bulk_1753573432080_5",
       "name": "Guru",
-      "logo": "https://guru.com/wp-content/uploads/2020/03/guru-logo.svg",
+      "logo": "https://logo.clearbit.com/getguru.com",
       "deploymentStatus": "Active",
       "capabilities": "Knowledge management solution that delivers verified information to teams directly within their workflow.",
       "label": [
@@ -652,7 +652,7 @@
     {
       "id": "bulk_1753573432082_18",
       "name": "RightPoint",
-      "logo": "https://rightpoint.com/wp-content/uploads/2020/03/rightpoint-logo.svg",
+      "logo": "https://logo.clearbit.com/rightpoint.com",
       "deploymentStatus": "Active",
       "capabilities": "Digital consultancy specializing in experience design, technology implementation, and organizational transformation.",
       "label": [
@@ -670,7 +670,7 @@
     {
       "id": "bulk_1753573432082_19",
       "name": "Salesforce Marketing Cloud",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
+      "logo": "https://logo.clearbit.com/salesforce.com",
       "deploymentStatus": "Active",
       "capabilities": "Comprehensive marketing automation platform for email, SMS, social, and digital advertising campaigns.",
       "label": [
@@ -689,7 +689,7 @@
     {
       "id": "bulk_1753573623185_0",
       "name": "Salesforce Marketing Cloud Intelligence (Datorama)",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
+      "logo": "https://logo.clearbit.com/salesforce.com",
       "deploymentStatus": "Active",
       "capabilities": "Marketing analytics and data integration platform for unified reporting and insights.",
       "label": [
@@ -708,7 +708,7 @@
     {
       "id": "bulk_1753573870505_0",
       "name": "Salesforce Service Cloud",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
+      "logo": "https://logo.clearbit.com/salesforce.com",
       "deploymentStatus": "Active",
       "capabilities": "Customer service and support platform for managing cases, automating workflows, and delivering omnichannel support.",
       "label": [
@@ -727,7 +727,7 @@
     {
       "id": "bulk_1753573870506_1",
       "name": "Screen Engine | MindGame",
-      "logo": "https://screenengine.com/wp-content/uploads/2020/03/screenengine-logo.svg",
+      "logo": "https://logo.clearbit.com/screenengine.com",
       "deploymentStatus": "Active",
       "capabilities": "Analytics and insights platform focused on gaming market share, player behavior, and industry trends.",
       "label": [
@@ -745,7 +745,7 @@
     {
       "id": "bulk_1753574088897_0",
       "name": "Sensor Tower | Pathmatics",
-      "logo": "https://sensortower.com/wp-content/uploads/2020/03/sensortower-logo.svg",
+      "logo": "https://logo.clearbit.com/sensortower.com",
       "deploymentStatus": "Active",
       "capabilities": "Mobile app and digital advertising intelligence platform for competitive analysis and market research.",
       "label": [
@@ -763,7 +763,7 @@
     {
       "id": "bulk_1753574088898_1",
       "name": "LevelUP Analytics",
-      "logo": "https://levelupanalytics.com/wp-content/uploads/2020/03/levelup-logo.svg",
+      "logo": "https://logo.clearbit.com/levelupanalytics.com",
       "deploymentStatus": "Active",
       "capabilities": "Data analytics consultancy providing custom solutions for data engineering, visualization, and business intelligence.",
       "label": [
@@ -781,7 +781,7 @@
     {
       "id": "bulk_1753574088899_2",
       "name": "Sprinklr",
-      "logo": "https://www.sprinklr.com/wp-content/uploads/2020/03/sprinklr-logo.svg",
+      "logo": "https://logo.clearbit.com/sprinklr.com",
       "deploymentStatus": "Active",
       "capabilities": "Unified customer experience management platform for social media, marketing, and customer care.",
       "label": [
@@ -799,7 +799,7 @@
     {
       "id": "bulk_1753574088899_3",
       "name": "Statuspage",
-      "logo": "https://www.statuspage.io/wp-content/uploads/2020/03/statuspage-logo.svg",
+      "logo": "https://logo.clearbit.com/statuspage.io",
       "deploymentStatus": "Active",
       "capabilities": "Incident communication and status page platform for keeping customers informed during outages and maintenance.",
       "label": [
@@ -817,7 +817,7 @@
     {
       "id": "bulk_1753574088899_4",
       "name": "Stream Hatchet",
-      "logo": "https://streamhatchet.com/wp-content/uploads/2020/03/streamhatchet-logo.svg",
+      "logo": "https://logo.clearbit.com/streamhatchet.com",
       "deploymentStatus": "Active",
       "capabilities": "Analytics platform for live streaming and esports, tracking audience engagement and content performance.",
       "label": [
@@ -835,7 +835,7 @@
     {
       "id": "bulk_1753574088899_5",
       "name": "Treasure Data",
-      "logo": "https://www.treasuredata.com/wp-content/uploads/2021/03/td-logo.svg",
+      "logo": "https://logo.clearbit.com/treasuredata.com",
       "deploymentStatus": "Active",
       "capabilities": "Customer data platform (CDP) for unifying, analyzing, and activating customer data across channels.",
       "label": [
@@ -853,7 +853,7 @@
     {
       "id": "bulk_1753574088899_6",
       "name": "Tubular",
-      "logo": "https://tubularlabs.com/wp-content/uploads/2020/03/tubular-logo.svg",
+      "logo": "https://logo.clearbit.com/tubularlabs.com",
       "deploymentStatus": "Active",
       "capabilities": "Video intelligence platform for measuring and benchmarking online video content and audience trends.",
       "label": [
@@ -871,7 +871,7 @@
     {
       "id": "bulk_1753574088900_7",
       "name": "Tymeshift",
-      "logo": "https://tymeshift.com/wp-content/uploads/2020/03/tymeshift-logo.svg",
+      "logo": "https://logo.clearbit.com/tymeshift.com",
       "deploymentStatus": "Active",
       "capabilities": "Workforce management solution for customer support teams, offering scheduling, forecasting, and real-time analytics.",
       "label": [
@@ -887,7 +887,7 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T23:12:16.722Z",
+  "lastUpdated": "2025-07-27T23:20:50.862Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 49,
