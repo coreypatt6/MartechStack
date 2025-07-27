@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Cloud } from 'lucide-react';
+import { Cloud, Image } from 'lucide-react';
 import { CategoryCard } from './CategoryCard';
 import { CategoryModal } from './CategoryModal';
+import { LogoManager } from './LogoManager';
 import { categories as baseCategories } from '../data/mockData';
 import { Category } from '../types';
 import { useVendors } from '../hooks/useVendors';
@@ -10,7 +11,8 @@ import { useVendors } from '../hooks/useVendors';
 export const Dashboard: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { vendors, isSyncing, lastSyncTime } = useVendors();
+  const [showLogoManager, setShowLogoManager] = useState(false);
+  const { vendors, isSyncing, lastSyncTime, updateVendor } = useVendors();
 
   // Update categories with current vendors
   const categories = baseCategories.map(category => ({
@@ -26,6 +28,13 @@ export const Dashboard: React.FC = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedCategory(null);
+  };
+
+  const handleVendorsUpdate = (updatedVendors: any[]) => {
+    // Update each vendor individually
+    updatedVendors.forEach(vendor => {
+      updateVendor(vendor.id, vendor);
+    });
   };
 
   // Calculate total stats for the header
@@ -57,6 +66,22 @@ export const Dashboard: React.FC = () => {
               </span>
             )}
           </p>
+          
+          {/* Logo Manager Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-8"
+          >
+            <button
+              onClick={() => setShowLogoManager(true)}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 mx-auto"
+            >
+              <Image className="w-5 h-5" />
+              Manage Vendor Logos
+            </button>
+          </motion.div>
           
           {/* Dashboard Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
@@ -152,6 +177,29 @@ export const Dashboard: React.FC = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
       />
+
+      {/* Logo Manager Modal */}
+      {showLogoManager && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-800">Logo Manager</h2>
+                <button
+                  onClick={() => setShowLogoManager(false)}
+                  className="text-gray-500 hover:text-gray-700 text-xl"
+                >
+                  ✕
+                </button>
+              </div>
+              <LogoManager
+                vendors={vendors}
+                onVendorsUpdate={handleVendorsUpdate}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
