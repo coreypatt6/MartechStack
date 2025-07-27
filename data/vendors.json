@@ -21,25 +21,6 @@
       "hasTransparentBackground": true
     },
     {
-      "id": "v2",
-      "name": "Adobe Experience Platform",
-      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Real-time customer profiles, AI-driven insights, cross-channel activation",
-      "label": [
-        "2K"
-      ],
-      "annualCost": 300000,
-      "renewalDate": "2024-08-15",
-      "categories": [
-        "cdp"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 50,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
-      "logoUpdated": true
-    },
-    {
       "id": "v3",
       "name": "Segment",
       "logo": "https://segment.com/static/segment-logo.svg",
@@ -407,23 +388,6 @@
       "renewalDate": "2024-09-25",
       "categories": [
         "talent-influencer"
-      ],
-      "logoUpdated": true,
-      "logoSource": "predefined"
-    },
-    {
-      "id": "v30",
-      "name": "Cision",
-      "logo": "https://www.cision.com/wp-content/uploads/2020/03/cision-logo.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Media monitoring, press release distribution, journalist database",
-      "label": [
-        "Rockstar"
-      ],
-      "annualCost": 95000,
-      "renewalDate": "2024-11-05",
-      "categories": [
-        "pr-comms"
       ],
       "logoUpdated": true,
       "logoSource": "predefined"
@@ -1186,9 +1150,9 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T22:02:31.241Z",
+  "lastUpdated": "2025-07-27T22:03:30.453Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 66,
-  "syncAttempt": 1
+  "totalVendors": 64,
+  "syncAttempt": 5
 }
