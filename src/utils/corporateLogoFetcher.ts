@@ -41,57 +41,57 @@ const LOGO_DATABASES = [
 
 // Known MarTech companies and their logo URLs
 const KNOWN_MARTECH_LOGOS: Record<string, string> = {
-  // Major Platforms
+  // Major Platforms - All with transparent backgrounds
   'salesforce': 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
-  'hubspot': 'https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png',
-  'google analytics': 'https://developers.google.com/analytics/images/terms/logo_lockup_analytics_icon_vertical_black_2x.png',
+  'hubspot': 'https://www.hubspot.com/hubfs/assets/hubspot.com/style-guide/brand-guidelines/guidelines_sprocket-1.png',
+  'google analytics': 'https://www.gstatic.com/analytics-suite/header/suite/v2/ic_analytics.svg',
   'adobe': 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg',
   'mailchimp': 'https://eep.io/images/yzp4yyPofdYiCanTdGXQC0sNFb8=/2400x0/filters:no_upscale()/eep/images/landing_pages/brand/mailchimp-freddie-wink.png',
   
-  // Analytics & Attribution
-  'adjust': 'https://uploads-ssl.webflow.com/5f43d6e0b0ea8e7b0c5d7b5f/5f43d6e0b0ea8e7b0c5d7b60_adjust-logo.svg',
-  'appsflyer': 'https://www.appsflyer.com/wp-content/uploads/2021/01/AF_Logo_Primary_Blue.svg',
-  'mixpanel': 'https://mixpanel.com/wp-content/uploads/2021/02/mixpanel-logo.svg',
-  'amplitude': 'https://amplitude.com/wp-content/uploads/amplitude-logo.svg',
-  'segment': 'https://segment.com/wp-content/uploads/segment-logo.svg',
+  // Analytics & Attribution - Transparent backgrounds
+  'adjust': 'https://logo.clearbit.com/adjust.com',
+  'appsflyer': 'https://logo.clearbit.com/appsflyer.com',
+  'mixpanel': 'https://logo.clearbit.com/mixpanel.com',
+  'amplitude': 'https://logo.clearbit.com/amplitude.com',
+  'segment': 'https://logo.clearbit.com/segment.com',
   
-  // Email & Marketing
-  'sendgrid': 'https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand/2016/SendGrid-Logomark.png',
-  'klaviyo': 'https://www.klaviyo.com/wp-content/uploads/2021/01/klaviyo-logo.svg',
-  'constant contact': 'https://www.constantcontact.com/images/common/cc-logo.svg',
-  'campaign monitor': 'https://www.campaignmonitor.com/assets/images/cm-logo.svg',
+  // Email & Marketing - Transparent backgrounds
+  'sendgrid': 'https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand/2016/SendGrid-Logomark.svg',
+  'klaviyo': 'https://logo.clearbit.com/klaviyo.com',
+  'constant contact': 'https://logo.clearbit.com/constantcontact.com',
+  'campaign monitor': 'https://logo.clearbit.com/campaignmonitor.com',
   
-  // Social Media Management
-  'sprinklr': 'https://www.sprinklr.com/wp-content/uploads/2021/01/sprinklr-logo.svg',
-  'hootsuite': 'https://hootsuite.com/uploads/images/brand/hootsuite-logo.svg',
-  'buffer': 'https://buffer.com/static/icons/buffer-logo.svg',
-  'sprout social': 'https://sproutsocial.com/insights/wp-content/themes/sprout/assets/images/sprout-social-logo.svg',
+  // Social Media Management - Transparent backgrounds
+  'sprinklr': 'https://logo.clearbit.com/sprinklr.com',
+  'hootsuite': 'https://logo.clearbit.com/hootsuite.com',
+  'buffer': 'https://logo.clearbit.com/buffer.com',
+  'sprout social': 'https://logo.clearbit.com/sproutsocial.com',
   
-  // Customer Support
-  'zendesk': 'https://d1eipm3vz40hy0.cloudfront.net/images/AMER/zendesk-logo.svg',
-  'intercom': 'https://www.intercom.com/brand/logo/intercom-logo-mark.svg',
-  'freshworks': 'https://www.freshworks.com/static-assets/images/common/company/logos/logo-fworks-black.svg',
+  // Customer Support - Transparent backgrounds
+  'zendesk': 'https://logo.clearbit.com/zendesk.com',
+  'intercom': 'https://logo.clearbit.com/intercom.com',
+  'freshworks': 'https://logo.clearbit.com/freshworks.com',
   
-  // Analytics Platforms
+  // Analytics Platforms - Transparent backgrounds
   'google tag manager': 'https://www.gstatic.com/analytics-suite/header/suite/v2/ic_tag_manager.svg',
-  'hotjar': 'https://www.hotjar.com/assets/img/brand/hotjar-logo.svg',
-  'crazy egg': 'https://www.crazyegg.com/images/ce-logo.svg',
+  'hotjar': 'https://logo.clearbit.com/hotjar.com',
+  'crazy egg': 'https://logo.clearbit.com/crazyegg.com',
   
-  // Ad Platforms
+  // Ad Platforms - Transparent backgrounds
   'facebook ads': 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
   'google ads': 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg',
-  'linkedin ads': 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png',
-  'twitter ads': 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg',
+  'linkedin ads': 'https://logo.clearbit.com/linkedin.com',
+  'twitter ads': 'https://logo.clearbit.com/twitter.com',
   
-  // Content Management
-  'wordpress': 'https://s.w.org/images/wmark.png',
-  'contentful': 'https://images.ctfassets.net/fo9twyrwpveg/44baP970q8qgeyukS0KSam/73a0454e89b0b6b1e2b498b4a8a4c7ba/contentful-logo-black.svg',
-  'drupal': 'https://www.drupal.org/files/druplicon-small.png',
+  // Content Management - Transparent backgrounds
+  'wordpress': 'https://logo.clearbit.com/wordpress.com',
+  'contentful': 'https://logo.clearbit.com/contentful.com',
+  'drupal': 'https://logo.clearbit.com/drupal.org',
   
-  // E-commerce
-  'shopify': 'https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg',
-  'magento': 'https://magento.com/sites/default/files/2021-01/magento-logo.svg',
-  'woocommerce': 'https://woocommerce.com/wp-content/themes/woo/images/logo-woocommerce.svg'
+  // E-commerce - Transparent backgrounds
+  'shopify': 'https://logo.clearbit.com/shopify.com',
+  'magento': 'https://logo.clearbit.com/magento.com',
+  'woocommerce': 'https://logo.clearbit.com/woocommerce.com'
 };
 
 // Function to extract domain from company name
