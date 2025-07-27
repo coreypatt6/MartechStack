@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { Save, Upload, ArrowLeft, Trash2, Edit, FileSpreadsheet, RefreshCw, Cloud } from 'lucide-react';
+import { Save, Upload, ArrowLeft, Trash2, Edit, FileSpreadsheet, RefreshCw, Cloud, Image } from 'lucide-react';
 import { Vendor } from '../types';
 import { useVendors } from '../hooks/useVendors';
 import { BulkUpload } from './BulkUpload';
+import { LogoManager } from './LogoManager';
 
 interface VendorFormData {
   name: string;
@@ -43,221 +44,11 @@ export const AdminPanel: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
-  const [isUpdatingLogos, setIsUpdatingLogos] = useState(false);
-  const [logoUpdateProgress, setLogoUpdateProgress] = useState(0);
   const [sortBy, setSortBy] = useState<'name' | 'recent'>('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [failedLogos, setFailedLogos] = useState<Set<string>>(new Set());
+  const [showLogoManager, setShowLogoManager] = useState(false);
 
-  const fetchVendorLogo = (vendorName: string): string => {
-    const knownLogos: { [key: string]: string } = {
-      // Major Platforms
-      'salesforce': 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
-      'hubspot': 'https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png',
-      'google analytics': 'https://developers.google.com/analytics/images/terms/logo_lockup_analytics_icon_vertical_black_2x.png',
-      'mailchimp': 'https://eep.io/images/yzp4yyPofdYiCanTdGXQC0sNFb8=/2400x0/filters:no_upscale()/eep/images/landing_pages/brand/mailchimp-freddie-wink.png',
-      
-      // Analytics & Attribution
-      'adjust': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'appsflyer': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'sensor tower': 'https://sensortower.com/images/st-logo.svg',
-      'pathmatics': 'https://sensortower.com/images/st-logo.svg',
-      'sensor tower | pathmatics': 'https://sensortower.com/images/st-logo.svg',
-      'levelup analytics': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'deltadna': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'databricks': 'https://databricks.com/wp-content/uploads/2021/10/db-nav-logo.svg',
-      
-      // Adobe Products
-      'adobe experience manager': 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg',
-      'adobe workfront': 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg',
-      
-      // SEO & Web Tools
-      'ahrefs': 'https://cdn.ahrefs.com/favicon-32x32.png',
-      'ahrefs webmaster tools': 'https://cdn.ahrefs.com/favicon-32x32.png',
-      'bit.ly': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'linktree': 'https://linktr.ee/s/img/favicon.ico',
-      
-      // Survey & Research
-      'alchemer': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'screen engine': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'mindgame': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'screen engine | mindgame': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Development & Testing
-      'browserstack': 'https://www.browserstack.com/images/layout/browserstack-logo-600x315.png',
-      'code climate': 'https://codeclimate.com/favicon.ico',
-      'code climate inc': 'https://codeclimate.com/favicon.ico',
-      
-      // Content Management
-      'contentful': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Influencer & Creator Tools
-      'creatoriq': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'tubular': 'https://tubularlabs.com/wp-content/uploads/2021/01/tubular-logo.svg',
-      'stream hatchet': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Customer Support & Knowledge
-      'zendesk': 'https://d1eipm3vz40hy0.cloudfront.net/images/AMER/zendesk-logo.svg',
-      'helpshift': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'guru': 'https://www.getguru.com/favicon.ico',
-      'directly': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'quiq': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Email & Marketing Tools
-      'litmus': 'https://www.litmus.com/wp-content/uploads/2021/01/litmus-logo.svg',
-      'movable ink': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'validity': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Social Media Management
-      'sprinklr': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'sprout social': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'meltwater': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // PR & Communications
-      'muck rack': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'prmanager': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'prgloo': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'prmanager (ex prgloo)': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Data & Privacy
-      'onetrust': 'https://www.onetrust.com/wp-content/uploads/2021/01/onetrust-logo.svg',
-      'onetrust - cookie compliance': 'https://www.onetrust.com/wp-content/uploads/2021/01/onetrust-logo.svg',
-      'infosum': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Services & Agencies
-      'adswerve': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'ayzenberg': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'rightpoint': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      
-      // Operational Tools
-      'statuspage': 'https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/8849/statuspage-logo-blue.png',
-      'tymeshift': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo',
-      'unbabel': 'https://unbabel.com/wp-content/uploads/2021/01/unbabel-logo.svg',
-      
-      // Design & Themes
-      'lotus themes': 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo'
-    };
-
-    const normalizedName = vendorName.toLowerCase().trim();
-    
-    console.log('Fetching logo for vendor:', vendorName, 'Normalized:', normalizedName);
-    
-    // Check for exact matches first
-    if (knownLogos[normalizedName]) {
-      console.log('Found exact match for:', normalizedName);
-      return knownLogos[normalizedName];
-    }
-
-    // Check for partial matches (vendor name contains known service or vice versa)
-    for (const [key, logo] of Object.entries(knownLogos)) {
-      if (normalizedName.includes(key) || key.includes(normalizedName)) {
-        console.log('Found partial match for:', normalizedName, 'with key:', key);
-        return logo;
-      }
-    }
-
-    console.log('No match found for:', normalizedName, 'using fallback logo');
-    
-
-    // Return default placeholder for unknown vendors
-    return 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo';
-  };
-
-  const updateAllVendorLogos = async () => {
-    const placeholderUrl = 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo';
-    const vendorsToUpdate = vendors.filter(vendor => 
-      vendor.logo === placeholderUrl || 
-      vendor.logo === 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo' ||
-      vendor.logo.includes('pexels.com')
-    );
-    
-    console.log('Total vendors:', vendors.length);
-    console.log('Vendors with placeholder logos:', vendorsToUpdate.length);
-    console.log('Vendors to update:', vendorsToUpdate.map(v => v.name));
-    console.log('All vendor logos:', vendors.map(v => ({ name: v.name, logo: v.logo })));
-    
-    if (vendorsToUpdate.length === 0) {
-      console.log('No vendors found with placeholder logos. Checking all vendors...');
-      // Let's update all vendors to ensure they get proper logos
-      const allVendors = [...vendors];
-      console.log('Updating all vendors:', allVendors.length);
-      
-      setIsUpdatingLogos(true);
-      setLogoUpdateProgress(0);
-
-      try {
-        let updated = 0;
-        
-        for (let i = 0; i < allVendors.length; i++) {
-          const vendor = allVendors[i];
-          console.log(`Processing vendor ${i + 1}/${allVendors.length}:`, vendor.name);
-          
-          const newLogo = fetchVendorLogo(vendor.name);
-          console.log('New logo URL for', vendor.name, ':', newLogo);
-          
-          if (newLogo !== vendor.logo) {
-            const updatedVendor = { ...vendor, logo: newLogo };
-            updateVendor(vendor.id, updatedVendor);
-            updated++;
-            console.log('Updated logo for:', vendor.name);
-          } else {
-            console.log('Logo unchanged for:', vendor.name);
-          }
-          
-          setLogoUpdateProgress(((i + 1) / allVendors.length) * 100);
-          
-          // Small delay to show progress
-          await new Promise(resolve => setTimeout(resolve, 100));
-        }
-
-        console.log('Logo update complete. Updated vendors:', updated);
-        alert(`Successfully updated logos for ${updated} out of ${allVendors.length} vendors!`);
-      } catch (error) {
-        console.error('Error updating logos:', error);
-        alert('Error updating logos. Please try again.');
-      } finally {
-        setIsUpdatingLogos(false);
-        setLogoUpdateProgress(0);
-      }
-      return;
-    }
-
-    setIsUpdatingLogos(true);
-    setLogoUpdateProgress(0);
-
-    try {
-      let updated = 0;
-      
-      for (let i = 0; i < vendorsToUpdate.length; i++) {
-        const vendor = vendorsToUpdate[i];
-        console.log(`Processing vendor ${i + 1}/${vendorsToUpdate.length}:`, vendor.name);
-        
-        const newLogo = fetchVendorLogo(vendor.name);
-        console.log('New logo URL for', vendor.name, ':', newLogo);
-        
-        if (newLogo !== vendor.logo) {
-          const updatedVendor = { ...vendor, logo: newLogo };
-          updateVendor(vendor.id, updatedVendor);
-          updated++;
-          console.log('Updated logo for:', vendor.name);
-        }
-        
-        setLogoUpdateProgress((updated / vendorsToUpdate.length) * 100);
-        
-        // Small delay to show progress
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-
-      console.log('Logo update complete. Updated vendors:', updated);
-      alert(`Successfully updated logos for ${updated} out of ${vendorsToUpdate.length} vendors!`);
-    } catch (error) {
-      console.error('Error updating logos:', error);
-      alert('Error updating logos. Please try again.');
-    } finally {
-      setIsUpdatingLogos(false);
-      setLogoUpdateProgress(0);
-    }
-  };
 
   const sortedVendors = [...vendors].sort((a, b) => {
     let comparison = 0;
@@ -410,6 +201,13 @@ export const AdminPanel: React.FC = () => {
     }
   };
 
+  const handleVendorsUpdate = (updatedVendors: unknown[]) => {
+    // Update each vendor individually
+    updatedVendors.forEach(vendor => {
+      updateVendor(vendor.id, vendor);
+    });
+  };
+
 
   if (currentView === 'bulk') {
     return (
@@ -462,16 +260,11 @@ export const AdminPanel: React.FC = () => {
               Bulk Upload
             </button>
             <button
-              onClick={updateAllVendorLogos}
-              disabled={isUpdatingLogos}
-              className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg font-medium transition-colors duration-200"
+              onClick={() => setShowLogoManager(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors duration-200"
             >
-              {isUpdatingLogos ? (
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
-              ) : (
-                <RefreshCw className="w-4 h-4" />
-              )}
-              Update Logos
+              <Image className="w-4 h-4" />
+              Manage Vendor Logos
             </button>
           </div>
           
@@ -570,21 +363,6 @@ export const AdminPanel: React.FC = () => {
             </div>
           </div>
           
-          {/* Logo Update Progress */}
-          {isUpdatingLogos && (
-            <div className="mt-4 bg-gray-900 rounded-lg p-4 border border-white/10">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-white font-medium">Updating vendor logos...</span>
-                <span className="text-purple-400">{logoUpdateProgress.toFixed(0)}%</span>
-              </div>
-              <div className="w-full bg-gray-700 rounded-full h-2">
-                <div
-                  className="bg-purple-500 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${logoUpdateProgress}%` }}
-                />
-              </div>
-            </div>
-          )}
         </motion.div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
@@ -917,6 +695,29 @@ export const AdminPanel: React.FC = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Logo Manager Modal */}
+      {showLogoManager && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-800">🎨 Vendor Logo Manager</h2>
+                <button
+                  onClick={() => setShowLogoManager(false)}
+                  className="text-gray-500 hover:text-gray-700 text-xl"
+                >
+                  ✕
+                </button>
+              </div>
+              <LogoManager
+                vendors={vendors}
+                onVendorsUpdate={handleVendorsUpdate}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

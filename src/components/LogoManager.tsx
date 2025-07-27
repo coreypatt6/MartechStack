@@ -14,8 +14,8 @@ import {
 import { Vendor, LogoUpdateReport } from '../types/vendor';
 
 interface LogoManagerProps {
-  vendors: Vendor[];
-  onVendorsUpdate: (vendors: Vendor[]) => void;
+  vendors: any[];
+  onVendorsUpdate: (vendors: any[]) => void;
 }
 
 export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpdate }) => {
@@ -36,7 +36,7 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
 
   const handleBulkUpdate = () => {
     setIsUpdating(true);
-    const updatedVendors = updateVendorLogos(vendors as Vendor[]);
+    const updatedVendors = updateVendorLogos(vendors as any[]);
     onVendorsUpdate(updatedVendors);
     setIsUpdating(false);
   };
@@ -90,7 +90,7 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
     }
   };
 
-  const handleVendorSelect = (vendor: Vendor) => {
+  const handleVendorSelect = (vendor: any) => {
     setSelectedVendor(vendor);
     const urls = generateLogoSearchUrls(vendor.name);
     setSearchUrls(urls);
