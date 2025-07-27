@@ -246,25 +246,6 @@
       "logoUpdated": true
     },
     {
-      "id": "v15",
-      "name": "Buffer",
-      "logo": "https://buffer.com/library/content/images/buffer-logo.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Social media scheduling, content planning, performance analytics",
-      "label": [
-        "2K"
-      ],
-      "annualCost": 18000,
-      "renewalDate": "2024-04-20",
-      "categories": [
-        "social-publishing"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
-      "logoUpdated": true
-    },
-    {
       "id": "v16",
       "name": "Sprout Social",
       "logo": "https://sproutsocial.com/wp-content/uploads/2020/03/sprout-social-logo.svg",
@@ -521,23 +502,6 @@
       ],
       "logoUpdated": true,
       "logoSource": "predefined"
-    },
-    {
-      "id": "test_1753569076013",
-      "name": "Cross-Device Test 6:31:16 PM",
-      "logo": "https://ui-avatars.com/api/?name=CT&background=F59E0B&color=FFFFFF&size=128&bold=true&format=png",
-      "deploymentStatus": "Active",
-      "capabilities": "Testing cross-device GitHub cloud sync functionality",
-      "label": [
-        "2K"
-      ],
-      "annualCost": 1000,
-      "renewalDate": "2024-12-31",
-      "categories": [
-        "analytics"
-      ],
-      "logoUpdated": true,
-      "logoSource": "manual"
     },
     {
       "id": "test_1753571062852",
@@ -1314,9 +1278,9 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T21:41:38.083Z",
+  "lastUpdated": "2025-07-27T21:42:39.425Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 73,
+  "totalVendors": 71,
   "syncAttempt": 1
 }
