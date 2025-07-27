@@ -1124,7 +1124,7 @@
       "annualCost": 4411014.04,
       "renewalDate": "2026-12-31",
       "categories": [
-        "paid-data"
+        "cdp"
       ]
     },
     {
@@ -1160,7 +1160,7 @@
       ]
     }
   ],
-  "lastUpdated": "2025-07-26T23:54:48.916Z",
+  "lastUpdated": "2025-07-27T00:00:14.911Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 74
