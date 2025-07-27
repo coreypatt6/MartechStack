@@ -93,25 +93,6 @@
       "logoUpdated": true
     },
     {
-      "id": "v7",
-      "name": "Klaviyo",
-      "logo": "https://www.klaviyo.com/wp-content/uploads/2020/07/klaviyo-logo.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "E-commerce email marketing, SMS campaigns, customer analytics",
-      "label": [
-        "Zynga"
-      ],
-      "annualCost": 75000,
-      "renewalDate": "2024-07-10",
-      "categories": [
-        "email"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T20:08:07.892Z",
-      "logoUpdated": true
-    },
-    {
       "id": "v8",
       "name": "Twilio",
       "logo": "https://www.twilio.com/content/dam/twilio-com/global/en/blog/wp-content/uploads/2016/10/Twilio_logo_red.png",
@@ -147,25 +128,6 @@
       ],
       "logoSource": "predefined",
       "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
-      "logoUpdated": true
-    },
-    {
-      "id": "v14",
-      "name": "Hootsuite",
-      "logo": "https://hootsuite.com/wp-content/uploads/2020/03/hootsuite-logo.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Social media management, scheduling, analytics, team collaboration",
-      "label": [
-        "Rockstar"
-      ],
-      "annualCost": 25000,
-      "renewalDate": "2024-11-30",
-      "categories": [
-        "social-publishing"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 95,
       "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
       "logoUpdated": true
     },
@@ -221,23 +183,6 @@
       ]
     },
     {
-      "id": "v20",
-      "name": "Intercom",
-      "logo": "https://www.intercom.com/assets/images/intercom-logo.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Customer messaging, chatbots, help desk, product tours",
-      "label": [
-        "2K"
-      ],
-      "annualCost": 45000,
-      "renewalDate": "2024-12-20",
-      "categories": [
-        "customer-service"
-      ],
-      "logoUpdated": true,
-      "logoSource": "predefined"
-    },
-    {
       "id": "v22",
       "name": "Tableau",
       "logo": "https://www.tableau.com/sites/default/files/2020-07/Tableau_Logo.png",
@@ -248,23 +193,6 @@
       ],
       "annualCost": 180000,
       "renewalDate": "2024-06-30",
-      "categories": [
-        "analytics"
-      ],
-      "logoUpdated": true,
-      "logoSource": "predefined"
-    },
-    {
-      "id": "v23",
-      "name": "Looker",
-      "logo": "https://looker.com/assets/images/looker-logo.svg",
-      "deploymentStatus": "Active",
-      "capabilities": "Modern BI platform, data modeling, embedded analytics",
-      "label": [
-        "Zynga"
-      ],
-      "annualCost": 150000,
-      "renewalDate": "2024-11-15",
       "categories": [
         "analytics"
       ],
@@ -316,23 +244,6 @@
       ],
       "annualCost": 75000,
       "renewalDate": "2024-08-10",
-      "categories": [
-        "talent-influencer"
-      ],
-      "logoUpdated": true,
-      "logoSource": "predefined"
-    },
-    {
-      "id": "v29",
-      "name": "Grin",
-      "logo": "https://grin.co/wp-content/uploads/2020/03/grin-logo.svg",
-      "deploymentStatus": "Pending",
-      "capabilities": "Creator relationship management, content amplification, ROI measurement",
-      "label": [
-        "Zynga"
-      ],
-      "annualCost": 60000,
-      "renewalDate": "2024-09-25",
       "categories": [
         "talent-influencer"
       ],
@@ -1097,9 +1008,9 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T22:05:03.650Z",
+  "lastUpdated": "2025-07-27T22:06:37.205Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 61,
+  "totalVendors": 56,
   "syncAttempt": 1
 }
