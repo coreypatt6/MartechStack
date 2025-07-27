@@ -44,37 +44,39 @@ export class GitHubSync {
   }
 
   async saveVendors(vendors: any[]): Promise<void> {
-    const maxRetries = 3;
+    const maxRetries = 5;
     let attempt = 0;
+    let lastError: Error | null = null;
+
+    // Check if we have authentication
+    if (!this.GITHUB_TOKEN) {
+      console.log('❌ GitHub sync failed: No authentication token');
+      console.log('💡 To enable GitHub sync:');
+      console.log('   1. Create GitHub Personal Access Token');
+      console.log('   2. Add VITE_GITHUB_TOKEN=your_token to .env.local');
+      console.log('   3. Restart dev server');
+      throw new Error('GitHub token required for sync');
+    }
+
+    console.log('📊 Starting GitHub sync for', vendors.length, 'vendors');
 
     while (attempt < maxRetries) {
+      attempt++;
+      console.log(`🚀 GitHub sync attempt ${attempt}/${maxRetries}...`);
+
       try {
-        attempt++;
-        console.log(`🚀 GitHub sync attempt ${attempt}/${maxRetries}...`);
-
-        // Check if we have authentication
-        if (!this.GITHUB_TOKEN) {
-          console.log('❌ GitHub sync failed: No authentication token');
-          console.log('💡 To enable GitHub sync:');
-          console.log('   1. Create GitHub Personal Access Token');
-          console.log('   2. Add VITE_GITHUB_TOKEN=your_token to .env.local');
-          console.log('   3. Restart dev server');
-          throw new Error('GitHub token required for sync');
-        }
-
-        console.log('📊 Syncing', vendors.length, 'vendors to repository');
-        console.log('🔐 Using authenticated GitHub API');
-        
-        // Get the current file SHA (required for updates)
+        // Always get fresh SHA for each attempt
         let sha: string | undefined;
+        let fileExists = false;
         
         try {
           const currentFile = await this.getCurrentFile();
           sha = currentFile.sha;
+          fileExists = true;
           console.log('📄 Found existing file with SHA:', sha.substring(0, 8) + '...');
         } catch (error) {
-          // File doesn't exist yet, that's okay
           console.log('📝 File does not exist yet, will create new file');
+          fileExists = false;
         }
 
         // Prepare the content
@@ -83,26 +85,25 @@ export class GitHubSync {
           lastUpdated: new Date().toISOString(),
           version: '1.0.0',
           syncedFrom: 'MarTech Stack Dashboard',
-          totalVendors: vendors.length
+          totalVendors: vendors.length,
+          syncAttempt: attempt
         };
-
-        console.log('📦 Prepared content:', {
-          vendorCount: content.totalVendors,
-          lastUpdated: content.lastUpdated,
-          hasExistingFile: !!sha
-        });
 
         const encodedContent = btoa(JSON.stringify(content, null, 2));
 
         // Prepare the commit data
-        const commitData = {
-          message: `🔄 Sync vendor data: ${vendors.length} vendors (${new Date().toLocaleString()})`,
+        const commitData: any = {
+          message: `🔄 Sync vendor data: ${vendors.length} vendors (attempt ${attempt})`,
           content: encodedContent,
-          branch: this.BRANCH,
-          ...(sha && { sha }) // Include SHA if updating existing file
+          branch: this.BRANCH
         };
 
-        console.log('🚀 Making GitHub API request...');
+        // Only include SHA if file exists
+        if (fileExists && sha) {
+          commitData.sha = sha;
+        }
+
+        console.log('🚀 Making GitHub API request with', fileExists ? 'existing SHA' : 'new file');
         
         // Make the API call
         const response = await fetch(
@@ -119,52 +120,70 @@ export class GitHubSync {
           
           // Handle 409 Conflict - file has been modified
           if (response.status === 409) {
-            console.log(`⚠️ Conflict detected (attempt ${attempt}/${maxRetries}): File was modified by another process`);
+            console.log(`⚠️ Conflict detected (attempt ${attempt}/${maxRetries}): ${errorData.message || 'File SHA mismatch'}`);
             
             if (attempt < maxRetries) {
-              console.log('🔄 Retrying with fresh SHA in 1 second...');
-              await new Promise(resolve => setTimeout(resolve, 1000));
+              const delay = Math.min(1000 * attempt, 5000); // Exponential backoff, max 5s
+              console.log(`🔄 Retrying with fresh SHA in ${delay}ms...`);
+              await new Promise(resolve => setTimeout(resolve, delay));
               continue; // Retry the loop
-            } else {
-              throw new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
             }
           }
           
           // Handle other errors
-          console.error('❌ GitHub API error:', response.status, response.statusText);
+          console.error('❌ GitHub API error:', response.status, response.statusText, errorData);
           
           if (response.status === 404) {
-            console.log('💡 Repository or file not found. This is normal for first-time setup.');
-            console.log('💡 Make sure the repository exists and you have write permissions.');
+            console.log('💡 Repository or file not found. Check repository exists and token has write permissions.');
           }
           
-          throw new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
+          lastError = new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
+          
+          // Don't retry non-409 errors
+          if (response.status !== 409) {
+            throw lastError;
+          }
+          
+          continue; // Retry for 409 errors
         }
 
+        // Success!
         const result = await response.json();
         console.log('✅ Successfully saved vendors to GitHub!');
         console.log('📊 Commit details:', {
           sha: result.commit?.sha?.substring(0, 8) + '...',
           url: result.content?.html_url,
-          size: result.content?.size + ' bytes'
+          size: result.content?.size + ' bytes',
+          attempt: attempt
         });
         console.log('🔗 View your data: https://github.com/' + this.REPO_OWNER + '/' + this.REPO_NAME + '/blob/main/' + this.FILE_PATH);
         
         return; // Success - exit the retry loop
 
       } catch (error) {
-        if (attempt === maxRetries) {
-          console.error('❌ Error saving vendors to GitHub after', maxRetries, 'attempts:', error);
-          throw error;
+        lastError = error instanceof Error ? error : new Error(String(error));
+        console.error(`❌ Attempt ${attempt} failed:`, lastError.message);
+        
+        // Don't retry non-409 errors
+        if (!lastError.message.includes('409') && !lastError.message.includes('conflict')) {
+          throw lastError;
         }
         
-        // If it's not a 409 error, don't retry
-        if (error instanceof Error && !error.message.includes('409')) {
-          console.error('❌ Error saving vendors to GitHub:', error);
-          throw error;
+        // If this was the last attempt, throw the error
+        if (attempt === maxRetries) {
+          break;
         }
+        
+        // Wait before retrying
+        const delay = Math.min(1000 * attempt, 5000);
+        console.log(`⏳ Waiting ${delay}ms before retry...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
       }
     }
+    
+    // If we get here, all retries failed
+    console.error('❌ All GitHub sync attempts failed');
+    throw lastError || new Error('GitHub sync failed after all retries');
   }
 
   async loadVendors(): Promise<any[] | null> {
