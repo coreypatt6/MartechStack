@@ -3,7 +3,7 @@
     {
       "id": "v1",
       "name": "Salesforce CDP",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
+      "logo": "https://ui-avatars.com/api/?name=SC&background=4F46E5&color=FFFFFF&size=128&bold=true&format=png",
       "deploymentStatus": "Active",
       "capabilities": "Customer data unification, real-time segmentation, journey orchestration",
       "label": [
@@ -13,12 +13,15 @@
       "renewalDate": "2024-12-31",
       "categories": [
         "cdp"
-      ]
+      ],
+      "logoSource": "High-Quality Fallback",
+      "logoConfidence": 50,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v2",
       "name": "Adobe Experience Platform",
-      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
+      "logo": "https://ui-avatars.com/api/?name=AE&background=4F46E5&color=FFFFFF&size=128&bold=true&format=png",
       "deploymentStatus": "Active",
       "capabilities": "Real-time customer profiles, AI-driven insights, cross-channel activation",
       "label": [
@@ -28,12 +31,15 @@
       "renewalDate": "2024-08-15",
       "categories": [
         "cdp"
-      ]
+      ],
+      "logoSource": "High-Quality Fallback",
+      "logoConfidence": 50,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v3",
       "name": "Segment",
-      "logo": "https://via.placeholder.com/64x64/52BD95/FFFFFF?text=SEG",
+      "logo": "https://segment.com/wp-content/uploads/segment-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "Data collection, customer data infrastructure, audience management",
       "label": [
@@ -43,12 +49,15 @@
       "renewalDate": "2024-10-30",
       "categories": [
         "cdp"
-      ]
+      ],
+      "logoSource": "Known MarTech Database",
+      "logoConfidence": 95,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v4",
       "name": "Tealium",
-      "logo": "https://via.placeholder.com/64x64/0066CC/FFFFFF?text=TEA",
+      "logo": "https://logo.clearbit.com/tealium.com",
       "deploymentStatus": "Pending",
       "capabilities": "Tag management, customer data orchestration, privacy compliance",
       "label": [
@@ -58,7 +67,10 @@
       "renewalDate": "2024-06-20",
       "categories": [
         "cdp"
-      ]
+      ],
+      "logoSource": "Clearbit",
+      "logoConfidence": 85,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v5",
@@ -78,7 +90,7 @@
     {
       "id": "v6",
       "name": "SendGrid",
-      "logo": "https://via.placeholder.com/64x64/1A82E2/FFFFFF?text=SG",
+      "logo": "https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand/2016/SendGrid-Logomark.png",
       "deploymentStatus": "Active",
       "capabilities": "Transactional email, marketing campaigns, email deliverability",
       "label": [
@@ -88,12 +100,15 @@
       "renewalDate": "2024-11-30",
       "categories": [
         "email"
-      ]
+      ],
+      "logoSource": "Known MarTech Database",
+      "logoConfidence": 95,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v7",
       "name": "Klaviyo",
-      "logo": "https://via.placeholder.com/64x64/FF6900/FFFFFF?text=KLA",
+      "logo": "https://www.klaviyo.com/wp-content/uploads/2021/01/klaviyo-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "E-commerce email marketing, SMS campaigns, customer analytics",
       "label": [
@@ -103,12 +118,15 @@
       "renewalDate": "2024-07-10",
       "categories": [
         "email"
-      ]
+      ],
+      "logoSource": "Known MarTech Database",
+      "logoConfidence": 95,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v8",
       "name": "Twilio",
-      "logo": "https://via.placeholder.com/64x64/F22F46/FFFFFF?text=TWI",
+      "logo": "https://logo.clearbit.com/twilio.com",
       "deploymentStatus": "Active",
       "capabilities": "SMS marketing, voice campaigns, programmable communications",
       "label": [
@@ -119,12 +137,15 @@
       "renewalDate": "2024-05-25",
       "categories": [
         "email"
-      ]
+      ],
+      "logoSource": "Clearbit",
+      "logoConfidence": 85,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v9",
       "name": "Braze",
-      "logo": "https://via.placeholder.com/64x64/FF6B35/FFFFFF?text=BRZ",
+      "logo": "https://logo.clearbit.com/braze.com",
       "deploymentStatus": "Pending",
       "capabilities": "Multi-channel messaging, customer engagement, lifecycle marketing",
       "label": [
@@ -134,7 +155,10 @@
       "renewalDate": "2024-12-05",
       "categories": [
         "email"
-      ]
+      ],
+      "logoSource": "Clearbit",
+      "logoConfidence": 85,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v10",
@@ -157,7 +181,7 @@
     {
       "id": "v11",
       "name": "Adobe Analytics",
-      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
+      "logo": "https://ui-avatars.com/api/?name=AA&background=8B5CF6&color=FFFFFF&size=128&bold=true&format=png",
       "deploymentStatus": "Active",
       "capabilities": "Advanced analytics, real-time reporting, predictive analytics",
       "label": [
@@ -168,12 +192,15 @@
       "categories": [
         "web",
         "analytics"
-      ]
+      ],
+      "logoSource": "High-Quality Fallback",
+      "logoConfidence": 50,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v12",
       "name": "Optimizely",
-      "logo": "https://via.placeholder.com/64x64/0073E6/FFFFFF?text=OPT",
+      "logo": "https://logo.clearbit.com/optimizely.com",
       "deploymentStatus": "Active",
       "capabilities": "A/B testing, experimentation, personalization, feature flags",
       "label": [
@@ -183,12 +210,15 @@
       "renewalDate": "2024-09-30",
       "categories": [
         "web"
-      ]
+      ],
+      "logoSource": "Clearbit",
+      "logoConfidence": 85,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v13",
       "name": "Hotjar",
-      "logo": "https://via.placeholder.com/64x64/FD3A69/FFFFFF?text=HOT",
+      "logo": "https://www.hotjar.com/assets/img/brand/hotjar-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "User behavior analytics, heatmaps, session recordings, surveys",
       "label": [
@@ -198,12 +228,15 @@
       "renewalDate": "2024-06-15",
       "categories": [
         "web"
-      ]
+      ],
+      "logoSource": "Known MarTech Database",
+      "logoConfidence": 95,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v14",
       "name": "Hootsuite",
-      "logo": "https://via.placeholder.com/64x64/1DA1F2/FFFFFF?text=HOO",
+      "logo": "https://hootsuite.com/uploads/images/brand/hootsuite-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "Social media management, scheduling, analytics, team collaboration",
       "label": [
@@ -213,12 +246,15 @@
       "renewalDate": "2024-11-30",
       "categories": [
         "social-publishing"
-      ]
+      ],
+      "logoSource": "Known MarTech Database",
+      "logoConfidence": 95,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v15",
       "name": "Buffer",
-      "logo": "https://via.placeholder.com/64x64/168EEA/FFFFFF?text=BUF",
+      "logo": "https://buffer.com/static/icons/buffer-logo.svg",
       "deploymentStatus": "Active",
       "capabilities": "Social media scheduling, content planning, performance analytics",
       "label": [
@@ -228,7 +264,10 @@
       "renewalDate": "2024-04-20",
       "categories": [
         "social-publishing"
-      ]
+      ],
+      "logoSource": "Known MarTech Database",
+      "logoConfidence": 95,
+      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
     },
     {
       "id": "v16",
@@ -1160,7 +1199,7 @@
       ]
     }
   ],
-  "lastUpdated": "2025-07-27T00:26:22.890Z",
+  "lastUpdated": "2025-07-27T05:51:23.034Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 74,
