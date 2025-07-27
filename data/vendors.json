@@ -151,25 +151,6 @@
       "logoUpdated": true
     },
     {
-      "id": "v9",
-      "name": "Braze",
-      "logo": "https://www.braze.com/assets/images/braze-logo.svg",
-      "deploymentStatus": "Pending",
-      "capabilities": "Multi-channel messaging, customer engagement, lifecycle marketing",
-      "label": [
-        "Ghost Story"
-      ],
-      "annualCost": 150000,
-      "renewalDate": "2024-12-05",
-      "categories": [
-        "email"
-      ],
-      "logoSource": "predefined",
-      "logoConfidence": 85,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
-      "logoUpdated": true
-    },
-    {
       "id": "v10",
       "name": "Google Analytics",
       "logo": "https://developers.google.com/analytics/images/terms/logo_lockup_analytics_icon_vertical_black_2x.png",
@@ -544,7 +525,7 @@
     {
       "id": "test_1753569076013",
       "name": "Cross-Device Test 6:31:16 PM",
-      "logo": "https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST",
+      "logo": "https://ui-avatars.com/api/?name=CT&background=F59E0B&color=FFFFFF&size=128&bold=true&format=png",
       "deploymentStatus": "Active",
       "capabilities": "Testing cross-device GitHub cloud sync functionality",
       "label": [
@@ -554,12 +535,14 @@
       "renewalDate": "2024-12-31",
       "categories": [
         "analytics"
-      ]
+      ],
+      "logoUpdated": true,
+      "logoSource": "manual"
     },
     {
       "id": "test_1753571062852",
       "name": "Cross-Device Test 7:04:22 PM",
-      "logo": "https://via.placeholder.com/64x64/4CAF50/FFFFFF?text=TEST",
+      "logo": "https://ui-avatars.com/api/?name=CT&background=F59E0B&color=FFFFFF&size=128&bold=true&format=png",
       "deploymentStatus": "Active",
       "capabilities": "Testing cross-device GitHub cloud sync functionality",
       "label": [
@@ -569,7 +552,9 @@
       "renewalDate": "2024-12-31",
       "categories": [
         "analytics"
-      ]
+      ],
+      "logoUpdated": true,
+      "logoSource": "manual"
     },
     {
       "id": "bulk_1753573138669_0",
@@ -608,7 +593,7 @@
     {
       "id": "bulk_1753573138670_2",
       "name": "Adobe Workfront",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://ui-avatars.com/api/?name=AW&background=F59E0B&color=FFFFFF&size=128&bold=true&format=png",
       "deploymentStatus": "Active",
       "capabilities": "Work management platform designed to streamline project planning, collaboration, and execution for creative and marketing teams.",
       "label": [
@@ -619,7 +604,9 @@
       "renewalDate": "2026-04-17",
       "categories": [
         "analytics"
-      ]
+      ],
+      "logoUpdated": true,
+      "logoSource": "manual"
     },
     {
       "id": "bulk_1753573138670_3",
@@ -1327,9 +1314,9 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T21:39:00.341Z",
+  "lastUpdated": "2025-07-27T21:41:38.083Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
-  "totalVendors": 74,
+  "totalVendors": 73,
   "syncAttempt": 1
 }
