@@ -113,7 +113,7 @@
     {
       "id": "v28",
       "name": "AspireIQ",
-      "logo": "https://www.aspireiq.com/wp-content/uploads/2020/03/aspireiq-logo.svg",
+      "logo": "https://logo.clearbit.com/aspireiq.com",
       "deploymentStatus": "Active",
       "capabilities": "Influencer discovery, campaign management, performance tracking",
       "label": [
@@ -148,7 +148,7 @@
     {
       "id": "bulk_1753573138670_1",
       "name": "Adobe Experience Manager",
-      "logo": "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg",
+      "logo": "https://logo.clearbit.com/adobe.com",
       "deploymentStatus": "Active",
       "capabilities": "Enterprise content management system for building websites, mobile apps, and forms, with robust digital asset management.",
       "label": [
@@ -159,12 +159,14 @@
       "renewalDate": "2026-04-17",
       "categories": [
         "web"
-      ]
+      ],
+      "logoUpdated": true,
+      "logoSource": "predefined"
     },
     {
       "id": "bulk_1753573138670_2",
       "name": "Adobe Workfront",
-      "logo": "https://ui-avatars.com/api/?name=AW&background=F59E0B&color=FFFFFF&size=128&bold=true&format=png",
+      "logo": "https://logo.clearbit.com/adobe.com",
       "deploymentStatus": "Active",
       "capabilities": "Work management platform designed to streamline project planning, collaboration, and execution for creative and marketing teams.",
       "label": [
@@ -177,12 +179,12 @@
         "analytics"
       ],
       "logoUpdated": true,
-      "logoSource": "manual"
+      "logoSource": "predefined"
     },
     {
       "id": "bulk_1753573138670_3",
       "name": "Adswerve",
-      "logo": "https://adswerve.com/wp-content/uploads/2020/03/adswerve-logo.svg",
+      "logo": "https://logo.clearbit.com/adswerve.com",
       "deploymentStatus": "Active",
       "capabilities": "Digital analytics and media consultancy specializing in Google Marketing Platform solutions, including analytics, media buying, and data integration.",
       "label": [
@@ -200,7 +202,7 @@
     {
       "id": "bulk_1753573138670_4",
       "name": "Ahrefs Webmaster Tools",
-      "logo": "https://ahrefs.com/wp-content/uploads/2020/03/ahrefs-logo.svg",
+      "logo": "https://logo.clearbit.com/ahrefs.com",
       "deploymentStatus": "Active",
       "capabilities": "SEO platform offering site audits, backlink analysis, and keyword tracking to improve website search performance.",
       "label": [
@@ -218,7 +220,7 @@
     {
       "id": "bulk_1753573138670_5",
       "name": "Alchemer",
-      "logo": "https://www.alchemer.com/wp-content/uploads/2020/03/alchemer-logo.svg",
+      "logo": "https://logo.clearbit.com/alchemer.com",
       "deploymentStatus": "Active",
       "capabilities": "Survey and feedback platform for collecting, analyzing, and acting on customer and employee insights.",
       "label": [
@@ -254,7 +256,7 @@
     {
       "id": "bulk_1753573138670_7",
       "name": "Ayzenberg",
-      "logo": "https://ayzenberg.com/wp-content/uploads/2020/03/ayzenberg-logo.svg",
+      "logo": "https://logo.clearbit.com/ayzenberg.com",
       "deploymentStatus": "Active",
       "capabilities": "Full-service marketing and advertising agency focused on digital, social, and influencer campaigns.",
       "label": [
@@ -272,7 +274,7 @@
     {
       "id": "bulk_1753573138670_8",
       "name": "Bit.ly",
-      "logo": "https://bitly.com/wp-content/uploads/2020/03/bitly-logo.svg",
+      "logo": "https://logo.clearbit.com/bitly.com",
       "deploymentStatus": "Active",
       "capabilities": "URL shortening and link management service, providing branded links, click tracking, and analytics.",
       "label": [
@@ -290,7 +292,7 @@
     {
       "id": "bulk_1753573138671_9",
       "name": "BrowserStack",
-      "logo": "https://www.browserstack.com/wp-content/uploads/2020/03/browserstack-logo.svg",
+      "logo": "https://logo.clearbit.com/browserstack.com",
       "deploymentStatus": "Active",
       "capabilities": "Cloud-based testing platform for web and mobile applications across various browsers and devices.",
       "label": [
@@ -308,7 +310,7 @@
     {
       "id": "bulk_1753573138671_10",
       "name": "Code Climate Inc",
-      "logo": "https://codeclimate.com/wp-content/uploads/2020/03/codeclimate-logo.svg",
+      "logo": "https://logo.clearbit.com/codeclimate.com",
       "deploymentStatus": "Active",
       "capabilities": "Automated code review and quality analysis platform for engineering teams to improve code health and maintainability.",
       "label": [
@@ -326,7 +328,7 @@
     {
       "id": "bulk_1753573432079_0",
       "name": "Contentful",
-      "logo": "https://www.contentful.com/wp-content/uploads/2020/03/contentful-logo.svg",
+      "logo": "https://logo.clearbit.com/contentful.com",
       "deploymentStatus": "Active",
       "capabilities": "Headless content management system (CMS) for creating, managing, and distributing content across digital channels.",
       "label": [
@@ -344,7 +346,7 @@
     {
       "id": "bulk_1753573432080_1",
       "name": "CreatorIQ",
-      "logo": "https://www.creatoriq.com/wp-content/uploads/2020/03/creatoriq-logo.svg",
+      "logo": "https://logo.clearbit.com/creatoriq.com",
       "deploymentStatus": "Active",
       "capabilities": "Influencer marketing platform for discovering, managing, and measuring influencer campaigns at scale.",
       "label": [
@@ -362,7 +364,7 @@
     {
       "id": "bulk_1753573432080_2",
       "name": "Databricks",
-      "logo": "https://databricks.com/wp-content/uploads/2020/03/databricks-logo.svg",
+      "logo": "https://logo.clearbit.com/databricks.com",
       "deploymentStatus": "Active",
       "capabilities": "Unified analytics platform for big data and AI, enabling data engineering, collaborative analytics, and machine learning.",
       "label": [
@@ -380,7 +382,7 @@
     {
       "id": "bulk_1753573432080_3",
       "name": "DeltaDNA",
-      "logo": "https://deltadna.com/wp-content/uploads/2020/03/deltadna-logo.svg",
+      "logo": "https://logo.clearbit.com/deltadna.com",
       "deploymentStatus": "Active",
       "capabilities": "Advanced analytics and engagement platform for game developers, offering player insights and personalized messaging.",
       "label": [
@@ -398,7 +400,7 @@
     {
       "id": "bulk_1753573432080_4",
       "name": "Directly",
-      "logo": "https://directly.com/wp-content/uploads/2020/03/directly-logo.svg",
+      "logo": "https://logo.clearbit.com/directly.com",
       "deploymentStatus": "Active",
       "capabilities": "AI-powered customer support automation, integrating expert networks and virtual agents to resolve customer issues efficiently.",
       "label": [
@@ -434,7 +436,7 @@
     {
       "id": "bulk_1753573432080_6",
       "name": "Helpshift",
-      "logo": "https://helpshift.com/wp-content/uploads/2020/03/helpshift-logo.svg",
+      "logo": "https://logo.clearbit.com/helpshift.com",
       "deploymentStatus": "Active",
       "capabilities": "In-app customer support platform for mobile apps, offering messaging, automation, and self-service options.",
       "label": [
@@ -452,7 +454,7 @@
     {
       "id": "bulk_1753573432080_7",
       "name": "Infosum",
-      "logo": "https://www.infosum.com/wp-content/uploads/2020/03/infosum-logo.svg",
+      "logo": "https://logo.clearbit.com/infosum.com",
       "deploymentStatus": "Active",
       "capabilities": "Privacy-first data collaboration platform, enabling secure data matching and analytics without sharing raw data.",
       "label": [
@@ -470,7 +472,7 @@
     {
       "id": "bulk_1753573432081_8",
       "name": "Linktree",
-      "logo": "https://linktr.ee/wp-content/uploads/2020/03/linktree-logo.svg",
+      "logo": "https://logo.clearbit.com/linktr.ee",
       "deploymentStatus": "Active",
       "capabilities": "Link-in-bio tool for social media, allowing users to share multiple links through a single customizable landing page.",
       "label": [
@@ -506,7 +508,7 @@
     {
       "id": "bulk_1753573432081_10",
       "name": "Liveramp",
-      "logo": "https://liveramp.com/wp-content/uploads/2020/03/liveramp-logo.svg",
+      "logo": "https://logo.clearbit.com/liveramp.com",
       "deploymentStatus": "Active",
       "capabilities": "Data connectivity platform for identity resolution, onboarding, and activation across marketing channels.",
       "label": [
@@ -524,7 +526,7 @@
     {
       "id": "bulk_1753573432081_11",
       "name": "Lotus Themes",
-      "logo": "https://lotusthemes.com/wp-content/uploads/2020/03/lotus-themes-logo.svg",
+      "logo": "https://logo.clearbit.com/lotusthemes.com",
       "deploymentStatus": "Active",
       "capabilities": "Provider of premium themes and design solutions for Zendesk and other customer support platforms.",
       "label": [
@@ -542,7 +544,7 @@
     {
       "id": "bulk_1753573432081_12",
       "name": "Meltwater",
-      "logo": "https://www.meltwater.com/wp-content/uploads/2020/03/meltwater-logo.svg",
+      "logo": "https://logo.clearbit.com/meltwater.com",
       "deploymentStatus": "Active",
       "capabilities": "Media intelligence and social listening platform for monitoring news, social media, and online conversations.",
       "label": [
@@ -560,7 +562,7 @@
     {
       "id": "bulk_1753573432081_13",
       "name": "Movable Ink",
-      "logo": "https://movableink.com/wp-content/uploads/2020/03/movable-ink-logo.svg",
+      "logo": "https://logo.clearbit.com/movableink.com",
       "deploymentStatus": "Active",
       "capabilities": "Dynamic content platform for creating personalized, data-driven email and web experiences.",
       "label": [
@@ -578,7 +580,7 @@
     {
       "id": "bulk_1753573432082_14",
       "name": "Muck Rack",
-      "logo": "https://muckrack.com/wp-content/uploads/2020/03/muck-rack-logo.svg",
+      "logo": "https://logo.clearbit.com/muckrack.com",
       "deploymentStatus": "Active",
       "capabilities": "Public relations management platform for media monitoring, journalist outreach, and PR analytics.",
       "label": [
@@ -596,7 +598,7 @@
     {
       "id": "bulk_1753573432082_15",
       "name": "OneTrust - Cookie Compliance",
-      "logo": "https://onetrust.com/wp-content/uploads/2020/03/onetrust-logo.svg",
+      "logo": "https://logo.clearbit.com/onetrust.com",
       "deploymentStatus": "Active",
       "capabilities": "Privacy management solution for website cookie consent and compliance with global data regulations.",
       "label": [
@@ -614,7 +616,7 @@
     {
       "id": "bulk_1753573432082_16",
       "name": "PRManager (ex PRGloo)",
-      "logo": "https://prmanager.com/wp-content/uploads/2020/03/prmanager-logo.svg",
+      "logo": "https://logo.clearbit.com/prmanager.com",
       "deploymentStatus": "Active",
       "capabilities": "PR management platform for handling media contacts, press releases, and newsroom workflows.",
       "label": [
@@ -632,7 +634,7 @@
     {
       "id": "bulk_1753573432082_17",
       "name": "Quiq",
-      "logo": "https://quiq.com/wp-content/uploads/2020/03/quiq-logo.svg",
+      "logo": "https://logo.clearbit.com/quiq.com",
       "deploymentStatus": "Active",
       "capabilities": "Conversational AI and messaging platform for customer service across SMS, web chat, and social channels.",
       "label": [
@@ -885,7 +887,7 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T23:08:19.638Z",
+  "lastUpdated": "2025-07-27T23:12:16.722Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 49,
