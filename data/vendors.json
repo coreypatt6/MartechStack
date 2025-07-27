@@ -39,7 +39,7 @@
     {
       "id": "v3",
       "name": "Segment",
-      "logo": "https://segment.com/wp-content/uploads/segment-logo.svg",
+      "logo": "https://logo.clearbit.com/segment.com",
       "deploymentStatus": "Active",
       "capabilities": "Data collection, customer data infrastructure, audience management",
       "label": [
@@ -52,7 +52,7 @@
       ],
       "logoSource": "Known MarTech Database",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T20:08:07.891Z"
     },
     {
       "id": "v4",
@@ -90,7 +90,7 @@
     {
       "id": "v6",
       "name": "SendGrid",
-      "logo": "https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand/2016/SendGrid-Logomark.png",
+      "logo": "https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand/2016/SendGrid-Logomark.svg",
       "deploymentStatus": "Active",
       "capabilities": "Transactional email, marketing campaigns, email deliverability",
       "label": [
@@ -103,12 +103,12 @@
       ],
       "logoSource": "Known MarTech Database",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T20:08:07.892Z"
     },
     {
       "id": "v7",
       "name": "Klaviyo",
-      "logo": "https://www.klaviyo.com/wp-content/uploads/2021/01/klaviyo-logo.svg",
+      "logo": "https://logo.clearbit.com/klaviyo.com",
       "deploymentStatus": "Active",
       "capabilities": "E-commerce email marketing, SMS campaigns, customer analytics",
       "label": [
@@ -121,7 +121,7 @@
       ],
       "logoSource": "Known MarTech Database",
       "logoConfidence": 95,
-      "logoUpdatedAt": "2025-07-27T05:51:22.811Z"
+      "logoUpdatedAt": "2025-07-27T20:08:07.892Z"
     },
     {
       "id": "v8",
@@ -1199,7 +1199,7 @@
       ]
     }
   ],
-  "lastUpdated": "2025-07-27T05:51:23.034Z",
+  "lastUpdated": "2025-07-27T20:08:08.063Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 74,
