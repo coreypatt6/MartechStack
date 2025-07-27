@@ -32,6 +32,8 @@
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
     "@tanstack/react-query": "^5.83.0",
+    "dotenv": "^17.2.1",
+    "firecrawl-mcp": "^1.12.0",
     "framer-motion": "^12.23.3",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",

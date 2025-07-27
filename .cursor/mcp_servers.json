@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "firecrawl": {
+      "command": "node",
+      "args": ["./node_modules/firecrawl-mcp/dist/index.js"],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-201bc2d2701046019848736c6120cf26"
+      }
+    }
+  }
+}
