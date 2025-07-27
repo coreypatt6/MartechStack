@@ -159,10 +159,6 @@ export const useVendors = () => {
     vendorStorage = updatedVendors;
     saveToStorage(updatedVendors);
     setVendors(updatedVendors);
-    // Sync to GitHub but don't block the operation if it fails
-    syncToGitHub(updatedVendors).catch(() => {
-      // Sync failed but vendors were still added locally
-    });
     console.log('Bulk vendors added:', newVendors.length, 'Total vendors:', updatedVendors.length);
   };
 
