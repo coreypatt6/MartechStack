@@ -418,7 +418,7 @@
     {
       "id": "bulk_1753573432080_5",
       "name": "Guru",
-      "logo": "https://logo.clearbit.com/getguru.com",
+      "logo": "https://logo.clearbit.com/getguru.com?size=128",
       "deploymentStatus": "Active",
       "capabilities": "Knowledge management solution that delivers verified information to teams directly within their workflow.",
       "label": [
@@ -616,7 +616,7 @@
     {
       "id": "bulk_1753573432082_16",
       "name": "PRManager (ex PRGloo)",
-      "logo": "https://logo.clearbit.com/prmanager.com",
+      "logo": "https://logo.clearbit.com/prmanager.io?size=128",
       "deploymentStatus": "Active",
       "capabilities": "PR management platform for handling media contacts, press releases, and newsroom workflows.",
       "label": [
@@ -727,7 +727,7 @@
     {
       "id": "bulk_1753573870506_1",
       "name": "Screen Engine | MindGame",
-      "logo": "https://logo.clearbit.com/screenengine.com",
+      "logo": "https://logo.clearbit.com/screenengine.co?size=128",
       "deploymentStatus": "Active",
       "capabilities": "Analytics and insights platform focused on gaming market share, player behavior, and industry trends.",
       "label": [
@@ -871,7 +871,7 @@
     {
       "id": "bulk_1753574088900_7",
       "name": "Tymeshift",
-      "logo": "https://logo.clearbit.com/tymeshift.com",
+      "logo": "https://logo.clearbit.com/tymeshift.io?size=128",
       "deploymentStatus": "Active",
       "capabilities": "Workforce management solution for customer support teams, offering scheduling, forecasting, and real-time analytics.",
       "label": [
@@ -887,7 +887,7 @@
       "logoSource": "predefined"
     }
   ],
-  "lastUpdated": "2025-07-27T23:20:50.862Z",
+  "lastUpdated": "2025-07-28T01:14:56.145Z",
   "version": "1.0.0",
   "syncedFrom": "MarTech Stack Dashboard",
   "totalVendors": 49,
