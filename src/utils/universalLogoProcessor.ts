@@ -1,7 +1,7 @@
 // Universal Logo Processor
 // Ensures ALL vendor logos have transparent backgrounds
 
-import { removeLogoBackground, LogoProcessingOptions, LogoProcessingResult } from './logoBackgroundRemover';
+import { removeLogoBackground, LogoProcessingOptions, LogoProcessingResult } from './browserLogoProcessor';
 import { KNOWN_MARTECH_LOGOS } from './corporateLogoFetcher';
 
 export interface VendorLogoInfo {

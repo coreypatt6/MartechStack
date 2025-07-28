@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Vendor } from '../types';
 import { mockVendors } from '../data/mockData';
 import { GitHubSync } from '../utils/githubSync';
+import { processAllLogosForTransparency, processSingleLogoForTransparency } from '../utils/logoTransparencyProcessor';
 
 // Initialize storage with mock data only if empty
 const initializeStorage = () => {
@@ -64,13 +65,14 @@ export const useVendors = () => {
   const [vendors, setVendors] = useState<Vendor[]>(vendorStorage);
   const [isSyncing, setIsSyncing] = useState(false);
   const [lastSyncTime, setLastSyncTime] = useState<Date | null>(null);
+  const [isProcessingLogos, setIsProcessingLogos] = useState(false);
 
   // Sync state with storage when it changes
   useEffect(() => {
     setVendors(vendorStorage);
   }, []);
 
-  // Load vendors from GitHub on first load
+  // Load vendors from GitHub on first load and process logos for transparency
   useEffect(() => {
     const loadFromGitHub = async () => {
       try {
@@ -86,15 +88,24 @@ export const useVendors = () => {
           setVendors(githubVendors);
           setLastSyncTime(new Date());
           console.log('✅ Cross-device sync complete - vendors now synchronized');
+          
+          // Automatically process logos for transparency
+          await processLogosForTransparency(githubVendors);
         } else {
           console.log('📝 No vendor data found in GitHub repository');
           console.log('💾 Using local storage data - will sync to GitHub on next change');
           console.log('🔧 Current local vendors:', vendorStorage.length);
+          
+          // Process existing local vendors for transparency
+          await processLogosForTransparency(vendorStorage);
         }
       } catch (error) {
         console.log('⚠️ Could not load from GitHub repository:', error.message);
         console.log('💾 Falling back to local storage data');
         console.log('🔧 Local vendors available:', vendorStorage.length);
+        
+        // Still process local vendors for transparency
+        await processLogosForTransparency(vendorStorage);
       } finally {
         setIsSyncing(false);
       }
@@ -102,6 +113,38 @@ export const useVendors = () => {
 
     loadFromGitHub();
   }, []);
+
+  // Function to automatically process logos for transparency
+  const processLogosForTransparency = async (vendorsToProcess: Vendor[]) => {
+    console.log('🎨 Starting automatic logo transparency processing...');
+    setIsProcessingLogos(true);
+    
+    try {
+      const result = await processAllLogosForTransparency(vendorsToProcess);
+      
+      if (result.processedCount > 0) {
+        console.log(`✅ Successfully processed ${result.processedCount} logos for transparency`);
+        
+        // Update vendors with transparent logos
+        vendorStorage = result.updatedVendors;
+        saveToStorage(result.updatedVendors);
+        setVendors(result.updatedVendors);
+        
+        // Sync to GitHub
+        await syncToGitHub(result.updatedVendors);
+      } else {
+        console.log('📋 No logos needed transparency processing');
+      }
+      
+      if (result.errors.length > 0) {
+        console.warn('⚠️ Some logos had processing errors:', result.errors);
+      }
+    } catch (error) {
+      console.error('❌ Error during automatic logo transparency processing:', error);
+    } finally {
+      setIsProcessingLogos(false);
+    }
+  };
 
   const syncToGitHub = async (newVendors: Vendor[]) => {
     setIsSyncing(true);
@@ -118,8 +161,11 @@ export const useVendors = () => {
     }
   };
 
-  const addVendor = (vendor: Vendor) => {
-    const newVendors = [...vendorStorage, vendor];
+  const addVendor = async (vendor: Vendor) => {
+    // Process logo for transparency if needed
+    const processedVendor = await processSingleLogoForTransparency(vendor);
+    
+    const newVendors = [...vendorStorage, processedVendor];
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
@@ -127,11 +173,14 @@ export const useVendors = () => {
     syncToGitHub(newVendors).catch(() => {
       // Sync failed but vendor was still added locally
     });
-    console.log('➕ Vendor added:', vendor.name, '| Total vendors:', newVendors.length);
+    console.log('➕ Vendor added:', processedVendor.name, '| Total vendors:', newVendors.length);
   };
 
-  const updateVendor = (id: string, updatedVendor: Vendor) => {
-    const newVendors = vendorStorage.map(v => v.id === id ? updatedVendor : v);
+  const updateVendor = async (id: string, updatedVendor: Vendor) => {
+    // Process logo for transparency if needed
+    const processedVendor = await processSingleLogoForTransparency(updatedVendor);
+    
+    const newVendors = vendorStorage.map(v => v.id === id ? processedVendor : v);
     vendorStorage = newVendors;
     saveToStorage(newVendors);
     setVendors(newVendors);
@@ -139,7 +188,7 @@ export const useVendors = () => {
     syncToGitHub(newVendors).catch(() => {
       // Sync failed but vendor was still updated locally
     });
-    console.log('✏️ Vendor updated:', updatedVendor.name, '| Total vendors:', newVendors.length);
+    console.log('✏️ Vendor updated:', processedVendor.name, '| Total vendors:', newVendors.length);
   };
 
   const deleteVendor = (id: string) => {
@@ -207,6 +256,8 @@ export const useVendors = () => {
     resetToMockData,
     manualSync,
     isSyncing,
-    lastSyncTime
+    lastSyncTime,
+    isProcessingLogos,
+    processLogosForTransparency
   };
 };

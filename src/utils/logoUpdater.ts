@@ -9,86 +9,96 @@ export interface LogoUpdate {
   source: string;
 }
 
-// Common logo sources for major vendors
+// Common logo sources for major vendors - Using reliable Clearbit API
 export const LOGO_SOURCES: Record<string, string> = {
   // CDP Vendors
-  'Salesforce CDP': 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
-  'Adobe Experience Platform': 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg',
-  'Segment': 'https://segment.com/static/segment-logo.svg',
-  'Tealium': 'https://tealium.com/wp-content/uploads/2021/03/tealium-logo.svg',
-  'Treasure Data': 'https://www.treasuredata.com/wp-content/uploads/2021/03/td-logo.svg',
+  'Salesforce CDP': 'https://logo.clearbit.com/salesforce.com',
+  'Adobe Experience Platform': 'https://logo.clearbit.com/adobe.com',
+  'Segment': 'https://logo.clearbit.com/segment.com',
+  'Tealium': 'https://logo.clearbit.com/tealium.com',
+  'Treasure Data': 'https://logo.clearbit.com/treasuredata.com',
   
   // Email Vendors
-  'Mailchimp': 'https://eep.io/images/yzp4yyPofdYiCanTdGXQC0sNFb8=/2400x0/filters:no_upscale()/eep/images/landing_pages/brand/mailchimp-freddie-wink.png',
-  'SendGrid': 'https://sendgrid.com/wp-content/uploads/2016/05/logo-300x100.png',
-  'Klaviyo': 'https://www.klaviyo.com/wp-content/uploads/2020/07/klaviyo-logo.svg',
-  'Twilio': 'https://www.twilio.com/content/dam/twilio-com/global/en/blog/wp-content/uploads/2016/10/Twilio_logo_red.png',
-  'Braze': 'https://www.braze.com/assets/images/braze-logo.svg',
-  'Salesforce Marketing Cloud': 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
+  'Mailchimp': 'https://logo.clearbit.com/mailchimp.com',
+  'SendGrid': 'https://logo.clearbit.com/sendgrid.com',
+  'Klaviyo': 'https://logo.clearbit.com/klaviyo.com',
+  'Twilio': 'https://logo.clearbit.com/twilio.com',
+  'Braze': 'https://logo.clearbit.com/braze.com',
+  'Salesforce Marketing Cloud': 'https://logo.clearbit.com/salesforce.com',
   
   // Analytics Vendors
-  'Google Analytics': 'https://developers.google.com/analytics/images/terms/logo_lockup_analytics_icon_vertical_black_2x.png',
-  'Adobe Analytics': 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg',
-  'Tableau': 'https://www.tableau.com/sites/default/files/2020-07/Tableau_Logo.png',
-  'Looker': 'https://looker.com/assets/images/looker-logo.svg',
-  'Mixpanel': 'https://mixpanel.com/assets/images/mixpanel-logo.svg',
-  'Appsflyer': 'https://www.appsflyer.com/wp-content/uploads/2020/03/appsflyer-logo.svg',
-  'Adjust': 'https://www.adjust.com/wp-content/uploads/2020/03/adjust-logo.svg',
+  'Google Analytics': 'https://logo.clearbit.com/google.com',
+  'Adobe Analytics': 'https://logo.clearbit.com/adobe.com',
+  'Tableau': 'https://logo.clearbit.com/tableau.com',
+  'Looker': 'https://logo.clearbit.com/looker.com',
+  'Mixpanel': 'https://logo.clearbit.com/mixpanel.com',
+  'Appsflyer': 'https://logo.clearbit.com/appsflyer.com',
+  'Adjust': 'https://logo.clearbit.com/adjust.com',
   
   // Social Media
-  'Hootsuite': 'https://hootsuite.com/wp-content/uploads/2020/03/hootsuite-logo.svg',
-  'Buffer': 'https://buffer.com/library/content/images/buffer-logo.svg',
-  'Sprout Social': 'https://sproutsocial.com/wp-content/uploads/2020/03/sprout-social-logo.svg',
-  'Sprinklr': 'https://www.sprinklr.com/wp-content/uploads/2020/03/sprinklr-logo.svg',
+  'Hootsuite': 'https://logo.clearbit.com/hootsuite.com',
+  'Buffer': 'https://logo.clearbit.com/buffer.com',
+  'Sprout Social': 'https://logo.clearbit.com/sproutsocial.com',
+  'Sprinklr': 'https://logo.clearbit.com/sprinklr.com',
   
   // Customer Service
-  'Zendesk': 'https://d1eipm3vz40hy0.cloudfront.net/images/AMER/zendesk-logo.svg',
-  'Intercom': 'https://www.intercom.com/assets/images/intercom-logo.svg',
-  'Freshdesk': 'https://freshdesk.com/wp-content/uploads/2020/03/freshdesk-logo.svg',
+  'Zendesk': 'https://logo.clearbit.com/zendesk.com',
+  'Intercom': 'https://logo.clearbit.com/intercom.com',
+  'Freshdesk': 'https://logo.clearbit.com/freshdesk.com',
   
   // Advertising
-  'Google Ads': 'https://ads.google.com/static/images/google-ads-logo.svg',
-  'Facebook Ads': 'https://www.facebook.com/images/fb_icon_325x325.png',
-  'The Trade Desk': 'https://www.thetradedesk.com/wp-content/uploads/2020/03/ttd-logo.svg',
+  'Google Ads': 'https://logo.clearbit.com/google.com',
   
-  // Influencer Marketing
-  'AspireIQ': 'https://www.aspireiq.com/wp-content/uploads/2020/03/aspireiq-logo.svg',
-  'Grin': 'https://grin.co/wp-content/uploads/2020/03/grin-logo.svg',
-  'CreatorIQ': 'https://www.creatoriq.com/wp-content/uploads/2020/03/creatoriq-logo.svg',
+  // Exact vendor names from failing list - matching case-sensitive names
+  'Adswerve': 'https://logo.clearbit.com/adswerve.com',
+  'Ahrefs Webmaster Tools': 'https://logo.clearbit.com/ahrefs.com',
+  'Alchemer': 'https://logo.clearbit.com/alchemer.com',
+  'AspireIQ': 'https://logo.clearbit.com/aspireiq.com',
+  'Ayzenberg': 'https://logo.clearbit.com/ayzenberg.com',
+  'Bit.ly': 'https://logo.clearbit.com/bitly.com',
+  'BrowserStack': 'https://logo.clearbit.com/browserstack.com',
+  'Code Climate Inc': 'https://logo.clearbit.com/codeclimate.com',
+  'Contentful': 'https://logo.clearbit.com/contentful.com',
+  'CreatorIQ': 'https://logo.clearbit.com/creatoriq.com',
+  'Databricks': 'https://logo.clearbit.com/databricks.com',
+  'DeltaDNA': 'https://logo.clearbit.com/deltadna.com',
+  'Directly': 'https://logo.clearbit.com/directly.com',
+  'Helpshift': 'https://logo.clearbit.com/helpshift.com',
+  'Infosum': 'https://logo.clearbit.com/infosum.com',
+  'LevelUP Analytics': 'https://logo.clearbit.com/levelupanalytics.com',
+  'Linktree': 'https://logo.clearbit.com/linktr.ee',
+  'LiveRamp': 'https://logo.clearbit.com/liveramp.com',
+  'Lotus Themes': 'https://logo.clearbit.com/lotusthemes.com',
+  'Meltwater': 'https://logo.clearbit.com/meltwater.com',
+  'Movable Ink': 'https://logo.clearbit.com/movableink.com',
+  'Muck Rack': 'https://logo.clearbit.com/muckrack.com',
+  'OneTrust - Cookie Compliance': 'https://logo.clearbit.com/onetrust.com',
+  'Optimizely': 'https://logo.clearbit.com/optimizely.com',
+  'Quiq': 'https://logo.clearbit.com/quiq.com',
+  'RightPoint': 'https://logo.clearbit.com/rightpoint.com',
+  'Sensor Tower | Pathmatics': 'https://logo.clearbit.com/sensortower.com',
+  'Statuspage': 'https://logo.clearbit.com/statuspage.io',
+  'Stream Hatchet': 'https://logo.clearbit.com/streamhatchet.com',
+  'The Trade Desk': 'https://logo.clearbit.com/thetradedesk.com',
+  'Tymeshift': 'https://logo.clearbit.com/zendesk.com?size=128', // Acquired by Zendesk in 2023
+  'Guru': 'https://logo.clearbit.com/getguru.com?size=128',
+  'PRManager': 'https://ui-avatars.com/api/?name=PR&background=4F46E5&color=FFFFFF&size=128&bold=true&format=png',
+  'PRManager (ex PRGloo)': 'https://ui-avatars.com/api/?name=PR&background=4F46E5&color=FFFFFF&size=128&bold=true&format=png',
+  'Screen Engine': 'https://logo.clearbit.com/screenengineasi.com?size=128',
+  'Screen Engine | MindGame': 'https://logo.clearbit.com/screenengineasi.com?size=128',
+  'Tubular': 'https://logo.clearbit.com/tubularlabs.com',
   
-  // PR & Communications
-  'Cision': 'https://www.cision.com/wp-content/uploads/2020/03/cision-logo.svg',
-  'Meltwater': 'https://www.meltwater.com/wp-content/uploads/2020/03/meltwater-logo.svg',
-  'Muck Rack': 'https://muckrack.com/wp-content/uploads/2020/03/muck-rack-logo.svg',
+  // Influencer Marketing (using Clearbit for consistency)
+  'Grin': 'https://logo.clearbit.com/grin.co',
   
-  // Web & Development
-  'Optimizely': 'https://www.optimizely.com/wp-content/uploads/2020/03/optimizely-logo.svg',
-  'Hotjar': 'https://www.hotjar.com/wp-content/uploads/2020/03/hotjar-logo.svg',
-  'Ahrefs Webmaster Tools': 'https://ahrefs.com/wp-content/uploads/2020/03/ahrefs-logo.svg',
-  'Bit.ly': 'https://bitly.com/wp-content/uploads/2020/03/bitly-logo.svg',
-  'BrowserStack': 'https://www.browserstack.com/wp-content/uploads/2020/03/browserstack-logo.svg',
-  'Contentful': 'https://www.contentful.com/wp-content/uploads/2020/03/contentful-logo.svg',
-  
-  // Data & Analytics
-  'Databricks': 'https://databricks.com/wp-content/uploads/2020/03/databricks-logo.svg',
-  'Liveramp': 'https://liveramp.com/wp-content/uploads/2020/03/liveramp-logo.svg',
-  'Infosum': 'https://www.infosum.com/wp-content/uploads/2020/03/infosum-logo.svg',
-  
-  // Testing & Quality
-  'Litmus': 'https://www.litmus.com/wp-content/uploads/2020/03/litmus-logo.svg',
-  'Code Climate Inc': 'https://codeclimate.com/wp-content/uploads/2020/03/codeclimate-logo.svg',
-  
-  // Gaming & Entertainment
-  'DeltaDNA': 'https://deltadna.com/wp-content/uploads/2020/03/deltadna-logo.svg',
-  'Stream Hatchet': 'https://streamhatchet.com/wp-content/uploads/2020/03/streamhatchet-logo.svg',
-  'Tubular': 'https://tubularlabs.com/wp-content/uploads/2020/03/tubular-logo.svg',
-  
-  // Customer Support
-  'Directly': 'https://directly.com/wp-content/uploads/2020/03/directly-logo.svg',
-  'Helpshift': 'https://helpshift.com/wp-content/uploads/2020/03/helpshift-logo.svg',
-  'Quiq': 'https://quiq.com/wp-content/uploads/2020/03/quiq-logo.svg',
-  'Salesforce Service Cloud': 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
-  
+  // PR & Communications (using Clearbit for consistency)
+  'Cision': 'https://logo.clearbit.com/cision.com',
+  // Additional tools (using Clearbit for consistency)
+  'Hotjar': 'https://logo.clearbit.com/hotjar.com'
+};
+
+// Legacy entries that will be removed (keeping object structure intact)
+const LEGACY_ENTRIES = {
   // Knowledge Management
   'Guru': 'https://guru.com/wp-content/uploads/2020/03/guru-logo.svg',
   
@@ -166,11 +176,43 @@ export function createFallbackLogo(vendorName: string, color: string = '#4CAF50'
 }
 
 // Function to update vendor logos in bulk
+// Function to find logo by fuzzy matching
+function findLogoByName(vendorName: string): string | null {
+  const normalizedVendor = vendorName.toLowerCase().trim();
+  
+  // First try exact match
+  if (LOGO_SOURCES[vendorName]) {
+    return LOGO_SOURCES[vendorName];
+  }
+  
+  // Try fuzzy matching - check if vendor name contains any of our known brands
+  for (const [knownName, logoUrl] of Object.entries(LOGO_SOURCES)) {
+    const knownBrand = knownName.toLowerCase();
+    
+    // Check if vendor name contains the brand name or vice versa
+    if (normalizedVendor.includes(knownBrand) || knownBrand.includes(normalizedVendor.split(' ')[0])) {
+      console.log(`🎯 Logo match found: "${vendorName}" → "${knownName}"`);
+      return logoUrl;
+    }
+    
+    // Check for common brand variations (first word matching)
+    const brandCore = knownBrand.split(' ')[0];
+    const vendorCore = normalizedVendor.split(' ')[0];
+    if (brandCore === vendorCore && brandCore.length > 3) {
+      console.log(`🎯 Brand core match: "${vendorName}" → "${knownName}"`);
+      return logoUrl;
+    }
+  }
+  
+  return null;
+}
+
 export function updateVendorLogos(vendors: unknown[]): unknown[] {
   return vendors.map(vendor => {
-    const newLogo = LOGO_SOURCES[vendor.name];
+    const newLogo = findLogoByName(vendor.name);
     
     if (newLogo && newLogo !== vendor.logo) {
+      console.log(`✅ Updating logo for ${vendor.name}: ${newLogo}`);
       return {
         ...vendor,
         logo: newLogo,

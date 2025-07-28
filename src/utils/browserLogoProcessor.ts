@@ -109,20 +109,25 @@ export async function removeLogoBackground(
       const imageData = finalCtx.getImageData(0, 0, finalWidth, finalHeight);
       const data = imageData.data;
       
-      // Process pixels to remove white/light backgrounds
+      // Improved algorithm: Process pixels to remove white/light backgrounds with smooth edges
       for (let i = 0; i < data.length; i += 4) {
         const r = data[i];
         const g = data[i + 1];
         const b = data[i + 2];
         const a = data[i + 3];
         
-        // Check if pixel is white or near-white
+        // More precise white detection
         const brightness = (r + g + b) / 3;
-        const isWhitish = brightness > 240 && Math.abs(r - g) < 10 && Math.abs(g - b) < 10 && Math.abs(r - b) < 10;
+        const colorVariance = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
+        
+        // Check if pixel is white or near-white with low color variance
+        const isWhitish = brightness > 235 && colorVariance < 15;
         
         if (isWhitish) {
-          // Make transparent
-          data[i + 3] = 0;
+          // Create smooth transparency based on how "white" the pixel is
+          const whiteness = Math.min(brightness / 255, 1);
+          const transparencyFactor = Math.pow(whiteness, 2); // Quadratic falloff for smoother edges
+          data[i + 3] = Math.max(0, a * (1 - transparencyFactor));
         }
       }
       

@@ -17,115 +17,201 @@ export interface LogoFetchOptions {
   maxRetries: number;
 }
 
-// Enhanced logo databases and APIs with official corporate sources
+// Enhanced logo databases and APIs with reliable sources (Clearbit prioritized)
 const LOGO_DATABASES = [
   {
     name: 'Clearbit Logo API',
     baseUrl: 'https://logo.clearbit.com/',
-    getUrl: (company: string) => `https://logo.clearbit.com/${getDomainFromCompany(company)}`,
+    getUrl: (company: string) => `https://logo.clearbit.com/${getDomainFromCompany(company)}?size=128`,
     priority: 1,
-    hasTransparency: true,
-    quality: 'high'
-  },
-  {
-    name: 'LogoDev API',
-    baseUrl: 'https://img.logo.dev/',
-    getUrl: (company: string) => `https://img.logo.dev/${getDomainFromCompany(company)}?token=pk_X1pD8rKoRpKmhJheIwkZrQ&format=png&width=400`,
-    priority: 2,
     hasTransparency: true,
     quality: 'high'
   },
   {
     name: 'Google Favicons High-Res',
     baseUrl: 'https://www.google.com/s2/favicons',
-    getUrl: (company: string) => `https://www.google.com/s2/favicons?domain=${getDomainFromCompany(company)}&sz=256`,
-    priority: 3,
-    hasTransparency: true,
+    getUrl: (company: string) => `https://www.google.com/s2/favicons?domain=${getDomainFromCompany(company)}&sz=128`,
+    priority: 2,
+    hasTransparency: false,
     quality: 'medium'
   },
   {
     name: 'Company Website Favicon',
     baseUrl: 'https://',
     getUrl: (company: string) => `https://${getDomainFromCompany(company)}/favicon.ico`,
-    priority: 4,
+    priority: 3,
     hasTransparency: false,
     quality: 'low'
-  },
-  {
-    name: 'Brandfetch API',
-    baseUrl: 'https://api.brandfetch.io/v2/brands/',
-    getUrl: (company: string) => `https://api.brandfetch.io/v2/brands/${getDomainFromCompany(company)}`,
-    priority: 5,
-    hasTransparency: true,
-    quality: 'high'
   }
 ];
 
-// Known MarTech companies and their logo URLs
+// Known MarTech companies and their logo URLs - Using reliable Clearbit API
 const KNOWN_MARTECH_LOGOS: Record<string, string> = {
-  // Major Platforms - Official corporate logos with transparent backgrounds
-  'salesforce': 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
-  'hubspot': 'https://www.hubspot.com/hubfs/assets/hubspot.com/style-guide/brand-guidelines/guidelines_sprocket-1.png',
-  'google analytics': 'https://www.gstatic.com/analytics-suite/header/suite/v2/ic_analytics.svg',
-  'adobe': 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg',
-  'mailchimp': 'https://eep.io/images/yzp4yyPofdYiCanTdGXQC0sNFb8=/2400x0/filters:no_upscale()/eep/images/landing_pages/brand/mailchimp-freddie-wink.png',
-  'microsoft': 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31',
-  'google': 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
-  'meta': 'https://about.meta.com/brand/resources/meta/logo/',
-  'facebook': 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
-  'instagram': 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png',
-  'twitter': 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg',
-  'linkedin': 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png',
+  // Major Platforms - High-resolution Clearbit logos
+  'salesforce': 'https://logo.clearbit.com/salesforce.com?size=128',
+  'salesforce cdp': 'https://logo.clearbit.com/salesforce.com?size=128',
+  'salesforce marketing cloud': 'https://logo.clearbit.com/salesforce.com?size=128',
+  'salesforce service cloud': 'https://logo.clearbit.com/salesforce.com?size=128',
+  'salesforce marketing cloud intelligence': 'https://logo.clearbit.com/salesforce.com?size=128',
+  'salesforce marketing cloud intelligence (datorama)': 'https://logo.clearbit.com/salesforce.com?size=128',
+  'hubspot': 'https://logo.clearbit.com/hubspot.com?size=128',
+  'google analytics': 'https://logo.clearbit.com/google.com?size=128',
+  'google ads': 'https://logo.clearbit.com/google.com?size=128',
+  'google tag manager': 'https://logo.clearbit.com/google.com?size=128',
+  'adobe': 'https://logo.clearbit.com/adobe.com?size=128',
+  'adobe experience platform': 'https://logo.clearbit.com/adobe.com?size=128',
+  'adobe analytics': 'https://logo.clearbit.com/adobe.com?size=128',
+  'mailchimp': 'https://logo.clearbit.com/mailchimp.com?size=128',
+  'microsoft': 'https://logo.clearbit.com/microsoft.com?size=128',
+  'google': 'https://logo.clearbit.com/google.com?size=128',
+  'meta': 'https://logo.clearbit.com/meta.com?size=128',
+  'facebook': 'https://logo.clearbit.com/facebook.com?size=128',
+  'facebook ads': 'https://logo.clearbit.com/facebook.com?size=128',
+  'instagram': 'https://logo.clearbit.com/instagram.com?size=128',
+  'twitter': 'https://logo.clearbit.com/twitter.com?size=128',
+  'linkedin': 'https://logo.clearbit.com/linkedin.com?size=128',
+  'linkedin ads': 'https://logo.clearbit.com/linkedin.com?size=128',
   
-  // Analytics & Attribution - Official corporate logos
-  'adjust': 'https://adjust.com/wp-content/uploads/2023/01/adjust-logo-primary.svg',
-  'appsflyer': 'https://www.appsflyer.com/wp-content/uploads/2021/05/AF_Logo_Primary_Blue.svg',
-  'mixpanel': 'https://mixpanel.com/wp-content/themes/mixpanel/assets/images/mixpanel-logo.svg',
-  'amplitude': 'https://amplitude.com/wp-content/uploads/2021/03/amplitude-logo.svg',
-  'segment': 'https://segment.com/docs/images/segment-logo.svg',
-  'google tag manager': 'https://www.gstatic.com/analytics-suite/header/suite/v2/ic_tag_manager.svg',
-  'google ads': 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg',
-  'facebook ads': 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
-  'linkedin ads': 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png',
+  // Analytics & Attribution - Reliable Clearbit logos
+  'adjust': 'https://logo.clearbit.com/adjust.com',
+  'appsflyer': 'https://logo.clearbit.com/appsflyer.com',
+  'mixpanel': 'https://logo.clearbit.com/mixpanel.com',
+  'amplitude': 'https://logo.clearbit.com/amplitude.com',
+  'segment': 'https://logo.clearbit.com/segment.com',
+  'tealium': 'https://logo.clearbit.com/tealium.com',
+  'treasure data': 'https://logo.clearbit.com/treasuredata.com',
   
-  // Email & Marketing - Official corporate logos
-  'sendgrid': 'https://sendgrid.com/wp-content/themes/sgdotcom/assets/img/sendgrid-logo.svg',
-  'klaviyo': 'https://www.klaviyo.com/wp-content/uploads/2021/07/klaviyo-logo.svg',
-  'constant contact': 'https://www.constantcontact.com/images/logo-cc.svg',
-  'campaign monitor': 'https://www.campaignmonitor.com/assets/images/cm-logo.svg',
-  'twilio': 'https://www.twilio.com/content/dam/twilio-com/global/en/blog/legacy/2018/red-logo.png',
-  'postmark': 'https://postmarkapp.com/images/postmark-logo.svg',
+  // Email & Marketing - Reliable Clearbit logos
+  'sendgrid': 'https://logo.clearbit.com/sendgrid.com',
+  'klaviyo': 'https://logo.clearbit.com/klaviyo.com',
+  'constant contact': 'https://logo.clearbit.com/constantcontact.com',
+  'campaign monitor': 'https://logo.clearbit.com/campaignmonitor.com',
+  'twilio': 'https://logo.clearbit.com/twilio.com',
+  'braze': 'https://logo.clearbit.com/braze.com',
+  'postmark': 'https://logo.clearbit.com/postmarkapp.com',
   
-  // Social Media Management - Official corporate logos
-  'sprinklr': 'https://www.sprinklr.com/wp-content/uploads/2021/06/sprinklr-logo.svg',
-  'hootsuite': 'https://hootsuite.com/uploads/images/brand/hootsuite-logo.svg',
-  'buffer': 'https://buffer.com/static/icons/buffer-logo.svg',
-  'sprout social': 'https://sproutsocial.com/insights/wp-content/themes/sprout/assets/images/sprout-social-logo.svg',
-  'later': 'https://later.com/wp-content/uploads/2021/01/later-logo.svg',
-  'socialbakers': 'https://www.socialbakers.com/images/socialbakers-logo.svg',
+  // Social Media Management - Reliable Clearbit logos
+  'sprinklr': 'https://logo.clearbit.com/sprinklr.com',
+  'hootsuite': 'https://logo.clearbit.com/hootsuite.com',
+  'buffer': 'https://logo.clearbit.com/buffer.com',
+  'sprout social': 'https://logo.clearbit.com/sproutsocial.com',
+  'later': 'https://logo.clearbit.com/later.com',
+  'socialbakers': 'https://logo.clearbit.com/socialbakers.com',
+  'brandwatch': 'https://logo.clearbit.com/brandwatch.com',
+  'mention': 'https://logo.clearbit.com/mention.com',
   
-  // Customer Support - Official corporate logos
-  'zendesk': 'https://d1eipm3vz40hy0.cloudfront.net/images/AMER/zendesk-logo.svg',
-  'intercom': 'https://www.intercom.com/brand/logo/intercom-logo-mark.svg',
-  'freshworks': 'https://www.freshworks.com/static-assets/images/common/company/logos/logo-fworks-black.svg',
-  'helpscout': 'https://www.helpscout.com/images/brand/help-scout-logo.svg',
-  'drift': 'https://www.drift.com/wp-content/uploads/2021/01/drift-logo.svg',
+  // Customer Support - Reliable Clearbit logos
+  'zendesk': 'https://logo.clearbit.com/zendesk.com',
+  'intercom': 'https://logo.clearbit.com/intercom.com',
+  'freshworks': 'https://logo.clearbit.com/freshworks.com',
+  'freshdesk': 'https://logo.clearbit.com/freshdesk.com',
+  'helpscout': 'https://logo.clearbit.com/helpscout.com',
+  'drift': 'https://logo.clearbit.com/drift.com',
   
-  // Additional Analytics Platforms - Official corporate logos
+  // Additional Analytics Platforms - Reliable Clearbit logos
   'hotjar': 'https://logo.clearbit.com/hotjar.com',
   'crazy egg': 'https://logo.clearbit.com/crazyegg.com',
+  'optimizely': 'https://logo.clearbit.com/optimizely.com',
   
-  // Content Management - Official corporate logos
+  // Content Management - Reliable Clearbit logos
   'wordpress': 'https://logo.clearbit.com/wordpress.com',
   'contentful': 'https://logo.clearbit.com/contentful.com',
   'drupal': 'https://logo.clearbit.com/drupal.org',
   
-  // E-commerce - Official corporate logos
-  'shopify': 'https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg',
-  'magento': 'https://magento.com/sites/default/files/2021-01/magento-logo.svg',
-  'woocommerce': 'https://woocommerce.com/wp-content/themes/woo/images/logo-woocommerce.svg',
-  'bigcommerce': 'https://www.bigcommerce.com/assets/images/bc-logo.svg',
-  'stripe': 'https://stripe.com/img/v3/home/social.png'
+  // E-commerce - Reliable Clearbit logos
+  'shopify': 'https://logo.clearbit.com/shopify.com',
+  'magento': 'https://logo.clearbit.com/magento.com',
+  'woocommerce': 'https://logo.clearbit.com/woocommerce.com',
+  'bigcommerce': 'https://logo.clearbit.com/bigcommerce.com',
+  'stripe': 'https://logo.clearbit.com/stripe.com',
+  
+  // Additional Marketing Tools - Reliable Clearbit logos
+  'tableau': 'https://logo.clearbit.com/tableau.com',
+  'looker': 'https://logo.clearbit.com/looker.com',
+  'the trade desk': 'https://logo.clearbit.com/thetradedesk.com',
+  'aspiration': 'https://logo.clearbit.com/aspiration.com',
+  'green room': 'https://logo.clearbit.com/greenroom.com',
+  'cisco': 'https://logo.clearbit.com/cisco.com',
+  'onetrust': 'https://logo.clearbit.com/onetrust.com',
+  'onetrust - cookie compliance': 'https://logo.clearbit.com/onetrust.com',
+  'prmanager (ex prgloo)': 'https://logo.clearbit.com/prmanager.com',
+  'alchemer': 'https://logo.clearbit.com/alchemer.com',
+  'screen engine | mindgame': 'https://logo.clearbit.com/screenengine.com',
+  'sensor tower | pathmatics': 'https://logo.clearbit.com/sensortower.com',
+  'statuspage': 'https://logo.clearbit.com/statuspage.io',
+  'tymeshift': 'https://logo.clearbit.com/tymeshift.com',
+  'adswerve': 'https://logo.clearbit.com/adswerve.com',
+  'ayzenberg': 'https://logo.clearbit.com/ayzenberg.com',
+  'rightpoint': 'https://logo.clearbit.com/rightpoint.com',
+  'levelup analytics': 'https://logo.clearbit.com/levelupanalytics.com',
+  'lotus themes': 'https://logo.clearbit.com/lotusthemes.com',
+  'movable ink': 'https://logo.clearbit.com/movableink.com',
+  
+  // Exact vendor names from your failing list
+  'Adswerve': 'https://logo.clearbit.com/adswerve.com',
+  'Ahrefs Webmaster Tools': 'https://logo.clearbit.com/ahrefs.com',
+  'Alchemer': 'https://logo.clearbit.com/alchemer.com',
+  'AspireIQ': 'https://logo.clearbit.com/aspireiq.com',
+  'Ayzenberg': 'https://logo.clearbit.com/ayzenberg.com',
+  'Bit.ly': 'https://logo.clearbit.com/bitly.com',
+  'BrowserStack': 'https://logo.clearbit.com/browserstack.com',
+  'Code Climate Inc': 'https://logo.clearbit.com/codeclimate.com',
+  'Contentful': 'https://logo.clearbit.com/contentful.com',
+  'CreatorIQ': 'https://logo.clearbit.com/creatoriq.com',
+  'Databricks': 'https://logo.clearbit.com/databricks.com',
+  'DeltaDNA': 'https://logo.clearbit.com/deltadna.com',
+  'Directly': 'https://logo.clearbit.com/directly.com',
+  'Helpshift': 'https://logo.clearbit.com/helpshift.com',
+  'Infosum': 'https://logo.clearbit.com/infosum.com',
+  'LevelUP Analytics': 'https://logo.clearbit.com/levelupanalytics.com',
+  'Linktree': 'https://logo.clearbit.com/linktr.ee',
+  'LiveRamp': 'https://logo.clearbit.com/liveramp.com',
+  'Lotus Themes': 'https://logo.clearbit.com/lotusthemes.com',
+  'Meltwater': 'https://logo.clearbit.com/meltwater.com',
+  'Movable Ink': 'https://logo.clearbit.com/movableink.com',
+  'Muck Rack': 'https://logo.clearbit.com/muckrack.com',
+  'OneTrust - Cookie Compliance': 'https://logo.clearbit.com/onetrust.com',
+  'Optimizely': 'https://logo.clearbit.com/optimizely.com',
+  'Quiq': 'https://logo.clearbit.com/quiq.com',
+  'RightPoint': 'https://logo.clearbit.com/rightpoint.com',
+  'Sensor Tower | Pathmatics': 'https://logo.clearbit.com/sensortower.com',
+  'Sprinklr': 'https://logo.clearbit.com/sprinklr.com',
+  'Statuspage': 'https://logo.clearbit.com/statuspage.io',
+  'Stream Hatchet': 'https://logo.clearbit.com/streamhatchet.com',
+  'The Trade Desk': 'https://logo.clearbit.com/thetradedesk.com',
+  'Treasure Data': 'https://logo.clearbit.com/treasuredata.com',
+  'Tymeshift': 'https://logo.clearbit.com/zendesk.com?size=128', // Acquired by Zendesk in 2023
+  'Guru': 'https://logo.clearbit.com/getguru.com?size=128',
+  'PRManager': 'https://ui-avatars.com/api/?name=PR&background=4F46E5&color=FFFFFF&size=128&bold=true&format=png',
+  'PRManager (ex PRGloo)': 'https://ui-avatars.com/api/?name=PR&background=4F46E5&color=FFFFFF&size=128&bold=true&format=png',
+  'Screen Engine': 'https://logo.clearbit.com/screenengineasi.com?size=128',
+  'Screen Engine | MindGame': 'https://logo.clearbit.com/screenengineasi.com?size=128',
+  'Tubular': 'https://logo.clearbit.com/tubularlabs.com',
+  
+  // Common variations and abbreviations
+  'ttd': 'https://logo.clearbit.com/thetradedesk.com',
+  'trade desk': 'https://logo.clearbit.com/thetradedesk.com',
+  'google universal analytics': 'https://logo.clearbit.com/google.com',
+  'ga4': 'https://logo.clearbit.com/google.com',
+  'gtm': 'https://logo.clearbit.com/google.com',
+  'gads': 'https://logo.clearbit.com/google.com',
+  'salesforce pardot': 'https://logo.clearbit.com/salesforce.com',
+  'pardot': 'https://logo.clearbit.com/salesforce.com',
+  'marketo': 'https://logo.clearbit.com/marketo.com',
+  'eloqua': 'https://logo.clearbit.com/oracle.com',
+  'oracle eloqua': 'https://logo.clearbit.com/oracle.com',
+  'slack': 'https://logo.clearbit.com/slack.com',
+  'zoom': 'https://logo.clearbit.com/zoom.us',
+  'teams': 'https://logo.clearbit.com/microsoft.com',
+  'microsoft teams': 'https://logo.clearbit.com/microsoft.com',
+  'asana': 'https://logo.clearbit.com/asana.com',
+  'trello': 'https://logo.clearbit.com/trello.com',
+  'jira': 'https://logo.clearbit.com/atlassian.com',
+  'confluence': 'https://logo.clearbit.com/atlassian.com',
+  'notion': 'https://logo.clearbit.com/notion.so',
+  'airtable': 'https://logo.clearbit.com/airtable.com',
+  'monday': 'https://logo.clearbit.com/monday.com',
+  'monday.com': 'https://logo.clearbit.com/monday.com'
 };
 
 // Function to extract domain from company name
@@ -134,9 +220,39 @@ function getDomainFromCompany(companyName: string): string {
   const cleaned = companyName.toLowerCase()
     .replace(/\s+/g, '')
     .replace(/[^a-z0-9]/g, '')
-    .replace(/inc$|llc$|corp$|ltd$|limited$/, '');
+    .replace(/inc$|llc$|corp$|ltd$|limited$|cdp$|platform$/, '');
   
   return `${cleaned}.com`;
+}
+
+// Function to find logo by fuzzy matching vendor names
+function findLogoByFuzzyMatch(vendorName: string): string | null {
+  const normalizedVendor = vendorName.toLowerCase().trim();
+  
+  // First try exact match
+  if (KNOWN_MARTECH_LOGOS[normalizedVendor]) {
+    return KNOWN_MARTECH_LOGOS[normalizedVendor];
+  }
+  
+  // Try fuzzy matching - check if vendor name contains any of our known brands
+  for (const [knownName, logoUrl] of Object.entries(KNOWN_MARTECH_LOGOS)) {
+    const knownBrand = knownName.toLowerCase();
+    
+    // Check if vendor name contains the brand name
+    if (normalizedVendor.includes(knownBrand) || knownBrand.includes(normalizedVendor.split(' ')[0])) {
+      console.log(`🎯 Fuzzy match found: "${vendorName}" → "${knownName}" → ${logoUrl}`);
+      return logoUrl;
+    }
+    
+    // Check for common brand variations
+    const brandCore = knownBrand.split(' ')[0]; // Get first word (e.g., "salesforce" from "salesforce cdp")
+    if (normalizedVendor.includes(brandCore) && brandCore.length > 3) {
+      console.log(`🎯 Brand core match found: "${vendorName}" → "${knownName}" → ${logoUrl}`);
+      return logoUrl;
+    }
+  }
+  
+  return null;
 }
 
 // Function to try multiple domain variations
@@ -236,13 +352,14 @@ export async function fetchCorporateLogo(
   const normalizedName = vendorName.toLowerCase().trim();
   const alternativeUrls: string[] = [];
   
-  // First, check if we have a known logo
-  if (KNOWN_MARTECH_LOGOS[normalizedName]) {
+  // First, try fuzzy matching for known logos
+  const fuzzyMatchedLogo = findLogoByFuzzyMatch(vendorName);
+  if (fuzzyMatchedLogo) {
     return {
       vendorName,
-      logoUrl: KNOWN_MARTECH_LOGOS[normalizedName],
-      source: 'Known MarTech Database',
-      confidence: 95,
+      logoUrl: fuzzyMatchedLogo,
+      source: 'Known MarTech Database (Fuzzy Match)',
+      confidence: 90,
       alternativeUrls: []
     };
   }

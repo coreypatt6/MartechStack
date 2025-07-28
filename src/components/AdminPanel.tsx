@@ -5,7 +5,6 @@ import { Save, Upload, ArrowLeft, Trash2, Edit, FileSpreadsheet, RefreshCw, Clou
 import { Vendor } from '../types';
 import { useVendors } from '../hooks/useVendors';
 import { BulkUpload } from './BulkUpload';
-import { LogoManager } from './LogoManager';
 
 interface VendorFormData {
   name: string;
@@ -39,7 +38,7 @@ const labelOptions = [
 ];
 
 export const AdminPanel: React.FC = () => {
-  const { vendors, addVendor, updateVendor, deleteVendor, manualSync, isSyncing, lastSyncTime } = useVendors();
+  const { vendors, addVendor, updateVendor, deleteVendor, manualSync, isSyncing, lastSyncTime, isProcessingLogos, processLogosForTransparency } = useVendors();
   const [currentView, setCurrentView] = useState<'form' | 'bulk'>('form');
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -47,7 +46,6 @@ export const AdminPanel: React.FC = () => {
   const [sortBy, setSortBy] = useState<'name' | 'recent'>('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [failedLogos, setFailedLogos] = useState<Set<string>>(new Set());
-  const [showLogoManager, setShowLogoManager] = useState(false);
 
 
   const sortedVendors = [...vendors].sort((a, b) => {
@@ -195,17 +193,46 @@ export const AdminPanel: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm('Are you sure you want to delete this vendor?')) {
-      deleteVendor(id);
-      alert('Vendor deleted successfully!');
+    const vendor = vendors.find(v => v.id === id);
+    const vendorName = vendor?.name || 'Unknown Vendor';
+    
+    const confirmed = confirm(
+      `⚠️ PERMANENT DELETION WARNING\n\n` +
+      `Are you sure you want to permanently delete "${vendorName}"?\n\n` +
+      `This action will:\n` +
+      `• Remove the vendor from all builds\n` +
+      `• Delete all vendor data permanently\n` +
+      `• Sync the deletion across all devices via Git\n` +
+      `• Cannot be undone\n\n` +
+      `Type "DELETE" in the next prompt to confirm.`
+    );
+    
+    if (confirmed) {
+      const confirmation = prompt(
+        `Final confirmation: Type "DELETE" to permanently remove "${vendorName}"`
+      );
+      
+      if (confirmation === 'DELETE') {
+        console.log(`🗑️ Permanently deleting vendor: ${vendorName} (ID: ${id})`);
+        console.log(`📡 This deletion will be synced to Git and excluded from all future builds`);
+        deleteVendor(id);
+        alert(`✅ "${vendorName}" has been permanently deleted and removed from all builds.`);
+      } else {
+        alert('Deletion cancelled - vendor was not deleted.');
+      }
     }
   };
 
-  const handleVendorsUpdate = (updatedVendors: unknown[]) => {
-    // Update each vendor individually
+  const handleVendorsUpdate = (updatedVendors: Vendor[]) => {
+    console.log('📝 Applying logo updates to', updatedVendors.length, 'vendors...');
+    
+    // Update each vendor individually to trigger proper Git sync
     updatedVendors.forEach(vendor => {
+      console.log('🔄 Updating vendor:', vendor.name, 'with logo:', vendor.logo?.substring(0, 50) + '...');
       updateVendor(vendor.id, vendor);
     });
+    
+    console.log('✅ All vendor logo updates applied and synced to Git');
   };
 
 
@@ -260,11 +287,12 @@ export const AdminPanel: React.FC = () => {
               Bulk Upload
             </button>
             <button
-              onClick={() => setShowLogoManager(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors duration-200"
+              onClick={() => processLogosForTransparency(vendors)}
+              disabled={isProcessingLogos}
+              className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white rounded-lg font-medium transition-colors duration-200"
             >
               <Image className="w-4 h-4" />
-              Manage Vendor Logos
+              {isProcessingLogos ? 'Processing Logos...' : 'Process Transparent Logos'}
             </button>
           </div>
           
@@ -359,6 +387,28 @@ export const AdminPanel: React.FC = () => {
                   )}
                   {isSyncing ? 'Syncing...' : 'Sync Current Vendors to All Devices'}
                 </button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Logo Transparency Status */}
+          <div className="mt-4 bg-purple-900/20 rounded-lg p-4 border border-purple-500/30">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                {isProcessingLogos ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-purple-400" />
+                ) : (
+                  <Image className="w-5 h-5 text-purple-400" />
+                )}
+                <div>
+                  <div className="text-white font-medium">Automatic Logo Transparency</div>
+                  <div className="text-purple-300 text-sm">
+                    {isProcessingLogos 
+                      ? 'Processing transparent backgrounds for all vendor logos...'
+                      : 'All vendor logos automatically processed with transparent backgrounds'
+                    }
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -696,24 +746,14 @@ export const AdminPanel: React.FC = () => {
         </div>
       </div>
 
-      {/* Logo Manager Modal */}
-      {showLogoManager && (
+      {/* Logo Processing Status */}
+      {isProcessingLogos && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">🎨 Vendor Logo Manager</h2>
-                <button
-                  onClick={() => setShowLogoManager(false)}
-                  className="text-gray-500 hover:text-gray-700 text-xl"
-                >
-                  ✕
-                </button>
-              </div>
-              <LogoManager
-                vendors={vendors}
-                onVendorsUpdate={handleVendorsUpdate}
-              />
+          <div className="bg-white rounded-lg max-w-md w-full p-6">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Processing Transparent Logos</h3>
+              <p className="text-gray-600">Automatically creating transparent backgrounds for all vendor logos...</p>
             </div>
           </div>
         </div>
