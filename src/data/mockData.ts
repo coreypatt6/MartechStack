@@ -5,7 +5,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v1',
     name: 'Salesforce CDP',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
+    logo: 'https://logo.clearbit.com/salesforce.com',
     deploymentStatus: 'Active',
     capabilities: 'Customer data unification, real-time segmentation, journey orchestration',
     label: ['Rockstar'],
@@ -16,7 +16,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v2',
     name: 'Adobe Experience Platform',
-    logo: 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg',
+    logo: 'https://logo.clearbit.com/adobe.com',
     deploymentStatus: 'Active',
     capabilities: 'Real-time customer profiles, AI-driven insights, cross-channel activation',
     label: ['2K'],
@@ -27,7 +27,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v3',
     name: 'Segment',
-    logo: 'https://via.placeholder.com/64x64/52BD95/FFFFFF?text=SEG',
+    logo: 'https://logo.clearbit.com/segment.com',
     deploymentStatus: 'Active',
     capabilities: 'Data collection, customer data infrastructure, audience management',
     label: ['Zynga'],
@@ -38,7 +38,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v4',
     name: 'Tealium',
-    logo: 'https://via.placeholder.com/64x64/0066CC/FFFFFF?text=TEA',
+    logo: 'https://logo.clearbit.com/tealium.com',
     deploymentStatus: 'Pending',
     capabilities: 'Tag management, customer data orchestration, privacy compliance',
     label: ['Ghost Story'],
@@ -51,7 +51,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v5',
     name: 'Mailchimp',
-    logo: 'https://eep.io/images/yzp4yyPofdYiCanTdGXQC0sNFb8=/2400x0/filters:no_upscale()/eep/images/landing_pages/brand/mailchimp-freddie-wink.png',
+    logo: 'https://logo.clearbit.com/mailchimp.com',
     deploymentStatus: 'Active',
     capabilities: 'Email marketing, automation, A/B testing, audience segmentation',
     label: ['2K'],
@@ -62,7 +62,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v6',
     name: 'SendGrid',
-    logo: 'https://via.placeholder.com/64x64/1A82E2/FFFFFF?text=SG',
+    logo: 'https://logo.clearbit.com/sendgrid.com',
     deploymentStatus: 'Active',
     capabilities: 'Transactional email, marketing campaigns, email deliverability',
     label: ['Rockstar'],
@@ -73,7 +73,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v7',
     name: 'Klaviyo',
-    logo: 'https://via.placeholder.com/64x64/FF6900/FFFFFF?text=KLA',
+    logo: 'https://logo.clearbit.com/klaviyo.com',
     deploymentStatus: 'Active',
     capabilities: 'E-commerce email marketing, SMS campaigns, customer analytics',
     label: ['Zynga'],
@@ -84,7 +84,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v8',
     name: 'Twilio',
-    logo: 'https://via.placeholder.com/64x64/F22F46/FFFFFF?text=TWI',
+    logo: 'https://logo.clearbit.com/twilio.com',
     deploymentStatus: 'Active',
     capabilities: 'SMS marketing, voice campaigns, programmable communications',
     label: ['2K', 'Rockstar'],
@@ -95,7 +95,7 @@ export const mockVendors: Vendor[] = [
   {
     id: 'v9',
     name: 'Braze',
-    logo: 'https://via.placeholder.com/64x64/FF6B35/FFFFFF?text=BRZ',
+    logo: 'https://logo.clearbit.com/braze.com',
     deploymentStatus: 'Pending',
     capabilities: 'Multi-channel messaging, customer engagement, lifecycle marketing',
     label: ['Ghost Story'],

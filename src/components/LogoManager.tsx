@@ -112,48 +112,123 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
     onVendorsUpdate(updatedVendors);
   };
 
-  const handleEnsureTransparentBackgrounds = async () => {
+  const handleComprehensiveLogoUpdate = async () => {
+    setIsFetchingLogos(true);
+    setIsUpdating(true);
     setIsProcessingTransparency(true);
+    setFetchResults([]);
+    setFetchProgress({ completed: 0, total: 0, current: '' });
     setTransparencyProgress({ completed: 0, total: 0, current: '' });
     
     try {
-      console.log('🎨 Ensuring all vendor logos have transparent backgrounds...');
+      console.log('🚀 Starting comprehensive logo management process...');
       
-      const logoUrls = vendors.map(v => v.logo).filter(Boolean);
+      // Step 1: Update with known logos first
+      console.log('📋 Step 1: Updating with known logos...');
+      console.log('🔍 Input vendors:', vendors.length, 'vendors');
+      let updatedVendors = updateVendorLogos(vendors as any[]);
+      console.log('✅ Step 1 complete - Updated vendors:', updatedVendors.length);
       
-      const results = await batchProcessLogos(
-        logoUrls,
-        {
-          removeWhiteBackground: true,
-          outputFormat: 'png',
-          maxSize: { width: 256, height: 256 },
-          quality: 95
-        },
-        (completed, total, current) => {
-          setTransparencyProgress({ completed, total, current });
-        }
+      // Apply Step 1 results immediately
+      console.log('🔄 Applying Step 1 results...');
+      onVendorsUpdate(updatedVendors as any[]);
+      
+      // Step 2: Fetch corporate logos for vendors still needing logos
+      console.log('🌐 Step 2: Fetching corporate logos...');
+      const vendorsNeedingLogos = updatedVendors.filter(vendor => 
+        !vendor.logo || 
+        vendor.logo.includes('placeholder.com') || 
+        vendor.logo.includes('via.placeholder')
       );
       
-      // Apply processed logos
-      const updatedVendors = vendors.map(vendor => {
-        const result = results.find(r => r.url === vendor.logo);
-        if (result && result.result.success && result.result.processedImageBase64) {
-          return {
-            ...vendor,
-            logo: result.result.processedImageBase64,
-            hasTransparentBackground: true,
-            logoSource: (vendor.logoSource || 'Original') + ' (Transparent)'
-          };
-        }
-        return vendor;
-      });
+      if (vendorsNeedingLogos.length > 0) {
+        const results = await batchFetchCorporateLogos(
+          vendorsNeedingLogos.map(v => ({ id: v.id, name: v.name, categories: v.categories })),
+          {
+            useWebScraping: true,
+            preferHighQuality: true,
+            timeoutMs: 10000,
+            maxRetries: 2
+          },
+          (completed, total, current) => {
+            setFetchProgress({ completed, total, current });
+          }
+        );
+        
+        setFetchResults(results.map(r => r.result));
+        
+        // Apply successful logo fetches
+        console.log('🔄 Applying Step 2 results...');
+        updatedVendors = updatedVendors.map(vendor => {
+          const result = results.find(r => r.vendorId === vendor.id);
+          if (result && result.result.logoUrl && result.result.confidence > 50) {
+            console.log(`✅ Found logo for ${vendor.name}: ${result.result.logoUrl.substring(0, 50)}...`);
+            return {
+              ...vendor,
+              logo: result.result.logoUrl,
+              logoSource: result.result.source,
+              logoConfidence: result.result.confidence
+            };
+          }
+          return vendor;
+        });
+        
+        // Apply Step 2 results immediately
+        console.log('🔄 Applying Step 2 results to UI...');
+        onVendorsUpdate(updatedVendors as any[]);
+      }
       
-      onVendorsUpdate(updatedVendors);
-      console.log('✅ Transparent background processing complete!');
+      setIsFetchingLogos(false);
+      setIsUpdating(false);
+      
+      // Step 3: Process transparent backgrounds with improved algorithm
+      console.log('🎨 Step 3: Processing transparent backgrounds with improved quality...');
+      const logoUrls = updatedVendors.map(v => v.logo).filter(Boolean);
+      
+      if (logoUrls.length > 0) {
+        const transparencyResults = await batchProcessLogos(
+          logoUrls,
+          {
+            removeWhiteBackground: true,
+            outputFormat: 'png',
+            maxSize: { width: 128, height: 128 },
+            quality: 95
+          },
+          (completed, total, current) => {
+            setTransparencyProgress({ completed, total, current });
+          }
+        );
+        
+        // Apply processed logos
+        console.log('🔄 Applying Step 3 transparency results...');
+        updatedVendors = updatedVendors.map(vendor => {
+          const result = transparencyResults.find(r => r.url === vendor.logo);
+          if (result && result.result.success && result.result.processedImageBase64) {
+            console.log(`✅ Applied transparent background for ${vendor.name}`);
+            return {
+              ...vendor,
+              logo: result.result.processedImageBase64,
+              hasTransparentBackground: true,
+              logoSource: (vendor.logoSource || 'Original') + ' (Transparent)'
+            };
+          }
+          return vendor;
+        });
+      }
+      
+      // Final update with all changes
+      console.log('🔄 Applying final comprehensive updates to all vendors...');
+      onVendorsUpdate(updatedVendors as any[]);
+      
+      // Wait a moment to ensure changes are processed
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('✅ Comprehensive logo management complete! Changes should be persistent.');
       
     } catch (error) {
-      console.error('Error processing transparent backgrounds:', error);
+      console.error('Error in comprehensive logo update:', error);
     } finally {
+      setIsFetchingLogos(false);
+      setIsUpdating(false);
       setIsProcessingTransparency(false);
     }
   };
@@ -191,43 +266,18 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
       <div className="mb-6 space-y-4">
         <div className="flex flex-wrap gap-3">
           <button
-            onClick={handleCorporateLogoFetch}
-            disabled={isFetchingLogos || isUpdating}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50 flex items-center gap-2"
-          >
-            {isFetchingLogos ? (
-              <>
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                Fetching Corporate Logos...
-              </>
-            ) : (
-              <>
-                🌐 Auto-Fetch Corporate Logos
-              </>
-            )}
-          </button>
-          
-          <button
-            onClick={handleBulkUpdate}
-            disabled={isUpdating || isFetchingLogos || isProcessingTransparency}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50"
-          >
-            {isUpdating ? 'Updating...' : '📋 Update Known Logos'}
-          </button>
-          
-          <button
-            onClick={handleEnsureTransparentBackgrounds}
+            onClick={handleComprehensiveLogoUpdate}
             disabled={isFetchingLogos || isUpdating || isProcessingTransparency}
-            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50 flex items-center gap-2"
+            className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 hover:from-purple-700 hover:via-blue-700 hover:to-green-700 text-white px-8 py-4 rounded-lg font-medium disabled:opacity-50 flex items-center gap-2 text-lg"
           >
-            {isProcessingTransparency ? (
+            {(isFetchingLogos || isUpdating || isProcessingTransparency) ? (
               <>
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                Removing Backgrounds...
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                Processing Vendor Logos...
               </>
             ) : (
               <>
-                🎨 Ensure Transparent Backgrounds
+                🚀 Update All Vendor Logos
               </>
             )}
           </button>
@@ -270,8 +320,10 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
         )}
         
         <p className="text-sm text-gray-600">
-          🌐 Auto-fetch uses web scraping and logo databases to find official corporate logos.<br/>
-          📋 Known logos updates vendors with predefined logo URLs from our database.
+          🚀 <strong>Update All Vendor Logos</strong> performs a comprehensive 3-step process:<br/>
+          📋 <strong>Step 1:</strong> Updates vendors with known high-quality logos from our database<br/>
+          🌐 <strong>Step 2:</strong> Auto-fetches official corporate logos using reliable APIs<br/>
+          🎨 <strong>Step 3:</strong> Creates transparent backgrounds with improved edge smoothing
         </p>
       </div>
       
