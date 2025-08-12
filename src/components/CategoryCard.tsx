@@ -44,8 +44,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
 
   return (
     <motion.div
-      style={{ ...gradientBorderStyle, height: `${totalHeight}px` }}
-      className="cursor-pointer group"
+      className="card hover-lift cursor-pointer group"
+      style={{ height: `${totalHeight}px` }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.3 }}
@@ -59,22 +59,17 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
         }
       }}
     >
-      <div className="relative overflow-hidden rounded-xl bg-gray-900/30 backdrop-blur-sm p-6 h-full flex flex-col">
-        {/* Subtle gradient overlay for depth */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`} />
-        
-        {/* Content container */}
-        <div className="relative z-10 flex flex-col h-full">
-          {/* Header */}
-          <div className="flex items-center gap-4 mb-4">
-            {IconComponent && <IconComponent className="w-6 h-6 text-white flex-shrink-0" />}
-            <h3 className="text-white font-semibold text-lg drop-shadow-sm leading-tight">{category.name}</h3>
-          </div>
+      <div className="p-6 h-full flex flex-col">
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-4">
+          {IconComponent && <IconComponent className="w-6 h-6 text-gray-300 flex-shrink-0" />}
+          <h3 className="text-white font-semibold text-lg leading-tight">{category.name}</h3>
+        </div>
 
-          {/* Description */}
-          <p className="text-white/90 text-sm leading-relaxed drop-shadow-sm mb-6 flex-shrink-0">
-            {category.description}
-          </p>
+        {/* Description */}
+        <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-shrink-0">
+          {category.description}
+        </p>
 
           {/* Dynamic Vendor Logo Grid */}
           <div className="flex-1 mb-6">
@@ -109,19 +104,18 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between flex-shrink-0">
-            <span className="text-white/70 text-sm drop-shadow-sm font-medium">
+          <div className="flex items-center justify-between flex-shrink-0 mt-auto">
+            <span className="text-gray-300 text-sm font-medium">
               {category.vendors.length} vendor{category.vendors.length !== 1 ? 's' : ''}
             </span>
             <motion.div
-              className="w-5 h-5 text-white/70 group-hover:text-white transition-colors duration-300 drop-shadow-sm"
+              className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300"
               whileHover={{ x: 2 }}
             >
               <LucideIcons.ArrowRight className="w-5 h-5" />
             </motion.div>
           </div>
         </div>
-      </div>
-    </motion.div>
-  );
-};
+      </motion.div>
+    );
+  };
