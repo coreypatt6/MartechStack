@@ -17,6 +17,17 @@ const initializeStorage = () => {
         return [];
       }
       
+      // Check for processed blob URLs (indicates transparency processing was applied)
+      const hasProcessedLogos = vendors.some((vendor: Vendor) => 
+        vendor.logo && vendor.logo.startsWith('blob:')
+      );
+      
+      if (hasProcessedLogos) {
+        console.log('🗑️ Clearing vendors with processed blob logos to restore original SVGs');
+        localStorage.removeItem('martech-vendors');
+        return [];
+      }
+      
       // Clean up any blob URLs that are no longer valid
       return vendors.map((vendor: Vendor) => ({
         ...vendor,
@@ -96,8 +107,8 @@ export const useVendors = () => {
           setLastSyncTime(new Date());
           console.log('✅ Cross-device sync complete - vendors now synchronized');
           
-          // Automatically process logos for transparency
-          await processLogosForTransparency(githubVendors);
+          // Skip automatic logo transparency processing to preserve SVG quality
+          // await processLogosForTransparency(githubVendors);
         } else {
           console.log('📝 No vendor data found in GitHub repository');
           console.log('💾 Checking local storage data...');
@@ -114,15 +125,16 @@ export const useVendors = () => {
                 vendorStorage = staticVendors;
                 saveToStorage(staticVendors);
                 setVendors(staticVendors);
-                await processLogosForTransparency(staticVendors);
+                // Skip transparency processing for clean SVG display
+                // await processLogosForTransparency(staticVendors);
               }
             } catch (staticError) {
               console.log('⚠️ Could not load from static file:', staticError.message);
             }
           } else {
             console.log('🔧 Using existing local storage data:', vendorStorage.length, 'vendors');
-            // Process existing local vendors for transparency
-            await processLogosForTransparency(vendorStorage);
+            // Skip transparency processing for clean SVG display
+            // await processLogosForTransparency(vendorStorage);
           }
         }
       } catch (error) {
@@ -141,15 +153,16 @@ export const useVendors = () => {
               vendorStorage = staticVendors;
               saveToStorage(staticVendors);
               setVendors(staticVendors);
-              await processLogosForTransparency(staticVendors);
+              // Skip transparency processing for clean SVG display
+              // await processLogosForTransparency(staticVendors);
             }
           } catch (staticError) {
             console.log('❌ All data sources failed:', staticError.message);
           }
         } else {
           console.log('🔧 Using local storage data:', vendorStorage.length, 'vendors');
-          // Still process local vendors for transparency
-          await processLogosForTransparency(vendorStorage);
+          // Skip transparency processing for clean SVG display
+          // await processLogosForTransparency(vendorStorage);
         }
       } finally {
         setIsSyncing(false);
@@ -207,8 +220,8 @@ export const useVendors = () => {
   };
 
   const addVendor = async (vendor: Vendor) => {
-    // Process logo for transparency if needed
-    const processedVendor = await processSingleLogoForTransparency(vendor);
+    // Skip logo transparency processing to preserve quality
+    const processedVendor = vendor;
     
     const newVendors = [...vendorStorage, processedVendor];
     vendorStorage = newVendors;
@@ -222,8 +235,8 @@ export const useVendors = () => {
   };
 
   const updateVendor = async (id: string, updatedVendor: Vendor) => {
-    // Process logo for transparency if needed
-    const processedVendor = await processSingleLogoForTransparency(updatedVendor);
+    // Skip logo transparency processing to preserve quality
+    const processedVendor = updatedVendor;
     
     const newVendors = vendorStorage.map(v => v.id === id ? processedVendor : v);
     vendorStorage = newVendors;
