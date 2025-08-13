@@ -3,7 +3,7 @@
     {
       "id": "bulk_1753573138669_0",
       "name": "Adjust",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://adjust.com/wp-content/uploads/2023/08/adjust-logo-primary-positive.svg",
       "deploymentStatus": "Active",
       "capabilities": "Provides advanced mobile attribution and analytics, helping marketers measure and optimize app campaign performance.",
       "label": [
@@ -19,7 +19,7 @@
     {
       "id": "bulk_1753573138670_1",
       "name": "Adobe Experience Manager",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/adobe-1.svg",
       "deploymentStatus": "Active",
       "capabilities": "Enterprise content management system for building websites, mobile apps, and forms, with robust digital asset management.",
       "label": [
@@ -35,7 +35,7 @@
     {
       "id": "bulk_1753573138670_2",
       "name": "Adobe Workfront",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/adobe-1.svg",
       "deploymentStatus": "Active",
       "capabilities": "Work management platform designed to streamline project planning, collaboration, and execution for creative and marketing teams.",
       "label": [
@@ -51,7 +51,7 @@
     {
       "id": "bulk_1753573138670_3",
       "name": "Adswerve",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://adswerve.com/wp-content/uploads/2023/11/adswerve_logo_light.svg",
       "deploymentStatus": "Active",
       "capabilities": "Digital analytics and media consultancy specializing in Google Marketing Platform solutions, including analytics, media buying, and data integration.",
       "label": [
@@ -67,7 +67,7 @@
     {
       "id": "bulk_1753573138670_4",
       "name": "Ahrefs Webmaster Tools",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/ahrefs-1.svg",
       "deploymentStatus": "Active",
       "capabilities": "SEO platform offering site audits, backlink analysis, and keyword tracking to improve website search performance.",
       "label": [
@@ -83,7 +83,7 @@
     {
       "id": "bulk_1753573138670_5",
       "name": "Alchemer",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.alchemer.com/wp-content/uploads/2023/09/alchemer-logo-full-color.svg",
       "deploymentStatus": "Active",
       "capabilities": "Survey and feedback platform for collecting, analyzing, and acting on customer and employee insights.",
       "label": [
@@ -99,7 +99,7 @@
     {
       "id": "bulk_1753573138670_6",
       "name": "Appsflyer",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/appsflyer.svg",
       "deploymentStatus": "Active",
       "capabilities": "Mobile attribution and marketing analytics platform, enabling marketers to measure and optimize user acquisition and engagement.",
       "label": [
@@ -115,7 +115,7 @@
     {
       "id": "bulk_1753573138670_7",
       "name": "Ayzenberg",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.ayzenberg.com/wp-content/uploads/2023/05/ayzenberg-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Full-service marketing and advertising agency focused on digital, social, and influencer campaigns.",
       "label": [
@@ -131,7 +131,7 @@
     {
       "id": "bulk_1753573138670_8",
       "name": "Bit.ly",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/bitly.svg",
       "deploymentStatus": "Active",
       "capabilities": "URL shortening and link management service, providing branded links, click tracking, and analytics.",
       "label": [
@@ -147,7 +147,7 @@
     {
       "id": "bulk_1753573138671_9",
       "name": "BrowserStack",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/browserstack.svg",
       "deploymentStatus": "Active",
       "capabilities": "Cloud-based testing platform for web and mobile applications across various browsers and devices.",
       "label": [
@@ -163,7 +163,7 @@
     {
       "id": "bulk_1753573138671_10",
       "name": "Code Climate Inc",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/code-climate.svg",
       "deploymentStatus": "Active",
       "capabilities": "Automated code review and quality analysis platform for engineering teams to improve code health and maintainability.",
       "label": [
@@ -179,7 +179,7 @@
     {
       "id": "bulk_1753573432079_0",
       "name": "Contentful",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/contentful.svg",
       "deploymentStatus": "Active",
       "capabilities": "Headless content management system (CMS) for creating, managing, and distributing content across digital channels.",
       "label": [
@@ -195,7 +195,7 @@
     {
       "id": "bulk_1753573432080_1",
       "name": "CreatorIQ",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://creatoriq.com/wp-content/uploads/2023/05/CIQ-Logo-Wordmark-Purple.svg",
       "deploymentStatus": "Active",
       "capabilities": "Influencer marketing platform for discovering, managing, and measuring influencer campaigns at scale.",
       "label": [
@@ -211,7 +211,7 @@
     {
       "id": "bulk_1753573432080_2",
       "name": "Databricks",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/databricks-1.svg",
       "deploymentStatus": "Active",
       "capabilities": "Unified analytics platform for big data and AI, enabling data engineering, collaborative analytics, and machine learning.",
       "label": [
@@ -227,7 +227,7 @@
     {
       "id": "bulk_1753573432080_3",
       "name": "DeltaDNA",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.deltadna.com/wp-content/uploads/2021/01/deltaDNA-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Advanced analytics and engagement platform for game developers, offering player insights and personalized messaging.",
       "label": [
@@ -243,7 +243,7 @@
     {
       "id": "bulk_1753573432080_4",
       "name": "Directly",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.directly.com/wp-content/uploads/2020/04/directly-logo-horizontal-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "AI-powered customer support automation, integrating expert networks and virtual agents to resolve customer issues efficiently.",
       "label": [
@@ -259,7 +259,7 @@
     {
       "id": "bulk_1753573432080_5",
       "name": "Guru",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/guru-3.svg",
       "deploymentStatus": "Active",
       "capabilities": "Knowledge management solution that delivers verified information to teams directly within their workflow.",
       "label": [
@@ -275,7 +275,7 @@
     {
       "id": "bulk_1753573432080_6",
       "name": "Helpshift",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.helpshift.com/hubfs/Helpshift_Logo_White.svg",
       "deploymentStatus": "Active",
       "capabilities": "In-app customer support platform for mobile apps, offering messaging, automation, and self-service options.",
       "label": [
@@ -291,7 +291,7 @@
     {
       "id": "bulk_1753573432080_7",
       "name": "Infosum",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.infosum.com/wp-content/uploads/2022/06/InfoSum-Logo-White.svg",
       "deploymentStatus": "Active",
       "capabilities": "Privacy-first data collaboration platform, enabling secure data matching and analytics without sharing raw data.",
       "label": [
@@ -307,7 +307,7 @@
     {
       "id": "bulk_1753574088898_1",
       "name": "LevelUP Analytics",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://levelupanalytics.com/wp-content/uploads/2023/02/LevelUP-Analytics-Logo-White.svg",
       "deploymentStatus": "Active",
       "capabilities": "Data analytics consultancy providing custom solutions for data engineering, visualization, and business intelligence.",
       "label": [
@@ -323,7 +323,7 @@
     {
       "id": "bulk_1753573432081_8",
       "name": "Linktree",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/linktree.svg",
       "deploymentStatus": "Active",
       "capabilities": "Link-in-bio tool for social media, allowing users to share multiple links through a single customizable landing page.",
       "label": [
@@ -339,7 +339,7 @@
     {
       "id": "bulk_1753573432081_9",
       "name": "Litmus",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/litmus-1.svg",
       "deploymentStatus": "Active",
       "capabilities": "Email testing and analytics platform for previewing, testing, and optimizing email campaigns across clients and devices.",
       "label": [
@@ -355,7 +355,7 @@
     {
       "id": "bulk_1753573432081_10",
       "name": "Liveramp",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/liveramp.svg",
       "deploymentStatus": "Active",
       "capabilities": "Data connectivity platform for identity resolution, onboarding, and activation across marketing channels.",
       "label": [
@@ -371,7 +371,7 @@
     {
       "id": "bulk_1753573432081_11",
       "name": "Lotus Themes",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://lotusthemes.com/wp-content/uploads/2023/01/lotus-themes-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Provider of premium themes and design solutions for Zendesk and other customer support platforms.",
       "label": [
@@ -387,7 +387,7 @@
     {
       "id": "bulk_1753573432081_12",
       "name": "Meltwater",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/meltwater.svg",
       "deploymentStatus": "Active",
       "capabilities": "Media intelligence and social listening platform for monitoring news, social media, and online conversations.",
       "label": [
@@ -403,7 +403,7 @@
     {
       "id": "bulk_1753573432081_13",
       "name": "Movable Ink",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://movableink.com/wp-content/uploads/2023/08/MovableInk_Logo_White.svg",
       "deploymentStatus": "Active",
       "capabilities": "Dynamic content platform for creating personalized, data-driven email and web experiences.",
       "label": [
@@ -419,7 +419,7 @@
     {
       "id": "bulk_1753573432082_14",
       "name": "Muck Rack",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://muckrack.com/assets/logo-white-text-9c7a4b9c4d1e8d7a4b8a7b3c5d2e1f0c.svg",
       "deploymentStatus": "Active",
       "capabilities": "Public relations management platform for media monitoring, journalist outreach, and PR analytics.",
       "label": [
@@ -435,7 +435,7 @@
     {
       "id": "bulk_1753573432082_15",
       "name": "OneTrust - Cookie Compliance",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/onetrust.svg",
       "deploymentStatus": "Active",
       "capabilities": "Privacy management solution for website cookie consent and compliance with global data regulations.",
       "label": [
@@ -451,7 +451,7 @@
     {
       "id": "bulk_1753573432082_16",
       "name": "PRManager (ex PRGloo)",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://prmanager.com/wp-content/uploads/2023/03/PRManager-Logo-White.svg",
       "deploymentStatus": "Active",
       "capabilities": "PR management platform for handling media contacts, press releases, and newsroom workflows.",
       "label": [
@@ -467,7 +467,7 @@
     {
       "id": "bulk_1753573432082_17",
       "name": "Quiq",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.quiq.com/wp-content/uploads/2023/01/quiq-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Conversational AI and messaging platform for customer service across SMS, web chat, and social channels.",
       "label": [
@@ -483,7 +483,7 @@
     {
       "id": "bulk_1753573432082_18",
       "name": "RightPoint",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.rightpoint.com/wp-content/uploads/2023/02/rightpoint-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Digital consultancy specializing in experience design, technology implementation, and organizational transformation.",
       "label": [
@@ -499,7 +499,7 @@
     {
       "id": "bulk_1753573432082_19",
       "name": "Salesforce Marketing Cloud",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg",
       "deploymentStatus": "Active",
       "capabilities": "Comprehensive marketing automation platform for email, SMS, social, and digital advertising campaigns.",
       "label": [
@@ -515,7 +515,7 @@
     {
       "id": "bulk_1753573623185_0",
       "name": "Salesforce Marketing Cloud Intelligence (Datorama)",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg",
       "deploymentStatus": "Active",
       "capabilities": "Marketing analytics and data integration platform for unified reporting and insights.",
       "label": [
@@ -531,7 +531,7 @@
     {
       "id": "bulk_1753573870505_0",
       "name": "Salesforce Service Cloud",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg",
       "deploymentStatus": "Active",
       "capabilities": "Customer service and support platform for managing cases, automating workflows, and delivering omnichannel support.",
       "label": [
@@ -547,7 +547,7 @@
     {
       "id": "bulk_1753573870506_1",
       "name": "Screen Engine | MindGame",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://screenengine.com/wp-content/uploads/2023/01/screen-engine-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Analytics and insights platform focused on gaming market share, player behavior, and industry trends.",
       "label": [
@@ -563,7 +563,7 @@
     {
       "id": "bulk_1753574088897_0",
       "name": "Sensor Tower | Pathmatics",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/sensor-tower.svg",
       "deploymentStatus": "Active",
       "capabilities": "Mobile app and digital advertising intelligence platform for competitive analysis and market research.",
       "label": [
@@ -579,7 +579,7 @@
     {
       "id": "bulk_1753574088899_2",
       "name": "Sprinklr",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://cdn.worldvectorlogo.com/logos/sprinklr.svg",
       "deploymentStatus": "Active",
       "capabilities": "Unified customer experience management platform for social media, marketing, and customer care.",
       "label": [
@@ -611,7 +611,7 @@
     {
       "id": "bulk_1753574088899_3",
       "name": "Statuspage",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.statuspage.io/assets/statuspage-logo-white-text.svg",
       "deploymentStatus": "Active",
       "capabilities": "Incident communication and status page platform for keeping customers informed during outages and maintenance.",
       "label": [
@@ -627,7 +627,7 @@
     {
       "id": "bulk_1753574088899_4",
       "name": "Stream Hatchet",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://streamhatchet.com/wp-content/uploads/2023/02/stream-hatchet-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Analytics platform for live streaming and esports, tracking audience engagement and content performance.",
       "label": [
@@ -659,7 +659,7 @@
     {
       "id": "bulk_1753574088899_6",
       "name": "Tubular",
-      "logo": "https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo",
+      "logo": "https://www.tubularlabs.com/wp-content/uploads/2023/01/tubular-logo-white.svg",
       "deploymentStatus": "Active",
       "capabilities": "Video intelligence platform for measuring and benchmarking online video content and audience trends.",
       "label": [
