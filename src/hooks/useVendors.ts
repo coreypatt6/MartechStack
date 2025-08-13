@@ -162,18 +162,26 @@ export const useVendors = () => {
             try {
               // Load from static vendors.json file as fallback with cache busting
               const response = await fetch(`/data/vendors.json?v=${Date.now()}`);
+              console.log('📡 Static file response status:', response.status);
               if (response.ok) {
                 const staticData = await response.json();
-                const staticVendors = staticData.vendors || [];
+                console.log('📋 Static data structure:', Object.keys(staticData));
+                const staticVendors = staticData.vendors || staticData || [];
                 console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file');
-                vendorStorage = staticVendors;
-                saveToStorage(staticVendors);
-                setVendors(staticVendors);
+                if (staticVendors.length > 0) {
+                  vendorStorage = staticVendors;
+                  saveToStorage(staticVendors);
+                  setVendors(staticVendors);
+                } else {
+                  console.warn('⚠️ Static file loaded but contains no vendors');
+                }
                 // Skip transparency processing for clean SVG display
                 // await processLogosForTransparency(staticVendors);
+              } else {
+                console.error('❌ Static file request failed:', response.status, response.statusText);
               }
             } catch (staticError) {
-              console.log('⚠️ Could not load from static file:', staticError.message);
+              console.error('❌ Could not load from static file:', staticError);
             }
           } else {
             console.log('🔧 Using existing local storage data:', vendorStorage.length, 'vendors');
@@ -186,22 +194,30 @@ export const useVendors = () => {
         console.log('💾 Checking local storage and static fallback...');
         
         if (vendorStorage.length === 0) {
-          console.log('📁 Loading vendor data from static file as fallback...');
+          console.log('📁 Loading vendor data from static file as final fallback...');
           try {
             // Load from static vendors.json file as final fallback with cache busting
             const response = await fetch(`/data/vendors.json?v=${Date.now()}`);
+            console.log('📡 Final fallback response status:', response.status);
             if (response.ok) {
               const staticData = await response.json();
-              const staticVendors = staticData.vendors || [];
-              console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file');
-              vendorStorage = staticVendors;
-              saveToStorage(staticVendors);
-              setVendors(staticVendors);
+              console.log('📋 Final fallback data structure:', Object.keys(staticData));
+              const staticVendors = staticData.vendors || staticData || [];
+              console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file (final fallback)');
+              if (staticVendors.length > 0) {
+                vendorStorage = staticVendors;
+                saveToStorage(staticVendors);
+                setVendors(staticVendors);
+              } else {
+                console.error('❌ Final fallback loaded but contains no vendors');
+              }
               // Skip transparency processing for clean SVG display
               // await processLogosForTransparency(staticVendors);
+            } else {
+              console.error('❌ Final fallback request failed:', response.status, response.statusText);
             }
           } catch (staticError) {
-            console.log('❌ All data sources failed:', staticError.message);
+            console.error('❌ All data sources failed:', staticError);
           }
         } else {
           console.log('🔧 Using local storage data:', vendorStorage.length, 'vendors');
