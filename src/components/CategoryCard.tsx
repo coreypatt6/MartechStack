@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import { Category } from '../types';
+import { VendorLogo } from './VendorLogo';
 
 interface CategoryCardProps {
   category: Category;
@@ -12,7 +13,6 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
   const IconComponent = LucideIcons[category.icon as keyof typeof LucideIcons] as React.ComponentType<{
     className?: string;
   }>;
-  const [failedLogos, setFailedLogos] = React.useState<Set<string>>(new Set());
 
   // Calculate dynamic grid layout based on vendor count
   const vendorCount = category.vendors.length;
@@ -86,20 +86,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
                 <div 
                   key={vendor.id}
                   className="flex items-center justify-center"
-                  title={vendor.name}
                 >
-                  <img
-                    src={vendor.logo}
-                    alt={vendor.name}
-                    className="max-w-8 max-h-8 object-contain"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      if (!failedLogos.has(vendor.id)) {
-                        setFailedLogos(prev => new Set(prev).add(vendor.id));
-                        target.src = 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo';
-                      }
-                    }}
-                  />
+                  <VendorLogo vendor={vendor} />
                 </div>
               ))}
             </div>
