@@ -9,6 +9,14 @@ const initializeStorage = () => {
   if (stored) {
     try {
       const vendors = JSON.parse(stored);
+      
+      // Check if we have too many vendors (indicates old data)
+      if (vendors.length > 50) {
+        console.log('🗑️ Clearing outdated vendor data from localStorage (found', vendors.length, 'vendors, expected ≤50)');
+        localStorage.removeItem('martech-vendors');
+        return [];
+      }
+      
       // Clean up any blob URLs that are no longer valid
       return vendors.map((vendor: Vendor) => ({
         ...vendor,
@@ -97,8 +105,8 @@ export const useVendors = () => {
           if (vendorStorage.length === 0) {
             console.log('📁 Loading vendor data from static file...');
             try {
-              // Load from static vendors.json file as fallback
-              const response = await fetch('/data/vendors.json');
+              // Load from static vendors.json file as fallback with cache busting
+              const response = await fetch(`/data/vendors.json?v=${Date.now()}`);
               if (response.ok) {
                 const staticData = await response.json();
                 const staticVendors = staticData.vendors || [];
@@ -124,8 +132,8 @@ export const useVendors = () => {
         if (vendorStorage.length === 0) {
           console.log('📁 Loading vendor data from static file as fallback...');
           try {
-            // Load from static vendors.json file as final fallback
-            const response = await fetch('/data/vendors.json');
+            // Load from static vendors.json file as final fallback with cache busting
+            const response = await fetch(`/data/vendors.json?v=${Date.now()}`);
             if (response.ok) {
               const staticData = await response.json();
               const staticVendors = staticData.vendors || [];
