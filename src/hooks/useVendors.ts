@@ -6,6 +6,17 @@ import { processAllLogosForTransparency, processSingleLogoForTransparency } from
 // Initialize storage (no mock data fallback)
 const initializeStorage = () => {
   const stored = localStorage.getItem('martech-vendors');
+  const lastDataVersion = localStorage.getItem('martech-data-version');
+  const currentDataVersion = '2024-08-13-corporate-logos';
+  
+  // Force clear old data to ensure corporate logos are loaded
+  if (lastDataVersion !== currentDataVersion) {
+    console.log('🔄 Data version mismatch - clearing localStorage to load fresh corporate logo data');
+    localStorage.removeItem('martech-vendors');
+    localStorage.setItem('martech-data-version', currentDataVersion);
+    return [];
+  }
+  
   if (stored) {
     try {
       const vendors = JSON.parse(stored);
@@ -88,6 +99,7 @@ let vendorStorage: Vendor[] = initializeStorage();
 const saveToStorage = (vendors: Vendor[]) => {
   try {
     localStorage.setItem('martech-vendors', JSON.stringify(vendors));
+    localStorage.setItem('martech-data-version', '2024-08-13-corporate-logos');
   } catch (error) {
     console.error('Error saving vendors to storage:', error);
   }
