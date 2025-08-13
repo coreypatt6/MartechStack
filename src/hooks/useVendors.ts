@@ -134,102 +134,74 @@ export const useVendors = () => {
     setVendors(vendorStorage);
   }, []);
 
-  // Load vendors from GitHub on first load and process logos for transparency
+  // Load vendors - prioritize reliable sources over localStorage
   useEffect(() => {
-    const loadFromGitHub = async () => {
+    const loadVendorData = async () => {
+      setIsSyncing(true);
+      
+      // Try localStorage first for immediate display (performance cache)
+      if (vendorStorage.length > 0) {
+        console.log('⚡ Quick load from cache:', vendorStorage.length, 'vendors');
+        setVendors(vendorStorage);
+      }
+      
+      // Always try to load fresh data from reliable sources
+      let loadedFromReliableSource = false;
+      
+      // Priority 1: GitHub repository (if available)
       try {
-        console.log('🚀 Initializing GitHub cloud sync...');
-        console.log('🔍 Checking for existing vendor data in GitHub repository...');
-        setIsSyncing(true);
+        console.log('🔍 Loading fresh data from GitHub repository...');
         const githubVendors = await githubSync.loadVendors();
         if (githubVendors && githubVendors.length > 0) {
-          console.log('📥 Successfully loaded', githubVendors.length, 'vendors from GitHub repository');
-          console.log('🔄 Replacing local storage with GitHub data for consistency');
+          console.log('✅ Successfully loaded', githubVendors.length, 'vendors from GitHub');
           vendorStorage = githubVendors;
           saveToStorage(githubVendors);
           setVendors(githubVendors);
           setLastSyncTime(new Date());
-          console.log('✅ Cross-device sync complete - vendors now synchronized');
-          
-          // Skip automatic logo transparency processing to preserve SVG quality
-          // await processLogosForTransparency(githubVendors);
-        } else {
-          console.log('📝 No vendor data found in GitHub repository');
-          console.log('💾 Checking local storage data...');
-          
-          if (vendorStorage.length === 0) {
-            console.log('📁 Loading vendor data from static file...');
-            try {
-              // Load from static vendors.json file as fallback with cache busting
-              const response = await fetch(`/data/vendors.json?v=${Date.now()}`);
-              console.log('📡 Static file response status:', response.status);
-              if (response.ok) {
-                const staticData = await response.json();
-                console.log('📋 Static data structure:', Object.keys(staticData));
-                const staticVendors = staticData.vendors || staticData || [];
-                console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file');
-                if (staticVendors.length > 0) {
-                  vendorStorage = staticVendors;
-                  saveToStorage(staticVendors);
-                  setVendors(staticVendors);
-                } else {
-                  console.warn('⚠️ Static file loaded but contains no vendors');
-                }
-                // Skip transparency processing for clean SVG display
-                // await processLogosForTransparency(staticVendors);
-              } else {
-                console.error('❌ Static file request failed:', response.status, response.statusText);
-              }
-            } catch (staticError) {
-              console.error('❌ Could not load from static file:', staticError);
-            }
-          } else {
-            console.log('🔧 Using existing local storage data:', vendorStorage.length, 'vendors');
-            // Skip transparency processing for clean SVG display
-            // await processLogosForTransparency(vendorStorage);
-          }
+          loadedFromReliableSource = true;
         }
       } catch (error) {
-        console.log('⚠️ Could not load from GitHub repository:', error.message);
-        console.log('💾 Checking local storage and static fallback...');
-        
-        if (vendorStorage.length === 0) {
-          console.log('📁 Loading vendor data from static file as final fallback...');
-          try {
-            // Load from static vendors.json file as final fallback with cache busting
-            const response = await fetch(`/data/vendors.json?v=${Date.now()}`);
-            console.log('📡 Final fallback response status:', response.status);
-            if (response.ok) {
-              const staticData = await response.json();
-              console.log('📋 Final fallback data structure:', Object.keys(staticData));
-              const staticVendors = staticData.vendors || staticData || [];
-              console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file (final fallback)');
-              if (staticVendors.length > 0) {
-                vendorStorage = staticVendors;
-                saveToStorage(staticVendors);
-                setVendors(staticVendors);
-              } else {
-                console.error('❌ Final fallback loaded but contains no vendors');
-              }
-              // Skip transparency processing for clean SVG display
-              // await processLogosForTransparency(staticVendors);
-            } else {
-              console.error('❌ Final fallback request failed:', response.status, response.statusText);
-            }
-          } catch (staticError) {
-            console.error('❌ All data sources failed:', staticError);
-          }
-        } else {
-          console.log('🔧 Using local storage data:', vendorStorage.length, 'vendors');
-          // Skip transparency processing for clean SVG display
-          // await processLogosForTransparency(vendorStorage);
-        }
-      } finally {
-        setIsSyncing(false);
+        console.log('⚠️ GitHub repository not available:', error.message);
       }
+      
+      // Priority 2: Static file (reliable fallback)
+      if (!loadedFromReliableSource) {
+        try {
+          console.log('📁 Loading from static file...');
+          const response = await fetch(`/data/vendors.json?v=${Date.now()}`);
+          console.log('📡 Static file response:', response.status);
+          
+          if (response.ok) {
+            const staticData = await response.json();
+            const staticVendors = staticData.vendors || staticData || [];
+            console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file');
+            
+            if (staticVendors.length > 0) {
+              vendorStorage = staticVendors;
+              saveToStorage(staticVendors);
+              setVendors(staticVendors);
+              loadedFromReliableSource = true;
+            }
+          } else {
+            console.error('❌ Static file failed:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('❌ Static file error:', error);
+        }
+      }
+      
+      // If no reliable source worked, keep using cached data
+      if (!loadedFromReliableSource && vendorStorage.length > 0) {
+        console.log('🔧 Using cached data as final fallback:', vendorStorage.length, 'vendors');
+        setVendors(vendorStorage);
+      } else if (!loadedFromReliableSource) {
+        console.error('❌ No data sources available - vendors will be empty');
+      }
+      
+      setIsSyncing(false);
     };
 
-    loadFromGitHub();
+    loadVendorData();
   }, []);
 
   // Function to automatically process logos for transparency
