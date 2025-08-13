@@ -93,16 +93,29 @@ const getVendorInitials = (name: string): string => {
 // Map vendors to local SVG files - only include working SVGs we've verified
 const getLocalLogoPath = (vendorName: string): string | null => {
   const logoMap: Record<string, string> = {
-    'Sprout Social': '/logos/sprout-social.svg',
+    'Adjust': '/logos/adjust.svg',
     'Adobe Experience Manager': '/logos/adobe.svg',
     'Adobe Workfront': '/logos/adobe.svg',
+    'Ahrefs Webmaster Tools': '/logos/ahrefs-webmaster.svg',
+    'Ahrefs': '/logos/ahrefs.svg',
+    'Appsflyer': '/logos/appsflyer.svg',
     'Bit.ly': '/logos/bitly.svg',
     'BrowserStack': '/logos/browserstack.svg',
     'Code Climate Inc': '/logos/code-climate.svg',
+    'Contentful': '/logos/contentful.svg',
+    'Databricks': '/logos/databricks.svg',
     'Guru': '/logos/guru.svg',
+    'Linktree': '/logos/linktree.svg',
+    'Litmus': '/logos/litmus.svg',
+    'Liveramp': '/logos/liveramp.svg',
+    'Meltwater': '/logos/meltwater.svg',
+    'OneTrust - Cookie Compliance': '/logos/onetrust.svg',
     'Salesforce Marketing Cloud': '/logos/salesforce.svg',
     'Salesforce Marketing Cloud Intelligence (Datorama)': '/logos/salesforce.svg',
     'Salesforce Service Cloud': '/logos/salesforce.svg',
+    'Sensor Tower | Pathmatics': '/logos/sensor-tower.svg',
+    'Sprinklr': '/logos/sprinklr.svg',
+    'Sprout Social': '/logos/sprout-social.svg',
     'Zendesk': '/logos/zendesk-transparent.png',
     'Zendesk Workforce Management (formerly Tymeshift)': '/logos/zendesk-transparent.png'
   };
@@ -111,13 +124,33 @@ const getLocalLogoPath = (vendorName: string): string | null => {
 };
 
 export const VendorLogo: React.FC<VendorLogoProps> = ({ vendor, className = '' }) => {
-  const [imageError, setImageError] = React.useState(false);
+  const [vendorLogoError, setVendorLogoError] = React.useState(false);
+  const [localLogoError, setLocalLogoError] = React.useState(false);
   const brandColor = getBrandColor(vendor.name);
   const initials = getVendorInitials(vendor.name);
   const localLogoPath = getLocalLogoPath(vendor.name);
 
-  // If we have a local logo and no image error, try to use it
-  if (localLogoPath && !imageError) {
+  // Priority 1: Use vendor's logo URL if it's not a dummy image and hasn't errored
+  if (vendor.logo && !vendor.logo.includes('dummyimage.com') && !vendorLogoError) {
+    return (
+      <img
+        src={vendor.logo}
+        alt={vendor.name}
+        className={`object-contain ${className}`}
+        style={{
+          width: '32px',
+          height: '32px',
+          maxWidth: '32px',
+          maxHeight: '32px'
+        }}
+        title={vendor.name}
+        onError={() => setVendorLogoError(true)}
+      />
+    );
+  }
+
+  // Priority 2: Use local logo if available and hasn't errored
+  if (localLogoPath && !localLogoError) {
     return (
       <img
         src={localLogoPath}
@@ -130,12 +163,12 @@ export const VendorLogo: React.FC<VendorLogoProps> = ({ vendor, className = '' }
           maxHeight: '32px'
         }}
         title={vendor.name}
-        onError={() => setImageError(true)}
+        onError={() => setLocalLogoError(true)}
       />
     );
   }
 
-  // Fall back to CSS badge for all others or on error
+  // Priority 3: Only fall back to CSS badge if all logos fail
   return (
     <div 
       className={`flex items-center justify-center text-white font-bold text-xs rounded ${className}`}

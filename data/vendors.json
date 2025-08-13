@@ -9,8 +9,349 @@
       "label": [
         "Rockstar"
       ],
+<<<<<<< HEAD
       "annualCost": 60000,
       "renewalDate": "2024-11-30",
+=======
+      "annualCost": 277500,
+      "renewalDate": "2025-03-31",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_1",
+      "name": "Adobe Experience Manager",
+      "logo": "https://cdn.worldvectorlogo.com/logos/adobe-1.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Enterprise content management system for building websites, mobile apps, and forms, with robust digital asset management.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 651818,
+      "renewalDate": "2026-04-17",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_2",
+      "name": "Adobe Workfront",
+      "logo": "https://cdn.worldvectorlogo.com/logos/adobe-1.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Work management platform designed to streamline project planning, collaboration, and execution for creative and marketing teams.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 272258.44,
+      "renewalDate": "2026-04-17",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_3",
+      "name": "Adswerve",
+      "logo": "https://dummyimage.com/64x64/0066CC/ffffff&text=ADS",
+      "deploymentStatus": "Active",
+      "capabilities": "Digital analytics and media consultancy specializing in Google Marketing Platform solutions, including analytics, media buying, and data integration.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 275000,
+      "renewalDate": "2024-05-31",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_4",
+      "name": "Ahrefs Webmaster Tools",
+      "logo": "https://cdn.worldvectorlogo.com/logos/ahrefs-1.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "SEO platform offering site audits, backlink analysis, and keyword tracking to improve website search performance.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 15000,
+      "renewalDate": "2024-12-31",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_5",
+      "name": "Alchemer",
+      "logo": "https://dummyimage.com/64x64/28A745/ffffff&text=ALC",
+      "deploymentStatus": "Active",
+      "capabilities": "Survey and feedback platform for collecting, analyzing, and acting on customer and employee insights.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 6500.05,
+      "renewalDate": "2025-04-01",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_6",
+      "name": "Appsflyer",
+      "logo": "https://cdn.worldvectorlogo.com/logos/appsflyer.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Mobile attribution and marketing analytics platform, enabling marketers to measure and optimize user acquisition and engagement.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 2192338.55,
+      "renewalDate": "2023-12-09",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_7",
+      "name": "Ayzenberg",
+      "logo": "https://dummyimage.com/64x64/FF6B35/ffffff&text=AYZ",
+      "deploymentStatus": "Active",
+      "capabilities": "Full-service marketing and advertising agency focused on digital, social, and influencer campaigns.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 6000,
+      "renewalDate": "2022-10-31",
+      "categories": [
+        "talent-influencer"
+      ]
+    },
+    {
+      "id": "bulk_1753573138670_8",
+      "name": "Bit.ly",
+      "logo": "https://cdn.worldvectorlogo.com/logos/bitly.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "URL shortening and link management service, providing branded links, click tracking, and analytics.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 11640,
+      "renewalDate": "2024-05-30",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138671_9",
+      "name": "BrowserStack",
+      "logo": "https://cdn.worldvectorlogo.com/logos/browserstack.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Cloud-based testing platform for web and mobile applications across various browsers and devices.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 5445,
+      "renewalDate": "2024-04-06",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573138671_10",
+      "name": "Code Climate Inc",
+      "logo": "https://cdn.worldvectorlogo.com/logos/code-climate.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Automated code review and quality analysis platform for engineering teams to improve code health and maintainability.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 2200,
+      "renewalDate": "2025-09-01",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432079_0",
+      "name": "Contentful",
+      "logo": "https://cdn.worldvectorlogo.com/logos/contentful.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Headless content management system (CMS) for creating, managing, and distributing content across digital channels.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 100000,
+      "renewalDate": "2023-10-31",
+      "categories": [
+        "web"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_1",
+      "name": "CreatorIQ",
+      "logo": "https://dummyimage.com/64x64/8B5CF6/ffffff&text=CIQ",
+      "deploymentStatus": "Active",
+      "capabilities": "Influencer marketing platform for discovering, managing, and measuring influencer campaigns at scale.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 267004.76,
+      "renewalDate": "2024-06-30",
+      "categories": [
+        "talent-influencer"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_2",
+      "name": "Databricks",
+      "logo": "https://cdn.worldvectorlogo.com/logos/databricks-1.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Unified analytics platform for big data and AI, enabling data engineering, collaborative analytics, and machine learning.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 40000,
+      "renewalDate": "2026-02-28",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_3",
+      "name": "DeltaDNA",
+      "logo": "https://dummyimage.com/64x64/DC2626/ffffff&text=DNA",
+      "deploymentStatus": "Active",
+      "capabilities": "Advanced analytics and engagement platform for game developers, offering player insights and personalized messaging.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 800000,
+      "renewalDate": "2024-01-15",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_4",
+      "name": "Directly",
+      "logo": "https://dummyimage.com/64x64/3B82F6/ffffff&text=DIR",
+      "deploymentStatus": "Active",
+      "capabilities": "AI-powered customer support automation, integrating expert networks and virtual agents to resolve customer issues efficiently.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 100000,
+      "renewalDate": "2023-10-10",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_5",
+      "name": "Guru",
+      "logo": "https://cdn.worldvectorlogo.com/logos/guru-3.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Knowledge management solution that delivers verified information to teams directly within their workflow.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 205200,
+      "renewalDate": "2024-12-29",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_6",
+      "name": "Helpshift",
+      "logo": "https://dummyimage.com/64x64/10B981/ffffff&text=HLP",
+      "deploymentStatus": "Active",
+      "capabilities": "In-app customer support platform for mobile apps, offering messaging, automation, and self-service options.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 978000,
+      "renewalDate": "2025-09-30",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573432080_7",
+      "name": "Infosum",
+      "logo": "https://dummyimage.com/64x64/F59E0B/ffffff&text=INF",
+      "deploymentStatus": "Active",
+      "capabilities": "Privacy-first data collaboration platform, enabling secure data matching and analytics without sharing raw data.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 50000,
+      "renewalDate": "2025-10-24",
+      "categories": [
+        "paid-data"
+      ]
+    },
+    {
+      "id": "bulk_1753574088898_1",
+      "name": "LevelUP Analytics",
+      "logo": "https://dummyimage.com/64x64/EF4444/ffffff&text=LVL",
+      "deploymentStatus": "Active",
+      "capabilities": "Data analytics consultancy providing custom solutions for data engineering, visualization, and business intelligence.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 0,
+      "renewalDate": "2026-03-31",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_8",
+      "name": "Linktree",
+      "logo": "https://cdn.worldvectorlogo.com/logos/linktree.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Link-in-bio tool for social media, allowing users to share multiple links through a single customizable landing page.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 1134,
+      "renewalDate": "2023-11-01",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432081_9",
+      "name": "Litmus",
+      "logo": "https://cdn.worldvectorlogo.com/logos/litmus-1.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Email testing and analytics platform for previewing, testing, and optimizing email campaigns across clients and devices.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 10531.16,
+      "renewalDate": "2024-06-29",
+>>>>>>> db07940 (Prioritize corporate logos over CSS badges and fix JSON syntax)
       "categories": [
         "email"
       ],
@@ -35,12 +376,148 @@
       "categories": [
         "web"
       ],
+<<<<<<< HEAD
       "logoSource": "predefined (Auto-Transparent)",
       "logoConfidence": 85,
       "logoUpdatedAt": "2025-07-27T05:51:22.811Z",
       "logoUpdated": true,
       "hasTransparentBackground": true,
       "logoProcessedAt": "2025-07-28T01:38:56.668Z"
+=======
+      "annualCost": 46237.5,
+      "renewalDate": "2024-02-20",
+      "categories": [
+        "pr-comms"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_17",
+      "name": "Quiq",
+      "logo": "https://dummyimage.com/64x64/0891B2/ffffff&text=QUI",
+      "deploymentStatus": "Active",
+      "capabilities": "Conversational AI and messaging platform for customer service across SMS, web chat, and social channels.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 125000,
+      "renewalDate": "2024-06-30",
+      "categories": [
+        "email"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_18",
+      "name": "RightPoint",
+      "logo": "https://dummyimage.com/64x64/DC2626/ffffff&text=RPT",
+      "deploymentStatus": "Active",
+      "capabilities": "Digital consultancy specializing in experience design, technology implementation, and organizational transformation.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 21700,
+      "renewalDate": "2023-10-12",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573432082_19",
+      "name": "Salesforce Marketing Cloud",
+      "logo": "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Comprehensive marketing automation platform for email, SMS, social, and digital advertising campaigns.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 398714,
+      "renewalDate": "2025-08-22",
+      "categories": [
+        "email"
+      ]
+    },
+    {
+      "id": "bulk_1753573623185_0",
+      "name": "Salesforce Marketing Cloud Intelligence (Datorama)",
+      "logo": "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Marketing analytics and data integration platform for unified reporting and insights.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 875868,
+      "renewalDate": "2026-02-14",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753573870505_0",
+      "name": "Salesforce Service Cloud",
+      "logo": "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Customer service and support platform for managing cases, automating workflows, and delivering omnichannel support.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 387109.27,
+      "renewalDate": "2025-02-09",
+      "categories": [
+        "customer-service"
+      ]
+    },
+    {
+      "id": "bulk_1753573870506_1",
+      "name": "Screen Engine | MindGame",
+      "logo": "https://dummyimage.com/64x64/6366F1/ffffff&text=SCR",
+      "deploymentStatus": "Active",
+      "capabilities": "Analytics and insights platform focused on gaming market share, player behavior, and industry trends.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 20000,
+      "renewalDate": "2025-05-01",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753574088897_0",
+      "name": "Sensor Tower | Pathmatics",
+      "logo": "https://cdn.worldvectorlogo.com/logos/sensor-tower.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Mobile app and digital advertising intelligence platform for competitive analysis and market research.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 300000,
+      "renewalDate": "2024-09-14",
+      "categories": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "bulk_1753574088899_2",
+      "name": "Sprinklr",
+      "logo": "https://cdn.worldvectorlogo.com/logos/sprinklr.svg",
+      "deploymentStatus": "Active",
+      "capabilities": "Unified customer experience management platform for social media, marketing, and customer care.",
+      "label": [
+        "2K",
+        "Rockstar"
+      ],
+      "annualCost": 282264,
+      "renewalDate": "2025-11-14",
+      "categories": [
+        "analytics"
+      ]
+>>>>>>> db07940 (Prioritize corporate logos over CSS badges and fix JSON syntax)
     },
     {
       "id": "v16",
@@ -897,7 +1374,11 @@
     {
       "id": "bulk_1753574088899_5",
       "name": "Treasure Data",
+<<<<<<< HEAD
       "logo": "data:image/png;base64,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",
+=======
+      "logo": "https://dummyimage.com/64x64/059669/ffffff&text=TRE",
+>>>>>>> db07940 (Prioritize corporate logos over CSS badges and fix JSON syntax)
       "deploymentStatus": "Active",
       "capabilities": "Customer data platform (CDP) for unifying, analyzing, and activating customer data across channels.",
       "label": [
