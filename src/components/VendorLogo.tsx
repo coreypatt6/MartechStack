@@ -90,44 +90,65 @@ const getVendorInitials = (name: string): string => {
     .join('');
 };
 
+// Map vendors to local SVG files - only include working SVGs we've verified
+const getLocalLogoPath = (vendorName: string): string | null => {
+  const logoMap: Record<string, string> = {
+    'Sprout Social': '/logos/sprout-social.svg',
+    'Adobe Experience Manager': '/logos/adobe.svg',
+    'Adobe Workfront': '/logos/adobe.svg',
+    'Bit.ly': '/logos/bitly.svg',
+    'BrowserStack': '/logos/browserstack.svg',
+    'Code Climate Inc': '/logos/code-climate.svg',
+    'Guru': '/logos/guru.svg',
+    'Salesforce Marketing Cloud': '/logos/salesforce.svg',
+    'Salesforce Marketing Cloud Intelligence (Datorama)': '/logos/salesforce.svg',
+    'Salesforce Service Cloud': '/logos/salesforce.svg',
+    'Zendesk': '/logos/zendesk-transparent.png',
+    'Zendesk Workforce Management (formerly Tymeshift)': '/logos/zendesk-transparent.png'
+  };
+  
+  return logoMap[vendorName] || null;
+};
+
 export const VendorLogo: React.FC<VendorLogoProps> = ({ vendor, className = '' }) => {
   const [imageError, setImageError] = React.useState(false);
   const brandColor = getBrandColor(vendor.name);
   const initials = getVendorInitials(vendor.name);
+  const localLogoPath = getLocalLogoPath(vendor.name);
 
-  // If image fails to load or vendor has no logo, show CSS logo
-  if (imageError || !vendor.logo) {
+  // If we have a local logo and no image error, try to use it
+  if (localLogoPath && !imageError) {
     return (
-      <div 
-        className={`flex items-center justify-center text-white font-bold text-xs rounded ${className}`}
-        style={{ 
-          backgroundColor: brandColor,
-          minWidth: '32px',
-          minHeight: '32px',
+      <img
+        src={localLogoPath}
+        alt={vendor.name}
+        className={`object-contain ${className}`}
+        style={{
           width: '32px',
-          height: '32px'
+          height: '32px',
+          maxWidth: '32px',
+          maxHeight: '32px'
         }}
         title={vendor.name}
-      >
-        {initials}
-      </div>
+        onError={() => setImageError(true)}
+      />
     );
   }
 
-  // Try to load the image first
+  // Fall back to CSS badge for all others or on error
   return (
-    <img
-      src={vendor.logo}
-      alt={vendor.name}
-      className={`object-contain ${className}`}
-      style={{
+    <div 
+      className={`flex items-center justify-center text-white font-bold text-xs rounded ${className}`}
+      style={{ 
+        backgroundColor: brandColor,
+        minWidth: '32px',
+        minHeight: '32px',
         width: '32px',
-        height: '32px',
-        maxWidth: '32px',
-        maxHeight: '32px'
+        height: '32px'
       }}
       title={vendor.name}
-      onError={() => setImageError(true)}
-    />
+    >
+      {initials}
+    </div>
   );
 };
