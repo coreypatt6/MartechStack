@@ -92,19 +92,57 @@ export const useVendors = () => {
           await processLogosForTransparency(githubVendors);
         } else {
           console.log('📝 No vendor data found in GitHub repository');
-          console.log('💾 Using local storage data - will sync to GitHub on next change');
-          console.log('🔧 Current local vendors:', vendorStorage.length);
+          console.log('💾 Checking local storage data...');
           
-          // Process existing local vendors for transparency
-          await processLogosForTransparency(vendorStorage);
+          if (vendorStorage.length === 0) {
+            console.log('📁 Loading vendor data from static file...');
+            try {
+              // Load from static vendors.json file as fallback
+              const response = await fetch('/data/vendors.json');
+              if (response.ok) {
+                const staticData = await response.json();
+                const staticVendors = staticData.vendors || [];
+                console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file');
+                vendorStorage = staticVendors;
+                saveToStorage(staticVendors);
+                setVendors(staticVendors);
+                await processLogosForTransparency(staticVendors);
+              }
+            } catch (staticError) {
+              console.log('⚠️ Could not load from static file:', staticError.message);
+            }
+          } else {
+            console.log('🔧 Using existing local storage data:', vendorStorage.length, 'vendors');
+            // Process existing local vendors for transparency
+            await processLogosForTransparency(vendorStorage);
+          }
         }
       } catch (error) {
         console.log('⚠️ Could not load from GitHub repository:', error.message);
-        console.log('💾 Falling back to local storage data');
-        console.log('🔧 Local vendors available:', vendorStorage.length);
+        console.log('💾 Checking local storage and static fallback...');
         
-        // Still process local vendors for transparency
-        await processLogosForTransparency(vendorStorage);
+        if (vendorStorage.length === 0) {
+          console.log('📁 Loading vendor data from static file as fallback...');
+          try {
+            // Load from static vendors.json file as final fallback
+            const response = await fetch('/data/vendors.json');
+            if (response.ok) {
+              const staticData = await response.json();
+              const staticVendors = staticData.vendors || [];
+              console.log('✅ Successfully loaded', staticVendors.length, 'vendors from static file');
+              vendorStorage = staticVendors;
+              saveToStorage(staticVendors);
+              setVendors(staticVendors);
+              await processLogosForTransparency(staticVendors);
+            }
+          } catch (staticError) {
+            console.log('❌ All data sources failed:', staticError.message);
+          }
+        } else {
+          console.log('🔧 Using local storage data:', vendorStorage.length, 'vendors');
+          // Still process local vendors for transparency
+          await processLogosForTransparency(vendorStorage);
+        }
       } finally {
         setIsSyncing(false);
       }
