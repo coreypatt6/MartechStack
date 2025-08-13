@@ -28,7 +28,7 @@ const initializeStorage = () => {
         return [];
       }
       
-      // Check for broken/old logo URLs and force refresh
+      // Check for broken/old logo URLs and force refresh (but keep dummyimage URLs)
       const hasBrokenLogos = vendors.some((vendor: Vendor) => 
         vendor.logo && (
           vendor.logo.includes('adswerve.com') ||
@@ -49,8 +49,9 @@ const initializeStorage = () => {
           vendor.logo.includes('statuspage.io') ||
           vendor.logo.includes('streamhatchet.com') ||
           vendor.logo.includes('treasuredata.com') ||
-          vendor.logo.includes('tubularlabs.com')
-        )
+          vendor.logo.includes('tubularlabs.com') ||
+          vendor.logo.includes('via.placeholder.com')
+        ) && !vendor.logo.includes('dummyimage.com')
       );
       
       if (hasBrokenLogos) {

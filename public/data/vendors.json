@@ -3,7 +3,7 @@
     {
       "id": "bulk_1753573138669_0",
       "name": "Adjust",
-      "logo": "https://cdn.worldvectorlogo.com/logos/adjust.svg",
+      "logo": "https://dummyimage.com/64x64/4F46E5/ffffff&text=ADJ",
       "deploymentStatus": "Active",
       "capabilities": "Provides advanced mobile attribution and analytics, helping marketers measure and optimize app campaign performance.",
       "label": [
@@ -51,7 +51,7 @@
     {
       "id": "bulk_1753573138670_3",
       "name": "Adswerve",
-      "logo": "https://via.placeholder.com/64x64/0066CC/FFFFFF?text=ADS",
+      "logo": "https://dummyimage.com/64x64/0066CC/ffffff&text=ADS",
       "deploymentStatus": "Active",
       "capabilities": "Digital analytics and media consultancy specializing in Google Marketing Platform solutions, including analytics, media buying, and data integration.",
       "label": [
@@ -83,7 +83,7 @@
     {
       "id": "bulk_1753573138670_5",
       "name": "Alchemer",
-      "logo": "https://via.placeholder.com/64x64/28A745/FFFFFF?text=ALC",
+      "logo": "https://dummyimage.com/64x64/28A745/ffffff&text=ALC",
       "deploymentStatus": "Active",
       "capabilities": "Survey and feedback platform for collecting, analyzing, and acting on customer and employee insights.",
       "label": [
@@ -115,7 +115,7 @@
     {
       "id": "bulk_1753573138670_7",
       "name": "Ayzenberg",
-      "logo": "https://via.placeholder.com/64x64/FF6B35/FFFFFF?text=AYZ",
+      "logo": "https://dummyimage.com/64x64/FF6B35/ffffff&text=AYZ",
       "deploymentStatus": "Active",
       "capabilities": "Full-service marketing and advertising agency focused on digital, social, and influencer campaigns.",
       "label": [
@@ -195,7 +195,7 @@
     {
       "id": "bulk_1753573432080_1",
       "name": "CreatorIQ",
-      "logo": "https://via.placeholder.com/64x64/8B5CF6/FFFFFF?text=CIQ",
+      "logo": "https://dummyimage.com/64x64/8B5CF6/ffffff&text=CIQ",
       "deploymentStatus": "Active",
       "capabilities": "Influencer marketing platform for discovering, managing, and measuring influencer campaigns at scale.",
       "label": [
@@ -227,7 +227,7 @@
     {
       "id": "bulk_1753573432080_3",
       "name": "DeltaDNA",
-      "logo": "https://via.placeholder.com/64x64/DC2626/FFFFFF?text=DNA",
+      "logo": "https://dummyimage.com/64x64/DC2626/ffffff&text=DNA",
       "deploymentStatus": "Active",
       "capabilities": "Advanced analytics and engagement platform for game developers, offering player insights and personalized messaging.",
       "label": [
@@ -243,7 +243,7 @@
     {
       "id": "bulk_1753573432080_4",
       "name": "Directly",
-      "logo": "https://via.placeholder.com/64x64/3B82F6/FFFFFF?text=DIR",
+      "logo": "https://dummyimage.com/64x64/3B82F6/ffffff&text=DIR",
       "deploymentStatus": "Active",
       "capabilities": "AI-powered customer support automation, integrating expert networks and virtual agents to resolve customer issues efficiently.",
       "label": [
@@ -275,7 +275,7 @@
     {
       "id": "bulk_1753573432080_6",
       "name": "Helpshift",
-      "logo": "https://via.placeholder.com/64x64/10B981/FFFFFF?text=HLP",
+      "logo": "https://dummyimage.com/64x64/10B981/ffffff&text=HLP",
       "deploymentStatus": "Active",
       "capabilities": "In-app customer support platform for mobile apps, offering messaging, automation, and self-service options.",
       "label": [
@@ -291,7 +291,7 @@
     {
       "id": "bulk_1753573432080_7",
       "name": "Infosum",
-      "logo": "https://via.placeholder.com/64x64/F59E0B/FFFFFF?text=INF",
+      "logo": "https://dummyimage.com/64x64/F59E0B/ffffff&text=INF",
       "deploymentStatus": "Active",
       "capabilities": "Privacy-first data collaboration platform, enabling secure data matching and analytics without sharing raw data.",
       "label": [
@@ -307,7 +307,7 @@
     {
       "id": "bulk_1753574088898_1",
       "name": "LevelUP Analytics",
-      "logo": "https://via.placeholder.com/64x64/EF4444/FFFFFF?text=LVL",
+      "logo": "https://dummyimage.com/64x64/EF4444/ffffff&text=LVL",
       "deploymentStatus": "Active",
       "capabilities": "Data analytics consultancy providing custom solutions for data engineering, visualization, and business intelligence.",
       "label": [
@@ -371,7 +371,7 @@
     {
       "id": "bulk_1753573432081_11",
       "name": "Lotus Themes",
-      "logo": "https://via.placeholder.com/64x64/A855F7/FFFFFF?text=LOT",
+      "logo": "https://dummyimage.com/64x64/A855F7/ffffff&text=LOT",
       "deploymentStatus": "Active",
       "capabilities": "Provider of premium themes and design solutions for Zendesk and other customer support platforms.",
       "label": [
@@ -403,7 +403,7 @@
     {
       "id": "bulk_1753573432081_13",
       "name": "Movable Ink",
-      "logo": "https://via.placeholder.com/64x64/059669/FFFFFF?text=MOV",
+      "logo": "https://dummyimage.com/64x64/059669/ffffff&text=MOV",
       "deploymentStatus": "Active",
       "capabilities": "Dynamic content platform for creating personalized, data-driven email and web experiences.",
       "label": [
@@ -419,7 +419,7 @@
     {
       "id": "bulk_1753573432082_14",
       "name": "Muck Rack",
-      "logo": "https://via.placeholder.com/64x64/1F2937/FFFFFF?text=MUK",
+      "logo": "https://dummyimage.com/64x64/1F2937/ffffff&text=MUK",
       "deploymentStatus": "Active",
       "capabilities": "Public relations management platform for media monitoring, journalist outreach, and PR analytics.",
       "label": [
@@ -451,7 +451,7 @@
     {
       "id": "bulk_1753573432082_16",
       "name": "PRManager (ex PRGloo)",
-      "logo": "https://via.placeholder.com/64x64/7C3AED/FFFFFF?text=PRM",
+      "logo": "https://dummyimage.com/64x64/7C3AED/ffffff&text=PRM",
       "deploymentStatus": "Active",
       "capabilities": "PR management platform for handling media contacts, press releases, and newsroom workflows.",
       "label": [
@@ -467,7 +467,7 @@
     {
       "id": "bulk_1753573432082_17",
       "name": "Quiq",
-      "logo": "https://via.placeholder.com/64x64/0891B2/FFFFFF?text=QUI",
+      "logo": "https://dummyimage.com/64x64/0891B2/ffffff&text=QUI",
       "deploymentStatus": "Active",
       "capabilities": "Conversational AI and messaging platform for customer service across SMS, web chat, and social channels.",
       "label": [
@@ -483,7 +483,7 @@
     {
       "id": "bulk_1753573432082_18",
       "name": "RightPoint",
-      "logo": "https://via.placeholder.com/64x64/DC2626/FFFFFF?text=RPT",
+      "logo": "https://dummyimage.com/64x64/DC2626/ffffff&text=RPT",
       "deploymentStatus": "Active",
       "capabilities": "Digital consultancy specializing in experience design, technology implementation, and organizational transformation.",
       "label": [
@@ -547,7 +547,7 @@
     {
       "id": "bulk_1753573870506_1",
       "name": "Screen Engine | MindGame",
-      "logo": "https://via.placeholder.com/64x64/6366F1/FFFFFF?text=SCR",
+      "logo": "https://dummyimage.com/64x64/6366F1/ffffff&text=SCR",
       "deploymentStatus": "Active",
       "capabilities": "Analytics and insights platform focused on gaming market share, player behavior, and industry trends.",
       "label": [
@@ -611,7 +611,7 @@
     {
       "id": "bulk_1753574088899_3",
       "name": "Statuspage",
-      "logo": "https://via.placeholder.com/64x64/F97316/FFFFFF?text=STA",
+      "logo": "https://dummyimage.com/64x64/F97316/ffffff&text=STA",
       "deploymentStatus": "Active",
       "capabilities": "Incident communication and status page platform for keeping customers informed during outages and maintenance.",
       "label": [
@@ -627,7 +627,7 @@
     {
       "id": "bulk_1753574088899_4",
       "name": "Stream Hatchet",
-      "logo": "https://via.placeholder.com/64x64/8B5CF6/FFFFFF?text=STM",
+      "logo": "https://dummyimage.com/64x64/8B5CF6/ffffff&text=STM",
       "deploymentStatus": "Active",
       "capabilities": "Analytics platform for live streaming and esports, tracking audience engagement and content performance.",
       "label": [
@@ -643,7 +643,7 @@
     {
       "id": "bulk_1753574088899_5",
       "name": "Treasure Data",
-      "logo": "https://via.placeholder.com/64x64/059669/FFFFFF?text=TRE",
+      "logo": "https://dummyimage.com/64x64/059669/ffffff&text=TRE",
       "deploymentStatus": "Active",
       "capabilities": "Customer data platform (CDP) for unifying, analyzing, and activating customer data across channels.",
       "label": [
@@ -659,7 +659,7 @@
     {
       "id": "bulk_1753574088899_6",
       "name": "Tubular",
-      "logo": "https://via.placeholder.com/64x64/DC2626/FFFFFF?text=TUB",
+      "logo": "https://dummyimage.com/64x64/DC2626/ffffff&text=TUB",
       "deploymentStatus": "Active",
       "capabilities": "Video intelligence platform for measuring and benchmarking online video content and audience trends.",
       "label": [
