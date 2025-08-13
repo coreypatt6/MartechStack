@@ -182,13 +182,12 @@ const timelineData: TimelineEvent[] = [
     description: 'Comprehensive CDP with massive scale, advanced ML capabilities, and multi-label orchestration.',
     category: 'future',
     metrics: [
-      '>800m Player Accounts',
-      '>60m Gen 8 & PC Player accounts',
-      '>120m Gen 9 Titles',
-      '>450m Emails for Marketing',
-      '>300m Active Subscribers',
-      '>170m Attributes/Behaviors',
-      '>2 Trillion Records per month'
+      '813M Player accounts',
+      '79.8M Gen 9 (PS5 + XbX/S + Switch 2)',
+      '550M Gen 8 & PC (PS4 + XB1 + Switch + PC)',
+      '67 Titles',
+      '329.4M Emails for marketing',
+      '183.9M Active subscribers (61.3M 2K + 122.6M R*)'
     ],
     capabilities: [
       'Segmentation', 'Experimentation', 'NRT Journeys', 'Activation',
@@ -252,19 +251,11 @@ export const CDPTimeline: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="mt-16 flex justify-center"
         >
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 text-center">
-            <div className="text-3xl font-bold text-white mb-2">800M+</div>
+            <div className="text-3xl font-bold text-white mb-2">813M</div>
             <div className="text-blue-100">Player Accounts</div>
-          </div>
-          <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-xl p-6 text-center">
-            <div className="text-3xl font-bold text-white mb-2">2T+</div>
-            <div className="text-green-100">Records per Month</div>
-          </div>
-          <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl p-6 text-center">
-            <div className="text-3xl font-bold text-white mb-2">170M+</div>
-            <div className="text-purple-100">Attributes/Behaviors</div>
           </div>
         </motion.div>
       </div>

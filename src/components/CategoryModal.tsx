@@ -59,7 +59,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ category, isOpen, 
                     <h3 className="text-white font-medium">Total Annual Cost</h3>
                   </div>
                   <p className="text-2xl font-bold text-green-400">
-                    ${totalCost.toLocaleString()}
+                    ${totalCost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
                 </div>
 
@@ -150,7 +150,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ category, isOpen, 
                           {/* Right section: Cost + Renewal */}
                           <div className="lg:col-span-4 text-left lg:text-right">
                             <p className="text-white font-semibold text-lg mb-2">
-                              ${vendor.annualCost.toLocaleString()}
+                              ${vendor.annualCost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </p>
                             <div className="flex items-center gap-1 text-gray-400 text-sm lg:justify-end">
                               <Calendar className="w-4 h-4" />
@@ -164,24 +164,6 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ category, isOpen, 
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Key Capabilities</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {[
-                      'Data Integration & Management',
-                      'Real-time Analytics',
-                      'Automated Workflows',
-                      'Multi-channel Support',
-                      'Performance Optimization',
-                      'Compliance & Security'
-                    ].map((capability, index) => (
-                      <div key={index} className="flex items-center gap-2 text-gray-300">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full" />
-                        <span>{capability}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
