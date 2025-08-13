@@ -90,66 +90,49 @@ const getVendorInitials = (name: string): string => {
     .join('');
 };
 
-// Map vendors to local SVG files - only include working SVGs we've verified
+// Map vendors to transparent corporate logos - prioritize processed transparent PNGs
 const getLocalLogoPath = (vendorName: string): string | null => {
   const logoMap: Record<string, string> = {
     'Adjust': '/logos/adjust.svg',
-    'Adobe Experience Manager': '/logos/adobe.svg',
-    'Adobe Workfront': '/logos/adobe.svg',
+    'Adobe Experience Manager': '/logos/adobe-analytics-transparent.png',
+    'Adobe Workfront': '/logos/adobe-experience-platform-transparent.png',
+    'Adswerve': '/logos/adswerve-clearbit.png',
     'Ahrefs Webmaster Tools': '/logos/ahrefs-webmaster.svg',
-    'Ahrefs': '/logos/ahrefs.svg',
-    'Appsflyer': '/logos/appsflyer.svg',
+    'Alchemer': '/logos/alchemer-clearbit.png',
+    'Appsflyer': '/logos/appsflyer-clearbit.png',
     'Bit.ly': '/logos/bitly.svg',
     'BrowserStack': '/logos/browserstack.svg',
     'Code Climate Inc': '/logos/code-climate.svg',
-    'Contentful': '/logos/contentful.svg',
-    'Databricks': '/logos/databricks.svg',
+    'Contentful': '/logos/contentful-transparent.png',
+    'CreatorIQ': '/logos/creatoriq-clearbit.png',
+    'Databricks': '/logos/databricks-clearbit.png',
     'Guru': '/logos/guru.svg',
+    'Helpshift': '/logos/helpshift-clearbit.png',
     'Linktree': '/logos/linktree.svg',
-    'Litmus': '/logos/litmus.svg',
-    'Liveramp': '/logos/liveramp.svg',
-    'Meltwater': '/logos/meltwater.svg',
+    'Litmus': '/logos/litmus-clearbit.png',
+    'Liveramp': '/logos/liveramp-transparent.png',
+    'Meltwater': '/logos/meltwater-clearbit.png',
+    'Movable Ink': '/logos/movable-ink-clearbit.png',
     'OneTrust - Cookie Compliance': '/logos/onetrust.svg',
-    'Salesforce Marketing Cloud': '/logos/salesforce.svg',
-    'Salesforce Marketing Cloud Intelligence (Datorama)': '/logos/salesforce.svg',
-    'Salesforce Service Cloud': '/logos/salesforce.svg',
+    'Salesforce Marketing Cloud': '/logos/salesforce-cdp-transparent.png',
+    'Salesforce Marketing Cloud Intelligence (Datorama)': '/logos/salesforce-cdp-transparent.png',
+    'Salesforce Service Cloud': '/logos/salesforce-service-cloud-transparent.png',
     'Sensor Tower | Pathmatics': '/logos/sensor-tower.svg',
     'Sprinklr': '/logos/sprinklr.svg',
-    'Sprout Social': '/logos/sprout-social.svg',
-    'Zendesk': '/logos/zendesk-transparent.png',
-    'Zendesk Workforce Management (formerly Tymeshift)': '/logos/zendesk-transparent.png'
+    'Sprout Social': '/logos/sprout-social-transparent.png',
+    'Zendesk': '/logos/zendesk-transparent.png'
   };
   
   return logoMap[vendorName] || null;
 };
 
 export const VendorLogo: React.FC<VendorLogoProps> = ({ vendor, className = '' }) => {
-  const [vendorLogoError, setVendorLogoError] = React.useState(false);
   const [localLogoError, setLocalLogoError] = React.useState(false);
   const brandColor = getBrandColor(vendor.name);
   const initials = getVendorInitials(vendor.name);
   const localLogoPath = getLocalLogoPath(vendor.name);
 
-  // Priority 1: Use vendor's logo URL if it's not a dummy image and hasn't errored
-  if (vendor.logo && !vendor.logo.includes('dummyimage.com') && !vendorLogoError) {
-    return (
-      <img
-        src={vendor.logo}
-        alt={vendor.name}
-        className={`object-contain ${className}`}
-        style={{
-          width: '32px',
-          height: '32px',
-          maxWidth: '32px',
-          maxHeight: '32px'
-        }}
-        title={vendor.name}
-        onError={() => setVendorLogoError(true)}
-      />
-    );
-  }
-
-  // Priority 2: Use local logo if available and hasn't errored
+  // Priority 1: Use local transparent corporate logos first
   if (localLogoPath && !localLogoError) {
     return (
       <img
@@ -168,7 +151,7 @@ export const VendorLogo: React.FC<VendorLogoProps> = ({ vendor, className = '' }
     );
   }
 
-  // Priority 3: Only fall back to CSS badge if all logos fail
+  // Priority 2: Only fall back to CSS badge if local logo fails
   return (
     <div 
       className={`flex items-center justify-center text-white font-bold text-xs rounded ${className}`}
