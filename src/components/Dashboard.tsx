@@ -4,7 +4,7 @@ import { Cloud } from 'lucide-react';
 import { CategoryCard } from './CategoryCard';
 import { CategoryModal } from './CategoryModal';
 import { CDPTimeline } from './CDPTimeline';
-import { categories as baseCategories } from '../data/mockData';
+import { categories as baseCategories } from '../data/categories';
 import { Category } from '../types';
 import { useVendors } from '../hooks/useVendors';
 

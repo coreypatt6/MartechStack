@@ -237,8 +237,8 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
   if (!report) return <div>Loading...</div>;
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">Logo Manager</h2>
+            <div className="p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
+              <h2 className="text-2xl font-bold mb-6 text-white">Logo Manager</h2>
       
       {/* Summary Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
@@ -319,7 +319,7 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
           </div>
         )}
         
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-300">
           🚀 <strong>Update All Vendor Logos</strong> performs a comprehensive 3-step process:<br/>
           📋 <strong>Step 1:</strong> Updates vendors with known high-quality logos from our database<br/>
           🌐 <strong>Step 2:</strong> Auto-fetches official corporate logos using reliable APIs<br/>
@@ -435,7 +435,7 @@ export const LogoManager: React.FC<LogoManagerProps> = ({ vendors, onVendorsUpda
       {/* Logo Search Modal */}
       {selectedVendor && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[80vh] overflow-y-auto">
+          <div className="bg-gray-900 rounded-lg max-w-4xl w-full max-h-[80vh] overflow-y-auto border border-gray-700">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-semibold">Find Logo for {selectedVendor.name}</h3>

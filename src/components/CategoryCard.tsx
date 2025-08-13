@@ -31,9 +31,11 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
   const displayVendors = category.vendors; // Show ALL vendors
 
   // Calculate card height based on content
-  const baseHeight = 160; // Increased base height for header and description
+  const baseHeight = 200; // Increased base height for header and description
+  const descriptionLength = category.description.length;
+  const descriptionHeight = Math.max(60, Math.ceil(descriptionLength / 80) * 25); // Dynamic height based on description length
   const logoGridHeight = gridLayout.rows * 44 + (gridLayout.rows - 1) * 12; // 44px per row + 12px gap
-  const totalHeight = Math.max(280, baseHeight + logoGridHeight + 60); // Minimum 280px height with extra padding
+  const totalHeight = Math.max(320, baseHeight + descriptionHeight + logoGridHeight + 80); // Minimum 320px height with extra padding
 
   // Create gradient border style
   const gradientBorderStyle = {
@@ -59,7 +61,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
         }
       }}
     >
-      <div className="p-6 h-full flex flex-col">
+      <div className="p-8 h-full flex flex-col">
         {/* Header */}
         <div className="flex items-center gap-4 mb-4">
           {IconComponent && <IconComponent className="w-6 h-6 text-gray-300 flex-shrink-0" />}
@@ -67,7 +69,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick })
         </div>
 
         {/* Description */}
-        <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-shrink-0">
+        <p className="text-gray-300 text-sm leading-relaxed mb-8 flex-shrink-0">
           {category.description}
         </p>
 

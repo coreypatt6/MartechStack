@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Vendor } from '../types';
-import { mockVendors } from '../data/mockData';
 import { GitHubSync } from '../utils/githubSync';
 import { processAllLogosForTransparency, processSingleLogoForTransparency } from '../utils/logoTransparencyProcessor';
 
-// Initialize storage with mock data only if empty
+// Initialize storage (no mock data fallback)
 const initializeStorage = () => {
   const stored = localStorage.getItem('martech-vendors');
   if (stored) {
@@ -26,7 +25,7 @@ const initializeStorage = () => {
       console.error('Error parsing stored vendors:', error);
     }
   }
-  return [...mockVendors];
+  return [];
 };
 
 // GitHub sync instance
@@ -222,17 +221,6 @@ export const useVendors = () => {
     console.log('All vendors cleared');
   };
 
-  const resetToMockData = () => {
-    const resetVendors = [...mockVendors];
-    vendorStorage = resetVendors;
-    saveToStorage(resetVendors);
-    setVendors(resetVendors);
-    // Sync to GitHub but don't block the operation if it fails
-    syncToGitHub(resetVendors).catch(() => {
-      // Sync failed but data was still reset locally
-    });
-    console.log('Reset to mock data, Total vendors:', resetVendors.length);
-  };
 
   const manualSync = async () => {
     console.log('🔄 Manual sync initiated - forcing sync of current vendor data');
@@ -253,7 +241,6 @@ export const useVendors = () => {
     deleteVendor,
     bulkAddVendors,
     clearAllVendors,
-    resetToMockData,
     manualSync,
     isSyncing,
     lastSyncTime,

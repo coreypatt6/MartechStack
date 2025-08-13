@@ -16,6 +16,7 @@ export interface Category {
   icon: string;
   gradient: string;
   description: string;
+  capabilities?: string[];
   vendors: Vendor[];
 }
 

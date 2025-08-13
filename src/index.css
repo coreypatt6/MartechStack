@@ -132,6 +132,13 @@
   .text-pretty {
     text-wrap: pretty;
   }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 /* Custom animations matching diabrowser.com */
