@@ -28,6 +28,37 @@ const initializeStorage = () => {
         return [];
       }
       
+      // Check for broken/old logo URLs and force refresh
+      const hasBrokenLogos = vendors.some((vendor: Vendor) => 
+        vendor.logo && (
+          vendor.logo.includes('adswerve.com') ||
+          vendor.logo.includes('alchemer.com') ||
+          vendor.logo.includes('ayzenberg.com') ||
+          vendor.logo.includes('deltadna.com') ||
+          vendor.logo.includes('directly.com') ||
+          vendor.logo.includes('helpshift.com') ||
+          vendor.logo.includes('infosum.com') ||
+          vendor.logo.includes('levelupanalytics.com') ||
+          vendor.logo.includes('lotusthemes.com') ||
+          vendor.logo.includes('movableink.com') ||
+          vendor.logo.includes('muckrack.com') ||
+          vendor.logo.includes('prmanager.com') ||
+          vendor.logo.includes('quiq.com') ||
+          vendor.logo.includes('rightpoint.com') ||
+          vendor.logo.includes('screenengine.com') ||
+          vendor.logo.includes('statuspage.io') ||
+          vendor.logo.includes('streamhatchet.com') ||
+          vendor.logo.includes('treasuredata.com') ||
+          vendor.logo.includes('tubularlabs.com')
+        )
+      );
+      
+      if (hasBrokenLogos) {
+        console.log('🗑️ Clearing localStorage with old broken logo URLs - forcing fresh data load');
+        localStorage.removeItem('martech-vendors');
+        return [];
+      }
+      
       // Clean up any blob URLs that are no longer valid
       return vendors.map((vendor: Vendor) => ({
         ...vendor,
