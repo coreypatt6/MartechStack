@@ -5,6 +5,7 @@ import { Save, Upload, ArrowLeft, Trash2, Edit, FileSpreadsheet, RefreshCw, Clou
 import { Vendor } from '../types';
 import { useVendors } from '../hooks/useVendors';
 import { BulkUpload } from './BulkUpload';
+import { VendorLogo } from './VendorLogo';
 
 interface VendorFormData {
   name: string;
@@ -45,7 +46,6 @@ export const AdminPanel: React.FC = () => {
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'name' | 'recent'>('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
-  const [failedLogos, setFailedLogos] = useState<Set<string>>(new Set());
 
 
   const sortedVendors = [...vendors].sort((a, b) => {
@@ -689,18 +689,7 @@ export const AdminPanel: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <img
-                        src={vendor.logo}
-                        alt={vendor.name}
-                        className="w-8 h-8 object-contain flex-shrink-0"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          if (!failedLogos.has(vendor.id)) {
-                            setFailedLogos(prev => new Set(prev).add(vendor.id));
-                            target.src = 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo';
-                          }
-                        }}
-                      />
+                      <VendorLogo vendor={vendor} className="w-8 h-8" />
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <h4 className="text-white font-medium text-sm truncate">{vendor.name}</h4>

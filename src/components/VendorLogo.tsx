@@ -90,37 +90,54 @@ const getVendorInitials = (name: string): string => {
     .join('');
 };
 
-// Map vendors to transparent corporate logos - prioritize processed transparent PNGs
+// Map vendors to working logos - prioritize files that actually load - UPDATED EXTENSIONS
 const getLocalLogoPath = (vendorName: string): string | null => {
   const logoMap: Record<string, string> = {
-    'Adjust': '/logos/adjust.svg',
-    'Adobe Experience Manager': '/logos/adobe-analytics-transparent.png',
-    'Adobe Workfront': '/logos/adobe-experience-platform-transparent.png',
+    'Adjust': '/logos/adjust-clearbit.png',
+    'Adobe Experience Manager': '/logos/adobe.svg',
+    'Adobe Workfront': '/logos/adobe.svg',
     'Adswerve': '/logos/adswerve-clearbit.png',
-    'Ahrefs Webmaster Tools': '/logos/ahrefs-webmaster.svg',
+    'Ahrefs Webmaster Tools': '/logos/ahrefs-webmaster.png',
     'Alchemer': '/logos/alchemer-clearbit.png',
     'Appsflyer': '/logos/appsflyer-clearbit.png',
+    'Ayzenberg': '/logos/ayzenberg.png',
     'Bit.ly': '/logos/bitly.svg',
     'BrowserStack': '/logos/browserstack.svg',
     'Code Climate Inc': '/logos/code-climate.svg',
     'Contentful': '/logos/contentful-transparent.png',
     'CreatorIQ': '/logos/creatoriq-clearbit.png',
     'Databricks': '/logos/databricks-clearbit.png',
+    'DeltaDNA': '/logos/deltadna.png',
+    'Directly': '/logos/directly.png',
     'Guru': '/logos/guru.svg',
     'Helpshift': '/logos/helpshift-clearbit.png',
-    'Linktree': '/logos/linktree.svg',
+    'Infosum': '/logos/infosum.png',
+    'LevelUP Analytics': '/logos/levelup-analytics.png',
+    'Linktree': '/logos/linktree.png',
     'Litmus': '/logos/litmus-clearbit.png',
     'Liveramp': '/logos/liveramp-transparent.png',
+    'Lotus Themes': '/logos/lotus-themes.png',
     'Meltwater': '/logos/meltwater-clearbit.png',
     'Movable Ink': '/logos/movable-ink-clearbit.png',
+    'Muck Rack': '/logos/muck-rack.png',
     'OneTrust - Cookie Compliance': '/logos/onetrust.svg',
-    'Salesforce Marketing Cloud': '/logos/salesforce-cdp-transparent.png',
-    'Salesforce Marketing Cloud Intelligence (Datorama)': '/logos/salesforce-cdp-transparent.png',
-    'Salesforce Service Cloud': '/logos/salesforce-service-cloud-transparent.png',
-    'Sensor Tower | Pathmatics': '/logos/sensor-tower.svg',
-    'Sprinklr': '/logos/sprinklr.svg',
-    'Sprout Social': '/logos/sprout-social-transparent.png',
-    'Zendesk': '/logos/zendesk-transparent.png'
+    'PRManager (ex PRGloo)': '/logos/prmanager.png',
+    'Quiq': '/logos/quiq.png',
+    'RightPoint': '/logos/rightpoint.png',
+    'Salesforce Marketing Cloud': '/logos/salesforce.svg',
+    'Salesforce Marketing Cloud Intelligence (Datorama)': '/logos/salesforce.svg',
+    'Salesforce Service Cloud': '/logos/salesforce.svg',
+    'Screen Engine | MindGame': '/logos/screen-engine.svg',
+    'Sensor Tower | Pathmatics': '/logos/sensor-tower.png',
+    'Sprinklr': '/logos/sprinklr.png',
+    'Sprout Social': '/logos/sprout-social.svg',
+    'Statuspage': '/logos/statuspage.png',
+    'Stream Hatchet': '/logos/stream-hatchet.png',
+    'Treasure Data': '/logos/treasure-data.png',
+    'Tubular': '/logos/tubular.png',
+    'Tymeshift': '/logos/tymeshift.png',
+    'Zendesk': '/logos/zendesk-transparent.png',
+    'Zendesk Workforce Management (formerly Tymeshift)': '/logos/zendesk-transparent.png'
   };
   
   return logoMap[vendorName] || null;
@@ -132,11 +149,12 @@ export const VendorLogo: React.FC<VendorLogoProps> = ({ vendor, className = '' }
   const initials = getVendorInitials(vendor.name);
   const localLogoPath = getLocalLogoPath(vendor.name);
 
+
   // Priority 1: Use local transparent corporate logos first
   if (localLogoPath && !localLogoError) {
     return (
       <img
-        src={localLogoPath}
+        src={`${localLogoPath}?v=3`}
         alt={vendor.name}
         className={`object-contain ${className}`}
         style={{

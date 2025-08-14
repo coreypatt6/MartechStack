@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, DollarSign, Calendar, Users, Zap } from 'lucide-react';
 import { Category } from '../types';
+import { VendorLogo } from './VendorLogo';
 
 interface CategoryModalProps {
   category: Category | null;
@@ -10,8 +11,6 @@ interface CategoryModalProps {
 }
 
 export const CategoryModal: React.FC<CategoryModalProps> = ({ category, isOpen, onClose }) => {
-  const [failedLogos, setFailedLogos] = useState<Set<string>>(new Set());
-
   if (!category) return null;
 
   const totalCost = category.vendors.reduce((sum, vendor) => sum + vendor.annualCost, 0);
@@ -113,18 +112,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ category, isOpen, 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
                           {/* Left section: Logo + Info */}
                           <div className="lg:col-span-8 flex items-center gap-4">
-                            <img
-                              src={vendor.logo}
-                              alt={vendor.name}
-                              className="w-12 h-12 object-contain flex-shrink-0"
-                              onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                if (!failedLogos.has(vendor.id)) {
-                                  setFailedLogos(prev => new Set(prev).add(vendor.id));
-                                  target.src = 'https://via.placeholder.com/64x64/e5e7eb/6b7280?text=Logo';
-                                }
-                              }}
-                            />
+                            <VendorLogo vendor={vendor} className="w-12 h-12" />
                             <div className="min-w-0 flex-1">
                               <h4 className="text-white font-medium mb-1">{vendor.name}</h4>
                               <p className="text-gray-400 text-sm mb-3 line-clamp-2">{vendor.capabilities}</p>
